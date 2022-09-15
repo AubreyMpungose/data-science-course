@@ -7,6 +7,20 @@
     "text": "1 + 1\n\n[1] 2"
   },
   {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to https://cloud.r-project.org/\nDownload the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:\n\nWindows\nmacOS\nLinux"
+  },
+  {
+    "objectID": "getting-started.html#installing-rstudio",
+    "href": "getting-started.html#installing-rstudio",
+    "title": "Getting Started",
+    "section": "1.1 Installing RStudio",
+    "text": "1.1 Installing RStudio\nRstudio is an Integrated Development Environment (IDE) that makes it easier working with R. This might be trickier for beginners who are not familiar with programming. Think of R as the engine that makes the car run. RStudio would be additional aesthetics that makes the car look better. You can use R without RStudio to analyse data, but you cannot use RStudio without R. You can download the latest version of RStudio at https://www.rstudio.com/products/rstudio/download/. Make sure to sure RStudio Desktop\n\n\n\n\n\n\nR console\n\n\n\n\n\n\n\nRStudio\n\n\n\n\n\nIn RStudio, you have 4 panes, the script, where you can write lines of code and save the script for future purposes. On the top-right you have the Environment pane, where we can view the list of objects we have created in R; objects can include tables, datasets, models, plots, etc. On bottom-right, we have a console, it is the typical console we found R. Lastly, the last pane have different components/tabs: files tzb, where we can view the list of files we are connected to or are using; for example, where you stored you dataset. It also has a plot tab, used for viewing plots/graphs."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R Workshops for Data Science",
@@ -47,41 +61,6 @@
     "title": "Schedule",
     "section": "",
     "text": "Week\nTopic\nPresenter\nRead\n\n\n\n\n\n\n1\nIntroduction: Basics of R functions\nAubrey\n📖\n\n\n\n\n2\nData Structures and Types\nAubrey\n📖\n\n\n\n\n3\nData Wrangling\nAubrey\n📖\n\n\n\n\n4\nData Visualisation\nAubrey\n📖\n\n\n\n\n5\nExploratory Data Analysis, summary statistics\nAubrey\n📖\n\n\n\n\n6\nHypothesis Testing\nAubrey\n📖\n\n\n\n\n7\nRegression: Linear and Logistic\nAubrey\n📖\n\n\n\n\n8\nCommunicating and Reporting Data using RMarkdown\nAubrey\n📖\n\n\n\n\n8\nData Science Toolbox, where to from here?\nAubrey\n📖"
-  },
-  {
-    "objectID": "getting-started.html",
-    "href": "getting-started.html",
-    "title": "Getting Started",
-    "section": "",
-    "text": "R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to https://cloud.r-project.org/\nDownload the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:\n\nWindows\nmacOS\nLinux"
-  },
-  {
-    "objectID": "getting-started.html#installing-rstudio",
-    "href": "getting-started.html#installing-rstudio",
-    "title": "Getting Started",
-    "section": "1.1 Installing RStudio",
-    "text": "1.1 Installing RStudio\nRstudio is an Integrated Development Environment (IDE) that makes it easier working with R. This might be trickier for beginners who are not familiar with programming. Think of R as the engine that makes the car run. RStudio would be additional aesthetics that makes the car look better. You can use R without RStudio to analyse data, but you cannot use RStudio without R. You can download the latest version of RStudio at https://www.rstudio.com/products/rstudio/download/. Make sure to sure RStudio Desktop\n\n\n\n\n\n\nR console\n\n\n\n\n\n\n\nRStudio\n\n\n\n\n\nIn RStudio, you have 4 panes, the script, where you can write lines of code and save the script for future purposes. On the top-right you have the Environment pane, where we can view the list of objects we have created in R; objects can include tables, datasets, models, plots, etc. On bottom-right, we have a console, it is the typical console we found R. Lastly, the last pane have different components/tabs: files tzb, where we can view the list of files we are connected to or are using; for example, where you stored you dataset. It also has a plot tab, used for viewing plots/graphs."
-  },
-  {
-    "objectID": "weeks/week-1.qmd.html",
-    "href": "weeks/week-1.qmd.html",
-    "title": "Introduction to R Programming",
-    "section": "",
-    "text": "understand the basics of R programming\nUnderstand data types and objects\nunderstand base (built-in) R functions"
-  },
-  {
-    "objectID": "weeks/week-1.qmd.html#reading",
-    "href": "weeks/week-1.qmd.html#reading",
-    "title": "Introduction to R Programming",
-    "section": "Reading",
-    "text": "Reading"
-  },
-  {
-    "objectID": "weeks/week-1.qmd.html#basics-of-r",
-    "href": "weeks/week-1.qmd.html#basics-of-r",
-    "title": "Introduction to R Programming",
-    "section": "Basics of R",
-    "text": "Basics of R\nIn the getting started section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code.\nR can be used as a calculator:\n\n4 + 7 \n\n[1] 11\n\n9 * 6 \n\n[1] 54"
   },
   {
     "objectID": "weeks/week-1.html",
