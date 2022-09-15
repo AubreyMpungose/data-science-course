@@ -1,0 +1,26 @@
+---
+title: "Getting Started"
+author: "Aubrey Mpungose"
+---
+
+## 1.1 Installing R  
+
+- R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to https://cloud.r-project.org/ 
+
+- Download the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:
+
+    - Windows
+    - macOS
+    - Linux
+    
+## 1.1 Installing RStudio
+
+Rstudio is an Integrated Development Environment (IDE) that makes it easier working with R. This might be trickier for beginners who are not familiar with programming. Think of R as the engine that makes the car run. RStudio would be additional aesthetics that makes the car look better. You can use R without RStudio to analyse data, but you cannot use RStudio without R. You can download the latest version of RStudio at https://www.rstudio.com/products/rstudio/download/. Make sure to sure **RStudio Desktop**
+
+::: {layout-ncol=2}
+![R console](images/r_console.PNG)
+
+![RStudio](images/rstudio.PNG)
+:::
+
+In RStudio, you have 4 panes, the script, where you can write lines of code and save the script for future purposes. On the top-right you have the _Environment_ pane, where we can view the list of _objects_ we have created in R; objects can include tables, datasets, models, plots, etc. On bottom-right, we have a console, it is the typical console we found R. Lastly, the last pane have different components/tabs: files tzb, where we can view the list of files we are connected to or are using; for example, where you stored you dataset. It also has a _plot_ tab, used for viewing plots/graphs. 

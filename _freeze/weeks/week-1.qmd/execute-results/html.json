@@ -1,0 +1,14 @@
+{
+  "hash": "624dc29bca45f4bb19f409db9ec252fa",
+  "result": {
+    "markdown": "---\ntitle: \"Introduction to R Programming\"\ncode-copy: true\n---\n\n## Learning objectives\n\n- understand the basics of R programming\n\n- Understand data types and objects\n\n- understand base (built-in) R functions\n\n## Reading\n\n- \n\n## Basics of R\n\nIn the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code. \n\nR can be used as a calculator:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n4 + 7 \n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 11\n```\n:::\n\n```{.r .cell-code}\n9 * 6 \n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 54\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

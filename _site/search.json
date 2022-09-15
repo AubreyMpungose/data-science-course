@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Workshops for Data Science",
+    "section": "",
+    "text": "These workshops aim to introduce participants to the foundations of data science using R programming Language. As most of you are post-graduate students in geography, adding data science to your bag of skills will important going forward;it will help you in your own research and improving your advantage in labour market.\nIn this course, we will be using R for programming and data analysis. R, along with other languages such as Python and Julia, is flexible when working with data, especially large data. Majority of academics, researchers, and students who analyse quantitative data use programs such as SPSS, STATA and Excel, and I have also used them before. I discourage the use of these tools for following reasons. Firstly, they are expensive! Universities spend large sums of money to purchase these licences, which disadvantages students and academics in the developing world. On the other hand, R, Python and Julia are free and come with with ABSOLUTELY NO WARRANTY 😎 . Secondly, programming tools such as R, Python and Julia allow for Reproducible Science. Recently, there has been a call among global scientists to make their analyses and results as open as possible. This means sharing the code and all the outputs so that other researchers can examine your work.\nI choose to work with R, simply because it is an awesome tool and I f***n love it! While I also use Python, however, as a social science student, who did not have a computer science and programming background, R was easier for me to learn."
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "R Workshops for Data Science",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nUnderstand R and its functions\nConduct basic programming using R\nLearn to wrangle, clean and transform categorical data\nLearn to wrangle, clean and transform numerical data\nLearn the basics of data visualisation using ggplot2\nLearn how to conduct exploratory data analysis\nLearn to conduct basic statistical analysis (descriptive and inferential)\nLearn to communicate and tell stories using data"
+  },
+  {
+    "objectID": "index.html#materials",
+    "href": "index.html#materials",
+    "title": "R Workshops for Data Science",
+    "section": "Materials",
+    "text": "Materials\nThere are tons of materials available online; below I share compulsory and recommended materials we will beusing. There will be additional materials and slides for each section:\n\nWickham, H., & Grolemund, G. (2016). R for Data Science: import, tidy, transform, visualize, and model data. O’Reilly Media, Inc.\nHealy, K. (2018). Data visualization: a practical introduction. Princeton University Press.\nPeng, R. (2013) Exploratory Data Analysis with R"
+  },
+  {
+    "objectID": "index.html#lets-get-started",
+    "href": "index.html#lets-get-started",
+    "title": "R Workshops for Data Science",
+    "section": "Let’s Get Started",
+    "text": "Let’s Get Started"
+  },
+  {
+    "objectID": "my-profile.html",
+    "href": "my-profile.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I completed my MSc in Geography in 2017 and currently completing my PhD, focusing on geographies of youth in Durban. I work as a lecturer in the School of Education, University of KwaZulu Natal, Pietermaritzburg Campus. My research interests include urban and political geography, political economy and computational science. I use data science tools and computational methods in my research and enjoy analysing data."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Week\nTopic\nPresenter\nRead\n\n\n\n\n\n\n1\nIntroduction: Basics of R functions\nAubrey\n📖\n\n\n\n\n2\nData Structures and Types\nAubrey\n📖\n\n\n\n\n3\nData Wrangling\nAubrey\n📖\n\n\n\n\n4\nData Visualisation\nAubrey\n📖\n\n\n\n\n5\nExploratory Data Analysis, summary statistics\nAubrey\n📖\n\n\n\n\n6\nHypothesis Testing\nAubrey\n📖\n\n\n\n\n7\nRegression: Linear and Logistic\nAubrey\n📖\n\n\n\n\n8\nCommunicating and Reporting Data using RMarkdown\nAubrey\n📖\n\n\n\n\n8\nData Science Toolbox, where to from here?\nAubrey\n📖"
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to https://cloud.r-project.org/\nDownload the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:\n\nWindows\nmacOS\nLinux"
+  },
+  {
+    "objectID": "getting-started.html#installing-rstudio",
+    "href": "getting-started.html#installing-rstudio",
+    "title": "Getting Started",
+    "section": "1.1 Installing RStudio",
+    "text": "1.1 Installing RStudio\nRstudio is an Integrated Development Environment (IDE) that makes it easier working with R. This might be trickier for beginners who are not familiar with programming. Think of R as the engine that makes the car run. RStudio would be additional aesthetics that makes the car look better. You can use R without RStudio to analyse data, but you cannot use RStudio without R. You can download the latest version of RStudio at https://www.rstudio.com/products/rstudio/download/. Make sure to sure RStudio Desktop\n\n\n\n\n\n\nR console\n\n\n\n\n\n\n\nRStudio\n\n\n\n\n\nIn RStudio, you have 4 panes, the script, where you can write lines of code and save the script for future purposes. On the top-right you have the Environment pane, where we can view the list of objects we have created in R; objects can include tables, datasets, models, plots, etc. On bottom-right, we have a console, it is the typical console we found R. Lastly, the last pane have different components/tabs: files tzb, where we can view the list of files we are connected to or are using; for example, where you stored you dataset. It also has a plot tab, used for viewing plots/graphs."
+  },
+  {
+    "objectID": "weeks/week-1.qmd.html",
+    "href": "weeks/week-1.qmd.html",
+    "title": "Introduction to R Programming",
+    "section": "",
+    "text": "understand the basics of R programming\nUnderstand data types and objects\nunderstand base (built-in) R functions"
+  },
+  {
+    "objectID": "weeks/week-1.qmd.html#reading",
+    "href": "weeks/week-1.qmd.html#reading",
+    "title": "Introduction to R Programming",
+    "section": "Reading",
+    "text": "Reading"
+  },
+  {
+    "objectID": "weeks/week-1.qmd.html#basics-of-r",
+    "href": "weeks/week-1.qmd.html#basics-of-r",
+    "title": "Introduction to R Programming",
+    "section": "Basics of R",
+    "text": "Basics of R\nIn the getting started section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code.\nR can be used as a calculator:\n\n4 + 7 \n\n[1] 11\n\n9 * 6 \n\n[1] 54"
+  },
+  {
+    "objectID": "weeks/week-1.html",
+    "href": "weeks/week-1.html",
+    "title": "Introduction to R Programming",
+    "section": "",
+    "text": "understand the basics of R programming\nUnderstand data types and objects\nunderstand base (built-in) R functions"
+  },
+  {
+    "objectID": "weeks/week-1.html#reading",
+    "href": "weeks/week-1.html#reading",
+    "title": "Introduction to R Programming",
+    "section": "Reading",
+    "text": "Reading"
+  },
+  {
+    "objectID": "weeks/week-1.html#basics-of-r",
+    "href": "weeks/week-1.html#basics-of-r",
+    "title": "Introduction to R Programming",
+    "section": "Basics of R",
+    "text": "Basics of R\nIn the getting started section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code.\nR can be used as a calculator:\n4 + 7 \n[1] 11\n9 * 6 \n[1] 54\n\nArithmetic Operators\n\n\n\nDescription\nOperator\nExample\n\n\n\n\nAddition\n+\n1 + 3\n\n\nSubtract\n-\n90 - 5\n\n\nMultiplication\n*\n6 * 7\n\n\nExponentiation\n^\n3 ^ 6\n\n\nDivision\n/\n54 / 7\n\n\n\nType in and run the above examples in the script or console.\n\n\nAssignment operator\nNotice that we have been running the previous codes without assigning them to objects. We use the assignment operator (<-) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assign them:\n\naddition <- 4 + 7 \n\nprint(addition)\n\n[1] 11\n\nmultiplication <- 9 * 6 \n\nprint(multiplication)\n\n[1] 54\n\n\nNotice in the above code, we have tole R to create an object called ‘addition’ and every time we call print() function, the results will be printed in the console. Please remember the assignment operator (<-) as we will use it through this course. We can assign objects using =:\n\naddition = 4 + 7\n\nprint(addition)\n\n[1] 11\n\n\nHowever, many programmers and I use the <- operator for a serious reasons; so we will stick to it.\nAlso, you do not necessarily need to call the print() function in order to print results/output, you can just write the name of the object you have created and it will be printed:\n\nage <- 32\n\nage\n\n[1] 32\n\n\nNotice that the object age, which has my age in 2022 was printed on the console.\nBasically, we have created variables (addition, multiplication, age). With these variables, we can perform basic analysis:\n\naubrey_age <- 32\n\ncharity_age <- 24\n\n# Find age difference\naubrey_age - charity_age\n\n[1] 8\n\n# sum of ages\n\ncharity_age + aubrey_age\n\n[1] 56\n\n\n\n\nData types in R\nThere 3 basic data types in R\n\ncharacter: strings, text, etc\nnumeric: numbers, can be integers or whole numbers\nlogical: TRUE/FALSE, also called Boolean\n\nAn example of a character\n\nname <- \"Aubrey\"\n\ngender <- \"male\"\n\nNotice that a character need to be surrounded by (““) every time, otherwise R will return an error\n\nname <- Aubrey\n\nError in eval(expr, envir, enclos): object 'Aubrey' not found\n\ngender <- male\n\nError in eval(expr, envir, enclos): object 'male' not found\n\n\nAn example of numerical:\n\nincome <- 1500\n \nincome # print income\n\n[1] 1500\n\nheight <- 1.9\n\nheight # print height\n\n[1] 1.9\n\n\nAn example of a logical data type:\n\nmale <- TRUE\n\nmale \n\n[1] TRUE\n\nfemale <- FALSE\n\nfemale \n\n[1] FALSE\n\n\nYou can ask R to tell you the type of the data structure by using class() function:\n\nclass(aubrey_age)\n\n[1] \"numeric\"\n\nclass(income)\n\n[1] \"numeric\"\n\nclass(name)\n\n[1] \"character\"\n\nclass(male)\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "weeks/week-1.html#base-r-functions",
+    "href": "weeks/week-1.html#base-r-functions",
+    "title": "Introduction to R Programming",
+    "section": "Base R functions",
+    "text": "Base R functions\nR has built-in functions that we can use to analyse and manipulate data. A function is always followed by (). We will use examples to illustrate various R functions:\n\nSummary statistics\nBasic summary statistics functions are mean, median, range, standard deviation, etc. We can get in R using the mean() function:\n\n# first create a vector of numbers\n\nage <- c(34, 18, 19, 58, 22)\n\nage\n\n[1] 34 18 19 58 22\n\nmean(age)\n\n[1] 30.2\n\n\nThe mean of a age variable we have created is 30.2.\nWe can use the median() function to get the median of our variable:\n\nmedian(age)\n\n[1] 22\n\n\nThe median of age variable is 30.2\nAnd also the standard deviation using sd() function:\n\nsd(age)\n\n[1] 16.79881\n\n\nYou can get minimum and maximum values using min() and max() functions, respectively:\n\nmin(age)\n\n[1] 18\n\nmax(age)\n\n[1] 58\n\n\nYou can create a basic plot using a hist() function:\n\nhist(age)\n\n\n\n\nYou may want to arrange the values into ascending or descending order using the sort() function:\n\nsort(age) # sort into ascending order\n\n[1] 18 19 22 34 58\n\nsort(age, decreasing = T) # sort into descending order\n\n[1] 58 34 22 19 18\n\n\nIn this week, you have learnt basic data types, functions and operators. Next, we learn different type of data structures."
+  },
+  {
+    "objectID": "weeks/week-2.html",
+    "href": "weeks/week-2.html",
+    "title": "Data Types in R",
+    "section": "",
+    "text": "To understand data types: vectors, dataframe, lists, matrices\nTo do basic analysis"
+  },
+  {
+    "objectID": "weeks/week-2.html#vectors",
+    "href": "weeks/week-2.html#vectors",
+    "title": "Data Types in R",
+    "section": "Vectors",
+    "text": "Vectors\nRemember objects we created in the previous section? That were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:\n\nnumeric\ncharacter\nlogical"
+  }
+]

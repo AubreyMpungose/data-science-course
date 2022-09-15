@@ -1,0 +1,223 @@
+---
+title: "Introduction to R Programming"
+code-copy: true
+code-line-numbers: true
+tidy: true
+---
+
+## Learning objectives
+
+-   understand the basics of R programming
+
+-   Understand data types and objects
+
+-   understand base (built-in) R functions
+
+## Reading
+
+-   
+
+## Basics of R
+
+In the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code.
+
+R can be used as a calculator:
+
+```{r R as a calculator}
+#| results: asis
+4 + 7 
+
+9 * 6 
+
+```
+
+### Arithmetic Operators
+
+| Description    | Operator | Example |
+|----------------|----------|---------|
+| Addition       | \+       | 1 + 3   |
+| Subtract       | \-       | 90 - 5  |
+| Multiplication | \*       | 6 \* 7  |
+| Exponentiation | \^       | 3 \^ 6  |
+| Division       | /        | 54 / 7  |
+
+
+Type in and run the above examples in the script or console. 
+
+### Assignment operator 
+
+Notice that we have been running the previous codes without assigning them to objects. We use the assignment operator (`<-`) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assign them:
+
+```{r Assigning}
+addition <- 4 + 7 
+
+print(addition)
+
+multiplication <- 9 * 6 
+
+print(multiplication)
+```
+
+Notice in the above code, we have tole R to create an object called 'addition' and every time we call `print()` function, the results will be printed in the console. Please remember the assignment operator (`<-`) as we will use it through this course. We can assign objects using =:
+
+```{r different assignment}
+addition = 4 + 7
+
+print(addition)
+```
+
+However, many programmers and I use the <- operator for a serious reasons; so we will stick to it.
+
+Also, you do not necessarily need to call the `print()` function in order to print results/output, you can just write the name of the object you have created and it will be printed:
+
+```{r printing: 2}
+age <- 32
+
+age
+```
+
+Notice that the object age, which has my age in 2022 was printed on the console.
+
+
+Basically, we have created **variables** (addition, multiplication, age). With these variables, we can perform basic analysis:
+
+```{r basic analysis}
+aubrey_age <- 32
+
+charity_age <- 24
+
+# Find age difference
+aubrey_age - charity_age
+
+
+# sum of ages
+
+charity_age + aubrey_age
+```
+
+### Data types in R
+
+There 3 basic data types in R
+
+- **character**: strings, text, etc
+
+- **numeric**: numbers, can be integers or whole numbers
+
+- **logical**: TRUE/FALSE, also called Boolean 
+
+
+An example of a **character**
+
+```{r characters}
+name <- "Aubrey"
+
+gender <- "male"
+```
+
+Notice that a character need to be surrounded by ("") every time, otherwise R will return an error
+
+```{r error character, error=TRUE}
+name <- Aubrey
+
+gender <- male
+```
+
+An example of numerical:
+
+```{r nemricals}
+income <- 1500
+ 
+income # print income
+
+height <- 1.9
+
+height # print height
+```
+
+
+An example of a logical data type:
+
+```{r logical}
+male <- TRUE
+
+male 
+
+female <- FALSE
+
+female 
+```
+
+You can ask R to tell you the type of the data structure by using _class()_ function:
+
+```{r class}
+class(aubrey_age)
+
+class(income)
+
+class(name)
+
+class(male)
+```
+
+## Base R functions
+
+R has built-in functions that we can use to analyse and manipulate data. A function is always followed by `()`. We will use examples to illustrate various R functions:
+
+### Summary statistics
+
+Basic summary statistics functions are mean, median, range, standard deviation, etc. We can get in R using the `mean()` function:
+
+```{r mean function}
+# first create a vector of numbers
+
+age <- c(34, 18, 19, 58, 22)
+
+age
+
+mean(age)
+```
+
+The mean of a _age_ variable we have created is `r mean(age)`. 
+
+We can use the `median()` function to get the median of our variable:
+
+```{r median function}
+median(age)
+```
+
+The median of age variable is `r mean(age)`
+
+
+And also the standard deviation using `sd()` function:
+
+```{r standard deviation}
+
+sd(age)
+```
+
+You can get minimum and maximum values using `min()` and `max()` functions, respectively:
+
+```{r min and max}
+min(age)
+
+
+max(age)
+```
+
+You can create a basic plot using a `hist()` function:
+
+```{r histogram}
+hist(age)
+```
+
+You may want to arrange the values into ascending or descending order using the `sort()` function:
+
+```{r sort}
+sort(age) # sort into ascending order
+
+
+sort(age, decreasing = T) # sort into descending order
+```
+
+
+In this week, you have learnt basic data types, functions and operators. Next, we learn different type of data structures. 

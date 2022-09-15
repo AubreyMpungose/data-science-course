@@ -1,0 +1,24 @@
+---
+title: "Data Types in R"
+code-copy: true
+code-line-numbers: true
+tidy: true
+---
+
+## Learning objectives
+
+- To understand data types: vectors, dataframe, lists, matrices
+
+- To do basic analysis
+
+
+## Vectors
+
+Remember objects we created in the [previous section](_site/weeks/week-1.html)? That were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:
+
+- numeric
+
+- character
+
+- logical
+
