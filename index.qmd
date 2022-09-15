@@ -57,4 +57,4 @@ There are tons of materials available online; below I share compulsory and recom
 
 ## Let's Get Started
 
-![](images/learn_r.png)
+![](images/learn_r.png){width=450}
