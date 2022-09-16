@@ -12,4 +12,4 @@ title: "Schedule"
 | [6](/weeks/week-6.html) | Hypothesis Testing                               | Aubrey    | [📖](/weeks/week-6.html#prepare){aria-label="Week 6 summary"} |
 | [7](/weeks/week-7.html) | Regression: Linear and Logistic                  | Aubrey    | [📖](/weeks/week-7.html#prepare){aria-label="Week 7 summary"} |
 | [8](/weeks/week-8.html) | Communicating and Reporting Data using RMarkdown | Aubrey    | [📖](/weeks/week-8.html#prepare){aria-label="Week 8 summary"} |
-| [8](/weeks/week-8.html) | Data Science Toolbox, where to from here?        | Aubrey    | [📖](/weeks/week-8.html#prepare){aria-label="Week 8 summary"} |
+| [8](/weeks/week-8.html) | Data Science Toolbox, where to from here?        | Aubrey    | [📖](/weeks/week-8.html#prepare){aria-label="Week 8 summary"} |                          |

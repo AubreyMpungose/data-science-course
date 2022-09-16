@@ -19,7 +19,7 @@ tidy: true
 
 ## Basics of R
 
-In the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code.
+In the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the # to tell R not to execute the line as the code.
 
 R can be used as a calculator:
 
@@ -46,7 +46,7 @@ Type in and run the above examples in the script or console.
 
 ### Assignment operator 
 
-Notice that we have been running the previous codes without assigning them to objects. We use the assignment operator (`<-`) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assign them:
+Notice that we have been running previous codes without assigning them to objects. We use the assignment operator (`<-`) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assigning them:
 
 ```{r Assigning}
 addition <- 4 + 7 
@@ -58,7 +58,7 @@ multiplication <- 9 * 6
 print(multiplication)
 ```
 
-Notice in the above code, we have tole R to create an object called 'addition' and every time we call `print()` function, the results will be printed in the console. Please remember the assignment operator (`<-`) as we will use it through this course. We can assign objects using =:
+Notice in the above code, we have told R to create an object called 'addition' and every time we call `print()` function, the results will be printed in the console. Please remember the assignment operator (`<-`) as we will use it through this course. We can also assign objects using =:
 
 ```{r different assignment}
 addition = 4 + 7
@@ -66,7 +66,7 @@ addition = 4 + 7
 print(addition)
 ```
 
-However, many programmers and I use the <- operator for a serious reasons; so we will stick to it.
+However, many R programmers and I use the `<-` operator for a serious reasons; so we will stick to it.
 
 Also, you do not necessarily need to call the `print()` function in order to print results/output, you can just write the name of the object you have created and it will be printed:
 
@@ -106,7 +106,7 @@ There 3 basic data types in R
 - **logical**: TRUE/FALSE, also called Boolean 
 
 
-An example of a **character**
+An example of a **character**:
 
 ```{r characters}
 name <- "Aubrey"
@@ -122,7 +122,7 @@ name <- Aubrey
 gender <- male
 ```
 
-An example of numerical:
+An example of a numerical:
 
 ```{r nemricals}
 income <- 1500
@@ -147,7 +147,7 @@ female <- FALSE
 female 
 ```
 
-You can ask R to tell you the type of the data structure by using _class()_ function:
+You can ask R to tell you the type of the data structure by using `class()` function:
 
 ```{r class}
 class(aubrey_age)
@@ -161,7 +161,7 @@ class(male)
 
 ## Base R functions
 
-R has built-in functions that we can use to analyse and manipulate data. A function is always followed by `()`. We will use examples to illustrate various R functions:
+R has built-in functions that we can use to analyse and manipulate data. A function is always followed by `()`. We will use examples to illustrate various R functions.
 
 ### Summary statistics
 
@@ -185,7 +185,7 @@ We can use the `median()` function to get the median of our variable:
 median(age)
 ```
 
-The median of age variable is `r mean(age)`
+The median age is `r mean(age)`
 
 
 And also the standard deviation using `sd()` function:
