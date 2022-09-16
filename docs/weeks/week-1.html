@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="basics-of-r" class="level2">
 <h2 class="anchored" data-anchor-id="basics-of-r">Basics of R</h2>
-<p>In the <a href="../_site/getting-started.html">getting started</a> section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the #, that is to tell r to note execute the line as the code.</p>
+<p>In the <a href="../_site/getting-started.html">getting started</a> section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the # to tell R not to execute the line as the code.</p>
 <p>R can be used as a calculator:</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>[1] 11</p>
@@ -354,7 +354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="assignment-operator" class="level3">
 <h3 class="anchored" data-anchor-id="assignment-operator">Assignment operator</h3>
-<p>Notice that we have been running the previous codes without assigning them to objects. We use the assignment operator (<code>&lt;-</code>) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assign them:</p>
+<p>Notice that we have been running previous codes without assigning them to objects. We use the assignment operator (<code>&lt;-</code>) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assigning them:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>addition <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span> </span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 54</code></pre>
 </div>
 </div>
-<p>Notice in the above code, we have tole R to create an object called ‘addition’ and every time we call <code>print()</code> function, the results will be printed in the console. Please remember the assignment operator (<code>&lt;-</code>) as we will use it through this course. We can assign objects using =:</p>
+<p>Notice in the above code, we have told R to create an object called ‘addition’ and every time we call <code>print()</code> function, the results will be printed in the console. Please remember the assignment operator (<code>&lt;-</code>) as we will use it through this course. We can also assign objects using =:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>addition <span class="ot">=</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
@@ -378,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 11</code></pre>
 </div>
 </div>
-<p>However, many programmers and I use the &lt;- operator for a serious reasons; so we will stick to it.</p>
+<p>However, many R programmers and I use the <code>&lt;-</code> operator for a serious reasons; so we will stick to it.</p>
 <p>Also, you do not necessarily need to call the <code>print()</code> function in order to print results/output, you can just write the name of the object you have created and it will be printed:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>age <span class="ot">&lt;-</span> <span class="dv">32</span></span>
@@ -416,7 +416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>numeric</strong>: numbers, can be integers or whole numbers</p></li>
 <li><p><strong>logical</strong>: TRUE/FALSE, also called Boolean</p></li>
 </ul>
-<p>An example of a <strong>character</strong></p>
+<p>An example of a <strong>character</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>name <span class="ot">&lt;-</span> <span class="st">"Aubrey"</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
@@ -433,7 +433,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Error in eval(expr, envir, enclos): object 'male' not found</code></pre>
 </div>
 </div>
-<p>An example of numerical:</p>
+<p>An example of a numerical:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>income <span class="ot">&lt;-</span> <span class="dv">1500</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a> </span>
@@ -463,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
-<p>You can ask R to tell you the type of the data structure by using <em>class()</em> function:</p>
+<p>You can ask R to tell you the type of the data structure by using <code>class()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">class</span>(aubrey_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -486,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="base-r-functions" class="level2">
 <h2 class="anchored" data-anchor-id="base-r-functions">Base R functions</h2>
-<p>R has built-in functions that we can use to analyse and manipulate data. A function is always followed by <code>()</code>. We will use examples to illustrate various R functions:</p>
+<p>R has built-in functions that we can use to analyse and manipulate data. A function is always followed by <code>()</code>. We will use examples to illustrate various R functions.</p>
 <section id="summary-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h3>
 <p>Basic summary statistics functions are mean, median, range, standard deviation, etc. We can get in R using the <code>mean()</code> function:</p>
@@ -512,7 +512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 22</code></pre>
 </div>
 </div>
-<p>The median of age variable is 30.2</p>
+<p>The median age is 30.2</p>
 <p>And also the standard deviation using <code>sd()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">sd</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
