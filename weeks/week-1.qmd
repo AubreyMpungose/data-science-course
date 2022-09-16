@@ -19,7 +19,7 @@ tidy: true
 
 ## Basics of R
 
-In the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the # to tell R not to execute the line as the code.
+In the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the hashtag (`#`) to tell R not to execute the line as a code.
 
 R can be used as a calculator:
 
@@ -68,7 +68,7 @@ print(addition)
 
 However, many R programmers and I use the `<-` operator for a serious reasons; so we will stick to it.
 
-Also, you do not necessarily need to call the `print()` function in order to print results/output, you can just write the name of the object you have created and it will be printed:
+Also, you do not necessarily need to call the `print()` function in order to print results/output, you can just write the name of the object you have created, run it and it will be printed:
 
 ```{r printing: 2}
 age <- 32

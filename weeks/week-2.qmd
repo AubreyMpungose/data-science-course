@@ -5,16 +5,21 @@ code-line-numbers: true
 tidy: true
 ---
 
+While I aim to introduce data types: vectors, dataframes, lists, matrices, however our key focus is on **dataframes**
+
 ## Learning objectives
 
-- To understand data types: vectors, dataframe, lists, matrices
+- To understand data types: vectors, dataframes, lists, matrices
 
 - To do basic analysis
+
+## Please Read
+
 
 
 ## Vectors
 
-Remember objects we created in the [previous section](_site/weeks/week-1.html)? That were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:
+Remember objects we created in the [previous section](_site/weeks/week-1.html)? Those were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:
 
 - numeric
 
@@ -22,3 +27,116 @@ Remember objects we created in the [previous section](_site/weeks/week-1.html)? 
 
 - logical
 
+Although we are repeating stuff from previous section, but it worth it. Let us create a **character** vector from the names of the this class:
+
+```{r creating character vectors, output: asis}
+
+names <- c("thabiso", "nontando", "thandolwethu", "akhona", "perry", "balindile", "thembelani", "sabeliwe",  "phakamani",    "obianuju", "tshepang", "charity", "lungelo", "ntsikelelo", "akhona", "duduzile")
+
+names
+```
+
+
+We have a vector of names of this class, and assigned to an object `names`. Let us use basic functions to examine our names vector. We can get the type of vector by using `class()` function:
+
+```{r}
+class(names)
+```
+
+We can examine the length by using `length()` function:
+
+```{r}
+length(names)
+```
+
+We have `r length(names)` items in the `names` vector
+
+
+For numerical vector, we will use imaginary ages of this class:
+
+```{r}
+class_age <- c(19, 59, 20, 28, 59, 44, 29, 13, 09, 23, 16)
+
+class_age
+```
+
+we have numerical vector that we named `class_age`. Let us do basic analyses of this vector. We can get the mean by using `mean()` functions:
+
+```{r}
+mean(class_age)
+```
+
+We can get the median and standard deviation of `class_age` vector using `median()` and `sd()` fucntions, respectively:
+
+```{r}
+
+median(class_age)
+
+sd(class_age)
+```
+
+You can get an element of vector by using `[]` function. Let us get the first element in `names` vector:
+
+```{r}
+names[1]
+```
+
+**Key lesson**: a vector holds items of a similar type; as we have seen in the `names` and `class_age` vectors. 
+
+## Dataframes
+
+Dataframes will be the key focus throughout the course, so I will just briefly explain what is a dataframe. A dataframe is tabular data format, consisting of columns and rows. Let us use an example by creating a dataframe in R:
+
+```{r dataframe}
+
+# Create a character vetor
+names <- c("thabiso", "nontando", "thandolwethu", "akhona", "perry", "balindile", "thembelani", "sabeliwe",  "phakamani",    "obianuju", "tshepang", "charity", "lungelo", "ntsikelelo", "akhona", "duduzile")
+
+set.seed(14) #I do this so that we can get same results every time we generate numbers or simulate
+age <- sample(18:32, 16, replace = T) # Here i am generating random ages, from ages 16 to 32, with a sample of 16 people, to match our names vector
+
+names
+
+age
+```
+
+
+To create a dataframe, we will use a `data.frame()` function:
+
+```{r first_dataframe}
+
+data_frame <- data.frame(names, age) #combine two vectors to create a dataframe
+
+data_frame
+```
+
+Bingo! We have a dataframe with names and age columns, and individual rows. As I said earlier, This course is all about dataframes (tabular data). 
+
+## Other data types: matrices and lists
+
+You will learn more about `matrix` objects when you advance in your data science career.
+
+`lists` are another data structure that are used to hold objects of different type. For example, they can hold both vector and dataframe:
+
+```{r lists}
+names <- c("thabiso", "nontando", "thandolwethu", "akhona", "perry", "balindile", "thembelani", "sabeliwe",  "phakamani",    "obianuju", "tshepang", "charity", "lungelo", "ntsikelelo", "akhona", "duduzile")
+
+set.seed(14) #I do this so that we can get same results every time we generate numbers or simulate
+age <- sample(18:32, 16, replace = T)
+
+data_frame <- data.frame(names, age)
+
+height <- runif(min = 1, max = 1.9, n =16)
+```
+
+We have 2 objects: `data_frame` (dataframe) and `height` (vector). From these objects, we can create a lists:
+
+```{r list example}
+first_list <- list(data_frame, height)
+
+first_list
+```
+
+Did you see that Jimmy? We actually printed the list.
+
+Let us go to dataframes, which is the core of this course

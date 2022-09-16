@@ -5,7 +5,7 @@ author: "Aubrey Mpungose"
 
 ## 1.1 Installing R  
 
-- R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to https://cloud.r-project.org/ 
+- R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to [](https://cloud.r-project.org/) 
 
 - Download the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:
 
@@ -15,7 +15,7 @@ author: "Aubrey Mpungose"
     
 ## 1.1 Installing RStudio
 
-Rstudio is an Integrated Development Environment (IDE) that makes it easier working with R. This might be trickier for beginners who are not familiar with programming. Think of R as the engine that makes the car run. RStudio would be additional aesthetics that makes the car look better. You can use R without RStudio to analyse data, but you cannot use RStudio without R. You can download the latest version of RStudio at https://www.rstudio.com/products/rstudio/download/. Make sure to sure **RStudio Desktop**
+Rstudio is an Integrated Development Environment (IDE) that makes it easier working with R. This might be trickier for beginners who are not familiar with programming. Think of R as the engine that makes the car run. RStudio would be additional aesthetics that makes the car look better. You can use R without RStudio to analyse data, but you cannot use RStudio without R. You can download the latest version of RStudio at [](https://www.rstudio.com/products/rstudio/download/). Make sure to sure **RStudio Desktop**
 
 ::: {layout-ncol=2}
 ![R console](images/r_console.PNG)
