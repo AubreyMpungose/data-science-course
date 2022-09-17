@@ -5,7 +5,7 @@ author: "Aubrey Mpungose"
 
 ## 1.1 Installing R  
 
-- R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to the [here](https://cloud.r-project.org/) 
+- R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to the [CRAN wesbite](https://cloud.r-project.org/) 
 
 - Download the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:
 
