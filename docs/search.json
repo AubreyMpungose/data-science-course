@@ -11,7 +11,7 @@
     "href": "getting-started.html",
     "title": "Getting Started",
     "section": "",
-    "text": "R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to the here\nDownload the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:\n\nWindows\nmacOS\nLinux"
+    "text": "R Can be downloaded from CRAN, The Comprehensive R Archive Network. Simply go to the CRAN wesbite\nDownload the latest version of R (currently R-4.2.1 ) depending on the operating system of your machine:\n\nWindows\nmacOS\nLinux"
   },
   {
     "objectID": "getting-started.html#installing-rstudio",
