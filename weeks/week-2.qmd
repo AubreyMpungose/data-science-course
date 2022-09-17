@@ -1,5 +1,5 @@
 ---
-title: "Data Types in R"
+title: "2 Data Types in R"
 code-copy: true
 code-line-numbers: true
 tidy: true
@@ -17,7 +17,7 @@ While I aim to introduce data types: vectors, dataframes, lists, matrices, howev
 
 
 
-## Vectors
+## 2.1 Vectors
 
 Remember objects we created in the [previous section](_site/weeks/week-1.html)? Those were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:
 
@@ -83,7 +83,7 @@ names[1]
 
 **Key lesson**: a vector holds items of a similar type; as we have seen in the `names` and `class_age` vectors. 
 
-## Dataframes
+## 2.2 Dataframes
 
 Dataframes will be the key focus throughout the course, so I will just briefly explain what is a dataframe. A dataframe is tabular data format, consisting of columns and rows. Let us use an example by creating a dataframe in R:
 
@@ -112,7 +112,7 @@ data_frame
 
 Bingo! We have a dataframe with names and age columns, and individual rows. As I said earlier, This course is all about dataframes (tabular data). 
 
-## Other data types: matrices and lists
+## 2.3 Other data types: matrices and lists
 
 You will learn more about `matrix` objects when you advance in your data science career.
 

@@ -1,0 +1,229 @@
+---
+title: " 3 Wrangling Dataframes in R"
+code-copy: true
+code-line-numbers: true
+tidy: true
+toc: true
+---
+
+## Learning objectives
+
+-   Understand dataframes
+
+-   Manipulate, transform and analyse dataframes
+
+## 3.1 Introduction
+
+Dataframes, as we saw [the previous section](/weeks/week-2.html), a dataframe is a tabular data format, with columns and rows. Columns are *variable* names and rows are individual *observations*. Let us recreate the previous dataframe of names and ages of this class:
+
+```{r dataframe}
+
+# Firstly, create a character vector with names
+names <- c("thabiso", "nontando", "thandolwethu", "akhona", "perry", "balindile", "thembelani", "sabeliwe",  "phakamani",    "obianuju", "tshepang", "charity", "lungelo", "ntsikelelo", "akhona", "duduzile")
+
+set.seed(14) #I do this so that we can get same results every time we generate numbers or simulate
+
+# Create a numeric vector of ages
+age <- sample(18:32, 16, replace = T)
+
+# Create a dataframe
+data_frame <- data.frame(names, age) 
+
+# print the dataframe
+data_frame 
+```
+
+A dataframe is basically made of vectors. In our data_frame, we have character (names) and numeric (age) vectors that make our dataframe. We can extract these elements using the `$` sign:
+
+```{r extract vector}
+data_frame$names
+
+data_frame$age
+```
+
+We can do a range of analysis with a dataframe. But firstly, we need to use right functions for this task.
+
+## 3.2 Base R vs Tidyverse
+
+Until now, we have used functions within **Base R**, which are already installed in R. But in many cases, we want to use external packages to do any task we want. For example, if we want to do spatial and GIS analysis, we can install the `sf` package; we can use `tidymodels` to conduct machine learning models and so on. There are over 2000 R packages, contributed by different individuals around the world, and they are stored and curated in the [CRAN website](https://cran.r-project.org/web/packages/).
+
+One of the most popular packages in R is the `tidyverse` meta-package, which include a collection of packages for working with data; most popular packages in the `tidyverse` are:
+
+-   `dplyr`: for data cleaning, wrangling and transformation
+
+-   `ggplot2`: for data visualisation
+
+-   `tidyr`: for tidying up data
+
+There are other packages in the `tidyverse`. The philosophy of `tidyverse` is *tidy* data:
+
+> 1.  Each variable is a column; each column is a variable.
+> 2.  Each observation is row; each row is an observation.
+> 3.  Each value is a cell; each cell is a single value. [@r_4_ds]
+
+Tidy data is a principle we are going to stick on through this course:
+
+![Tidy data @wickham_tidyverse_2019](images/tidy_data.png)
+
+So all in all, tidyverse make it easier to work with dataframes and most people prefer it than base R functions. We will use an example at the end to understand the differences between Base R and tydiverse. You will need to install the package first. In R you install a package by calling `install.package()` function:
+
+```{r install tidyverse, eval=F, echo=T}
+install.packages("tidyverse")
+```
+
+After installing the package, you need to load it into the current R session using `library()` function:
+
+```{r load packages}
+library(tidyverse)
+```
+
+## 3.3 Using `dplyr`
+
+In this section `dplyr` packages, which is included in the `tidyverse` collection of packages. `dplyr` has 5 verbs/functions:
+
+-   `select()`
+
+-   `filter()`
+
+-   `arrange()`
+
+-   `summarise()`
+
+-   `mutate()`
+
+### 3.3.1 Load the dataset
+
+All along, we have been working with fictional data. Let us use the `gapminder` dataset, which can be installed as:
+
+```{r gapminder, eval=FALSE, echo=TRUE}
+install.packages("gapminder")
+```
+
+After installing the `gapminder` data, you will have to load it using `library` function:
+
+```{r load gapminder}
+library(gapminder)
+```
+
+Than assign it to the object, `gapminder`, using the `<-` operator:
+
+```{r assign gapminder}
+
+gapminder <- gapminder
+```
+
+Now you have an object, which is a dataframe, called `gapminder`, you can see it in the `Environment` pane in RStudio. It shows that it has `ncol(gapminder)` columns/variables and `nrow(gapminder)` observations/rows
+
+![`gapminder` dataframe in Environment pane](images/environment_pane.png)
+
+You can use the `str()` fucntion to get the structure of the dataframe:
+
+```{r structure of gapminder}
+
+str(gapminder)
+```
+
+We have 6 variables:
+- "country" 
+
+- "continent" 
+
+- "year"      
+
+- "lifeExp": life expectancy of a country  
+
+- "pop": population     
+
+- "gdpPercap": GDP per capita
+
+You can get a sample of the first observations/rows using `head()` function:
+
+```{r head}
+head(gapminder)
+```
+
+### 3.4.2 `select()` function
+
+We may be interested in some of the columns in the `gampminder` dataframe, let say, for example, "country" and "pop" variables and discard others; we use the `select()` function:
+
+```{r select}
+library(dplyr)
+select(gapminder, "country", "pop")
+```
+
+R return only the country and population variables. The best way to work with R is using a pipe (`|>`) operator. A pipe operator connect various tasks, for example:
+
+```{r pipe}
+gapminder |>
+  select(country, pop)
+```
+
+You will see the importance of the pipe operator later when our analysis get complicated. Throught the course, we will use the pipe operator. Also, you will in many textbooks and online resources uses the `%>%` operator instead. That is because initially, a pipe operator was an external function within the `mgttr` package, so it was not an built-in R function. In recent years, the base R `|>` pipe operator has been developed and we will stick to it. But they all do the same thing, so it your preference:
+
+```{r pipe magttr}
+
+gapminder %>% 
+  select(country, pop)
+```
+
+Also, notice that we selected "country' and "pop" columns but did not save them and assigned to an object. To store the results into an object, we have to use assignment operator (`<-`):
+
+```{r assign}
+gapminder_selected <- gapminder |>
+  select(country, pop)
+
+gapminder_selected # print
+```
+
+Now we have saved results as `gapminder_selected`, and we can do other analysis with this object because we have saved it. So, in a nutshell, when you run a code without assigning results into an object, using the `<-` operator, **results will not be saved but will be printed**.
+
+### 3.4.3 `filter()` function
+
+You may be interested in observations that meet certain conditions. We use `filter()` function to return the list that meet our conditions. Let us "continent" variable in `gapminder` dataframe. Get a basic table first:
+
+```{r basic table}
+
+table(gapminder$continent)
+```
+
+There are five continents. Let us filter only observations from the Africa continent:
+
+```{r filter}
+
+africa_gapminder <- gapminder |> 
+  filter(continent == "Africa")
+
+africa_gapminder  # print 
+```
+
+`africa_gapminder` object is a dataframe we have just created, with only countries from the African continent. 
+
+Let us filter a numeric vector; for example, we may want to filter countries with population of above 50 million and assign results to an object named high_pop:
+
+```{r filter numeric}
+
+high_pop <- gapminder |> 
+  filter(pop > 50000000)
+
+high_pop
+```
+
+You can also combine 2 conditions. Let us say we want:
+
+- countries in Africa
+
+- year 2007
+
+- that have a population of more than 50 million
+
+We can combine these arguments and assign results into an object we name `africa_2007`:
+
+```{r filter 2}
+africa_2007 <- gapminder |> 
+  filter(continent == "Africa", year == 2007, pop > 50000000)
+
+# print the result
+africa_2007
+```
+
+
