@@ -226,4 +226,89 @@ africa_2007 <- gapminder |>
 africa_2007
 ```
 
+### 3.4.4 `arrange()` function
+
+`arrange()` function sort values in ascending or descending order; the default is ascending:
+
+```{r arranging}
+
+gapminder |> 
+  arrange(lifeExp)
+```
+
+Here we have sorted `lifeExp` column in ascending order; to arrange in descending order, you have to use `desc()` function within `arrange()`: 
+
+```{r arrange descending}
+gapminder |> 
+  arrange(desc(lifeExp))
+  
+```
+
+### 3.4.5 `summarise()`
+
+The `summarise()` function is for calculating statistics such as mean, median, sum, min, max, etc. let us use examples. We may want the average GDP per capita in in 2007:
+
+```{r summarise mean}
+# first filter the year 2007 and save the results as gapminder_2007
+
+gapminder_2007 <- gapminder |> 
+  filter(year == 2007)
+
+# then use use the summarise() function
+
+gapminder_2007 |> 
+  summarise(avg_gdp = mean(gdpPercap))
+```
+  
+Notice that we have called `summarise()` from the `dplyr` package, then created a column `avg_gdp` that use the built-in (base R) `mean()` function and put the `gdpPercap` column within it to get the average GDP per capita in 2007. This is similar for other stats: median:
+
+```{r summarise median}
+
+gapminder_2007 |> 
+  summarise(median_life_exp = median(lifeExp))
+```
+
+We can get minimum (using `min()`), maximum (`max()`), sum (`sum()`) etc. get the lowest population:
+
+```{r summarise min}
+gapminder_2007 |> 
+  summarise(lowest_pop = min(pop))
+```
+
+Get the highest population:
+
+```{r summarise max}
+gapminder_2007 |> 
+  summarise(highest_pop = max(pop))
+```
+
+
+Get the total world population:
+
+```{r summarise sum}
+gapminder_2007 |> 
+  summarise(total_pop = sum(pop))
+```
+
+### 3.4.6 `mutate()`
+
+Suppose we want to create a new column in the dataframe, using existing columns. The `mutate()` function is useful here. Consider the `gdpPercap` column/variable; from your basic school economics or general knowledge, you know that a GDP is total value of goods and services produced within a country, and is used to measure the economy. We also know that the GDP per capita is calculated by dividing GDP by the population, so it is GDP per person. In `gapminder` dataframe, there are `gdpPercap` and `pop`, which we can use to calculate GDP of a country; we will use `mutate()` for this:
+
+```{r mutate 1}
+
+gapminder_2007 <- gapminder_2007 |> 
+  mutate(gdp = gdpPercap * pop)
+
+# print the results
+
+gapminder_2007
+```
+
+## 3.5 Conclusion
+
+We have explored, the basic of data manipulation using `dplyr` package. In the next chapter, things will get more serious. 
+  
+
+
+
 

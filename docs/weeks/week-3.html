@@ -264,7 +264,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#load-the-dataset" id="toc-load-the-dataset" class="nav-link" data-scroll-target="#load-the-dataset">3.3.1 Load the dataset</a></li>
   <li><a href="#select-function" id="toc-select-function" class="nav-link" data-scroll-target="#select-function">3.4.2 <code>select()</code> function</a></li>
   <li><a href="#filter-function" id="toc-filter-function" class="nav-link" data-scroll-target="#filter-function">3.4.3 <code>filter()</code> function</a></li>
+  <li><a href="#arrange-function" id="toc-arrange-function" class="nav-link" data-scroll-target="#arrange-function">3.4.4 <code>arrange()</code> function</a></li>
+  <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise">3.4.5 <code>summarise()</code></a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">3.4.6 <code>mutate()</code></a></li>
   </ul></li>
+  <li><a href="#the-magic-of-the-pipe-operator--" id="toc-the-magic-of-the-pipe-operator--" class="nav-link" data-scroll-target="#the-magic-of-the-pipe-operator--">3.5 The magic of the pipe operator (<code>&lt;-</code>)</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-3.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -629,9 +633,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 4 Nigeria          Africa     2007    46.9 135031164     2014.</code></pre>
 </div>
 </div>
-
-
 </section>
+<section id="arrange-function" class="level3">
+<h3 class="anchored" data-anchor-id="arrange-function">3.4.4 <code>arrange()</code> function</h3>
+<p><code>arrange()</code> function sort values in ascending or descending order; the default is ascending:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">arrange</span>(lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country      continent  year lifeExp     pop gdpPercap
+   &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
+ 1 Rwanda       Africa     1992    23.6 7290203      737.
+ 2 Afghanistan  Asia       1952    28.8 8425333      779.
+ 3 Gambia       Africa     1952    30    284320      485.
+ 4 Angola       Africa     1952    30.0 4232095     3521.
+ 5 Sierra Leone Africa     1952    30.3 2143249      880.
+ 6 Afghanistan  Asia       1957    30.3 9240934      821.
+ 7 Cambodia     Asia       1977    31.2 6978607      525.
+ 8 Mozambique   Africa     1952    31.3 6446316      469.
+ 9 Sierra Leone Africa     1957    31.6 2295678     1004.
+10 Burkina Faso Africa     1952    32.0 4469979      543.
+# … with 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Here we have sorted <code>lifeExp</code> column in ascending order; to arrange in descending order, you have to use <code>desc()</code> function within <code>arrange()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   country          continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Japan            Asia       2007    82.6 127467972    31656.
+ 2 Hong Kong, China Asia       2007    82.2   6980412    39725.
+ 3 Japan            Asia       2002    82   127065841    28605.
+ 4 Iceland          Europe     2007    81.8    301931    36181.
+ 5 Switzerland      Europe     2007    81.7   7554661    37506.
+ 6 Hong Kong, China Asia       2002    81.5   6762476    30209.
+ 7 Australia        Oceania    2007    81.2  20434176    34435.
+ 8 Spain            Europe     2007    80.9  40448191    28821.
+ 9 Sweden           Europe     2007    80.9   9031088    33860.
+10 Israel           Asia       2007    80.7   6426679    25523.
+# … with 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="summarise" class="level3">
+<h3 class="anchored" data-anchor-id="summarise">3.4.5 <code>summarise()</code></h3>
+<p>The <code>summarise()</code> function is for calculating statistics such as mean, median, sum, min, max, etc. let us use examples. We may want the average GDP per capita in in 2007:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># first filter the year 2007 and save the results as gapminder_2007</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a></span>
+<span id="cb37-3"><a href="#cb37-3"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb37-5"><a href="#cb37-5"></a></span>
+<span id="cb37-6"><a href="#cb37-6"></a><span class="co"># then use use the summarise() function</span></span>
+<span id="cb37-7"><a href="#cb37-7"></a></span>
+<span id="cb37-8"><a href="#cb37-8"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb37-9"><a href="#cb37-9"></a>  <span class="fu">summarise</span>(<span class="at">avg_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  avg_gdp
+    &lt;dbl&gt;
+1  11680.</code></pre>
+</div>
+</div>
+<p>Notice that we have called <code>summarise()</code> from the <code>dplyr</code> package, then created a column <code>avg_gdp</code> that use the built-in (base R) <code>mean()</code> function and put the <code>gdpPercap</code> column within it to get the average GDP per capita in 2007. This is similar for other stats: median:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">summarise</span>(<span class="at">median_life_exp =</span> <span class="fu">median</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  median_life_exp
+            &lt;dbl&gt;
+1            71.9</code></pre>
+</div>
+</div>
+<p>We can get minimum (using <code>min()</code>), maximum (<code>max()</code>), sum (<code>sum()</code>) etc. get the lowest population:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">summarise</span>(<span class="at">lowest_pop =</span> <span class="fu">min</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  lowest_pop
+       &lt;int&gt;
+1     199579</code></pre>
+</div>
+</div>
+<p>Get the highest population:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">summarise</span>(<span class="at">highest_pop =</span> <span class="fu">max</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  highest_pop
+        &lt;int&gt;
+1  1318683096</code></pre>
+</div>
+</div>
+<p>Get the total world population:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">summarise</span>(<span class="at">total_pop =</span> <span class="fu">sum</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+   total_pop
+       &lt;dbl&gt;
+1 6251013179</code></pre>
+</div>
+</div>
+</section>
+<section id="mutate" class="level3">
+<h3 class="anchored" data-anchor-id="mutate">3.4.6 <code>mutate()</code></h3>
+<p>Suppose we want to create a new column in the dataframe, using existing columns. The <code>mutate()</code> function is useful here. Consider the <code>gdpPercap</code> column/variable; from your basic school economics or general knowledge, you know that a GDP is total value of goods and services produced within a country, and is used to measure the economy. We also know that the GDP per capita is calculated by dividing GDP by the population, so it is GDP per person. In <code>gapminder</code> dataframe, there are <code>gdpPercap</code> and <code>pop</code>, which we can use to calculate GDP of a country; we will use <code>mutate()</code> for this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">mutate</span>(<span class="at">gdp =</span> gdpPercap <span class="sc">*</span> pop)</span>
+<span id="cb47-3"><a href="#cb47-3"></a></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="co"># print the results</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a></span>
+<span id="cb47-6"><a href="#cb47-6"></a>gapminder_2007</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 142 × 7
+   country     continent  year lifeExp       pop gdpPercap           gdp
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Afghanistan Asia       2007    43.8  31889923      975.  31079291949.
+ 2 Albania     Europe     2007    76.4   3600523     5937.  21376411360.
+ 3 Algeria     Africa     2007    72.3  33333216     6223. 207444851958.
+ 4 Angola      Africa     2007    42.7  12420476     4797.  59583895818.
+ 5 Argentina   Americas   2007    75.3  40301927    12779. 515033625357.
+ 6 Australia   Oceania    2007    81.2  20434176    34435. 703658358894.
+ 7 Austria     Europe     2007    79.8   8199783    36126. 296229400691.
+ 8 Bahrain     Asia       2007    75.6    708573    29796.  21112675360.
+ 9 Bangladesh  Asia       2007    64.1 150448339     1391. 209311822134.
+10 Belgium     Europe     2007    79.4  10392226    33693. 350141166520.
+# … with 132 more rows</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-magic-of-the-pipe-operator--" class="level2">
+<h2 class="anchored" data-anchor-id="the-magic-of-the-pipe-operator--">3.5 The magic of the pipe operator (<code>&lt;-</code>)</h2>
+
+
 </section>
 
 </main> <!-- /main -->
