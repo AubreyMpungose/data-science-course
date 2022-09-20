@@ -1,5 +1,5 @@
 ---
-title: " 3 Wrangling Dataframes in R"
+title: " 3 Data Manupulation I"
 code-copy: true
 code-line-numbers: true
 tidy: true
@@ -151,7 +151,12 @@ library(dplyr)
 select(gapminder, "country", "pop")
 ```
 
-R return only the country and population variables. The best way to work with R is using a pipe (`|>`) operator. A pipe operator connect various tasks, for example:
+R return only the country and population variables. `select()` function only return the variables/columns we are interested in:
+
+![](images/visualise_select.png)
+
+
+The best way to work with R is using a pipe (`|>`) operator. A pipe operator connect various tasks, for example:
 
 ```{r pipe}
 gapminder |>
@@ -196,7 +201,9 @@ africa_gapminder <- gapminder |>
 africa_gapminder  # print 
 ```
 
-`africa_gapminder` object is a dataframe we have just created, with only countries from the African continent. 
+`africa_gapminder` object is a dataframe we have just created, with only countries from the African continent. What `filter()` does is to return observations/rows that only meet our conditions:
+
+![](images/visualise_filter.png)
 
 Let us filter a numeric vector; for example, we may want to filter countries with population of above 50 million and assign results to an object named high_pop:
 
@@ -260,7 +267,12 @@ gapminder_2007 |>
   summarise(avg_gdp = mean(gdpPercap))
 ```
   
-Notice that we have called `summarise()` from the `dplyr` package, then created a column `avg_gdp` that use the built-in (base R) `mean()` function and put the `gdpPercap` column within it to get the average GDP per capita in 2007. This is similar for other stats: median:
+Notice that we have called `summarise()` from the `dplyr` package, then created a column `avg_gdp` that use the built-in (base R) `mean()` function and put the `gdpPercap` column within it to get the average GDP per capita in 2007:
+
+![](images/visualise_summarise.png)
+
+
+This is similar for other stats: median:
 
 ```{r summarise median}
 
@@ -303,6 +315,10 @@ gapminder_2007 <- gapminder_2007 |>
 
 gapminder_2007
 ```
+
+`mutate()` has added a new column named `gdp`:
+
+![](images/visualise_mutate.png)
 
 ## 3.5 Conclusion
 
