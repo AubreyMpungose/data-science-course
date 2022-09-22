@@ -1,59 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/about.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/about.html</loc>
     <lastmod>2022-09-20T18:43:46.696Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/getting-started.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/getting-started.html</loc>
     <lastmod>2022-09-20T18:43:48.132Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/index.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/index.html</loc>
     <lastmod>2022-09-20T18:43:49.320Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/my-profile.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/my-profile.html</loc>
     <lastmod>2022-09-20T18:43:50.347Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/schedule.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/schedule.html</loc>
     <lastmod>2022-09-20T18:43:51.419Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-1.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-1.html</loc>
     <lastmod>2022-09-20T18:43:53.432Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-2.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-2.html</loc>
     <lastmod>2022-09-20T18:43:55.176Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-3.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-3.html</loc>
     <lastmod>2022-09-20T18:43:57.505Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
     <lastmod>2022-09-20T18:43:58.579Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-5.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-5.html</loc>
     <lastmod>2022-09-20T18:43:59.581Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-6.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-6.html</loc>
     <lastmod>2022-09-20T18:44:00.644Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-7.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-7.html</loc>
     <lastmod>2022-09-20T18:44:01.635Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-8.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-8.html</loc>
     <lastmod>2022-09-20T18:44:02.658Z</lastmod>
   </url>
   <url>
-    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-8b.html</loc>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-8b.html</loc>
     <lastmod>2022-09-20T18:44:03.652Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T21:48:32.206Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T21:48:43.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T21:49:21.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T21:49:23.702Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T21:56:07.553Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T21:56:10.223Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-5.html</loc>
+    <lastmod>2022-09-20T22:34:39.488Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-20T22:34:44.363Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-3.html</loc>
+    <lastmod>2022-09-22T19:04:29.259Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-3.html</loc>
+    <lastmod>2022-09-22T19:04:32.351Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-22T19:11:46.457Z</lastmod>
+  </url>
+  <url>
+    <loc> https://aubreympungose.github.io/data_science_course/weeks/week-4.html</loc>
+    <lastmod>2022-09-22T19:11:47.653Z</lastmod>
   </url>
 </urlset>

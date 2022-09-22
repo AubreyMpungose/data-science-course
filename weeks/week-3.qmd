@@ -191,6 +191,20 @@ You may be interested in observations that meet certain conditions. We use `filt
 table(gapminder$continent)
 ```
 
+Filter has several operators:
+
+- `==`: equal to
+
+- `!=`: not equal to
+
+- `>`: greater than
+
+- `<`: less than
+
+- `>=`: greater than or equal to
+
+- `<=`: less than or equal to
+
 There are five continents. Let us filter only observations from the Africa continent:
 
 ```{r filter}
@@ -200,6 +214,7 @@ africa_gapminder <- gapminder |>
 
 africa_gapminder  # print 
 ```
+
 
 `africa_gapminder` object is a dataframe we have just created, with only countries from the African continent. What `filter()` does is to return observations/rows that only meet our conditions:
 
@@ -232,6 +247,21 @@ africa_2007 <- gapminder |>
 # print the result
 africa_2007
 ```
+
+You may want to filter out or remove rows, let us say, only `Europe` in the `continent`:
+
+```{r filter not equal to}
+
+gapminder |> 
+  filter(continent != "Europe")
+```
+
+One of the common mistakes when using filter are:
+
+- using `=` instead of `==`
+
+- using `>`, `<` to character vectors
+
 
 ### 3.4.4 `arrange()` function
 

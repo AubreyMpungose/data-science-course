@@ -565,6 +565,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
      624      300      396      360       24 </code></pre>
 </div>
 </div>
+<p>Filter has several operators:</p>
+<ul>
+<li><p><code>==</code>: equal to</p></li>
+<li><p><code>!=</code>: not equal to</p></li>
+<li><p><code>&gt;</code>: greater than</p></li>
+<li><p><code>&lt;</code>: less than</p></li>
+<li><p><code>&gt;=</code>: greater than or equal to</p></li>
+<li><p><code>&lt;=</code>: less than or equal to</p></li>
+</ul>
 <p>There are five continents. Let us filter only observations from the Africa continent:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>africa_gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
@@ -636,13 +645,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 4 Nigeria          Africa     2007    46.9 135031164     2014.</code></pre>
 </div>
 </div>
+<p>You may want to filter out remove rows, let us say, only <code>Europe</code> in the <code>continent</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">"Europe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,344 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,334 more rows</code></pre>
+</div>
+</div>
+<p>One of the common mistakes when using filter are:</p>
+<ul>
+<li><p>using <code>=</code> instead of <code>==</code></p></li>
+<li><p>using <code>&gt;</code>, <code>&lt;</code> to character vectors</p></li>
+</ul>
 </section>
 <section id="arrange-function" class="level3">
 <h3 class="anchored" data-anchor-id="arrange-function">3.4.4 <code>arrange()</code> function</h3>
 <p><code>arrange()</code> function sort values in ascending or descending order; the default is ascending:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">arrange</span>(lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">arrange</span>(lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
    country      continent  year lifeExp     pop gdpPercap
@@ -662,8 +697,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Here we have sorted <code>lifeExp</code> column in ascending order; to arrange in descending order, you have to use <code>desc()</code> function within <code>arrange()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
    country          continent  year lifeExp       pop gdpPercap
@@ -686,15 +721,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="summarise">3.4.5 <code>summarise()</code></h3>
 <p>The <code>summarise()</code> function is for calculating statistics such as mean, median, sum, min, max, etc. let us use examples. We may want the average GDP per capita in in 2007:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># first filter the year 2007 and save the results as gapminder_2007</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a></span>
-<span id="cb37-3"><a href="#cb37-3"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
-<span id="cb37-5"><a href="#cb37-5"></a></span>
-<span id="cb37-6"><a href="#cb37-6"></a><span class="co"># then use use the summarise() function</span></span>
-<span id="cb37-7"><a href="#cb37-7"></a></span>
-<span id="cb37-8"><a href="#cb37-8"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb37-9"><a href="#cb37-9"></a>  <span class="fu">summarise</span>(<span class="at">avg_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># first filter the year 2007 and save the results as gapminder_2007</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a></span>
+<span id="cb39-3"><a href="#cb39-3"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb39-5"><a href="#cb39-5"></a></span>
+<span id="cb39-6"><a href="#cb39-6"></a><span class="co"># then use use the summarise() function</span></span>
+<span id="cb39-7"><a href="#cb39-7"></a></span>
+<span id="cb39-8"><a href="#cb39-8"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb39-9"><a href="#cb39-9"></a>  <span class="fu">summarise</span>(<span class="at">avg_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   avg_gdp
@@ -706,8 +741,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/visualise_summarise.png" class="img-fluid"></p>
 <p>This is similar for other stats: median:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">summarise</span>(<span class="at">median_life_exp =</span> <span class="fu">median</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">summarise</span>(<span class="at">median_life_exp =</span> <span class="fu">median</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   median_life_exp
@@ -717,8 +752,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can get minimum (using <code>min()</code>), maximum (<code>max()</code>), sum (<code>sum()</code>) etc. get the lowest population:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">summarise</span>(<span class="at">lowest_pop =</span> <span class="fu">min</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">summarise</span>(<span class="at">lowest_pop =</span> <span class="fu">min</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   lowest_pop
@@ -728,8 +763,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Get the highest population:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">summarise</span>(<span class="at">highest_pop =</span> <span class="fu">max</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">summarise</span>(<span class="at">highest_pop =</span> <span class="fu">max</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   highest_pop
@@ -739,8 +774,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Get the total world population:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">summarise</span>(<span class="at">total_pop =</span> <span class="fu">sum</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">summarise</span>(<span class="at">total_pop =</span> <span class="fu">sum</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
    total_pop
@@ -753,12 +788,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="mutate">3.4.6 <code>mutate()</code></h3>
 <p>Suppose we want to create a new column in the dataframe, using existing columns. The <code>mutate()</code> function is useful here. Consider the <code>gdpPercap</code> column/variable; from your basic school economics or general knowledge, you know that a GDP is total value of goods and services produced within a country, and is used to measure the economy. We also know that the GDP per capita is calculated by dividing GDP by the population, so it is GDP per person. In <code>gapminder</code> dataframe, there are <code>gdpPercap</code> and <code>pop</code>, which we can use to calculate GDP of a country; we will use <code>mutate()</code> for this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">mutate</span>(<span class="at">gdp =</span> gdpPercap <span class="sc">*</span> pop)</span>
-<span id="cb47-3"><a href="#cb47-3"></a></span>
-<span id="cb47-4"><a href="#cb47-4"></a><span class="co"># print the results</span></span>
-<span id="cb47-5"><a href="#cb47-5"></a></span>
-<span id="cb47-6"><a href="#cb47-6"></a>gapminder_2007</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">mutate</span>(<span class="at">gdp =</span> gdpPercap <span class="sc">*</span> pop)</span>
+<span id="cb49-3"><a href="#cb49-3"></a></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="co"># print the results</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a></span>
+<span id="cb49-6"><a href="#cb49-6"></a>gapminder_2007</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 142 × 7
    country     continent  year lifeExp       pop gdpPercap           gdp
