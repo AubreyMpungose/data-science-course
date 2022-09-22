@@ -1,10 +1,12 @@
 ---
-title: " 4 Data Manupulation II"
+title: "4 Visualisation"
 code-copy: true
 code-line-numbers: true
 tidy: true
 toc: true
 ---
+
+# Data Manupulation I
 
 ## 4.1 Introduction
 
@@ -30,7 +32,7 @@ We will be using the Environmental Performance Index (EPI) dataset, from [Socioe
 The EPI is, therefore, an index score based on these indicators. Download data:
 
 ```{r download epi data}
-epi <- read.csv("https://raw.githubusercontent.com/AubreyMpungose/data-science-course/main/weeks/data/epi_data.csv")
+epi <-read.csv("https://raw.githubusercontent.com/AubreyMpungose/data-science-course/main/weeks/data/epi_data.csv")
 
 epi
 ```
@@ -48,6 +50,8 @@ We have `ncol(epi)` variables:
 
 -   "country"
 
+-   "continent"
+
 -   "population"
 
 -   "pop_density"
@@ -58,30 +62,16 @@ We have `ncol(epi)` variables:
 
 -   "epi_score"
 
-
 ## 4.3 Counting the data
 
-How many countries are in `epi` data? We can use the `count()` fucntion:
+How many countries are in `epi` data? We can use the `count()` function:
 
 ```{r count}
 epi |> 
   count(country)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Before analysing  the `epi` data, data providers indicated that observations with `-9999` in the `contain missing values; thus, including them in our analysis would result into misleading results. Let us examine the missing observations:
+Before analysing the `epi` data, data providers indicated that observations with `-9999` in the \`contain missing values; thus, including them in our analysis would result into misleading results. Let us examine the missing observations:
 
 ```{r filter missing epi}
 
@@ -97,5 +87,3 @@ There 25 rows with missing values, we may want to remove them:
 epi <- epi |> 
   filter(!sdg_index == -9999)
 ```
-
-

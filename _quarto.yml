@@ -34,7 +34,7 @@ website:
           - href: weeks/week-2.qmd
             text: "Week 2: Data Structures and Types"
           - href: weeks/week-3.qmd
-            text: "Week 3: Data Wrangling"
+            text: "Week 3: Data Manipulation"
           - href: weeks/week-4.qmd
             text: "Week 4: Data Visualisation"
           - href: weeks/week-5.qmd
