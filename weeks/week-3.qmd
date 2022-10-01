@@ -1,5 +1,5 @@
 ---
-title: "3 Data Manupulation"
+title: "3 Data Manipulation"
 code-copy: true
 code-line-numbers: true
 tidy: true

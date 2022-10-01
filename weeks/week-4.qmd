@@ -1,8 +1,12 @@
 ---
-title: "4 Visualisation"
+title: "4 Data Visualisation"
 code-copy: true
 code-line-numbers: true
 tidy: true
 toc: true
 ---
+
+Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. In this section, we will the `ggplot2` package within `tidyverse` to learn the foundations of data visualisation. 'ggplot' stands for *grammar of graphics*. 
+
+
 
