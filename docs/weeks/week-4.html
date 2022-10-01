@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -189,7 +252,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">4.1 Introduction</a></li>
+  <li><a href="#welcome-to-ggplot" id="toc-welcome-to-ggplot" class="nav-link" data-scroll-target="#welcome-to-ggplot">4.2 Welcome to ggplot</a></li>
+  <li><a href="#visualising-numerical-data" id="toc-visualising-numerical-data" class="nav-link" data-scroll-target="#visualising-numerical-data">4.3 Visualising Numerical data</a>
+  <ul class="collapse">
+  <li><a href="#single-variable" id="toc-single-variable" class="nav-link" data-scroll-target="#single-variable">4.3.1 Single variable</a></li>
+  <li><a href="#visualising-more-than-one-numerical-variables" id="toc-visualising-more-than-one-numerical-variables" class="nav-link" data-scroll-target="#visualising-more-than-one-numerical-variables">4.3.2 Visualising more than one numerical variables</a></li>
+  <li><a href="#visualising-numerical-by-groupcategory" id="toc-visualising-numerical-by-groupcategory" class="nav-link" data-scroll-target="#visualising-numerical-by-groupcategory">4.3.3 Visualising numerical by group/category</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-4.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -210,9 +286,131 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. In this section, we will the <code>ggplot2</code> package within <code>tidyverse</code> to learn the foundations of data visualisation. ‘ggplot’ stands for <em>grammar of graphics</em>.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">4.1 Introduction</h2>
+<p>Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. In this section, we will use the <code>ggplot2</code> package within <code>tidyverse</code> to learn the foundations of data visualisation. ‘ggplot’ stands for <em>grammar of graphics</em>.</p>
+<p>As said before, Base R also comes with built-in functions for data visualisation. Let us briefly explore some of the functions in Base R before diving into <code>ggplot2</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">## load gapminder data and save </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>gapminder <span class="ot">&lt;-</span> gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can create a histogram using the <code>hist()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">hist</span>(gapminder<span class="sc">$</span>lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/Base%20R-hist-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You can create a scatterplot to visualise the relationship between two numerical variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">plot</span>(gapminder<span class="sc">$</span>lifeExp, gapminder<span class="sc">$</span>gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/Base%20R%20scatter-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="welcome-to-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-ggplot">4.2 Welcome to ggplot</h2>
+<p><code>ggplot2</code> has steps/processes you follow to create a plot. Let us illustrate using the <code>gapminder</code> dataset. Load <code>tidyverse</code> package first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+</div>
+<p>Create a basic scatterplot of life expectancy and GDP per capita:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {ggplot-intro-scatter} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>ggplot(data = gapminder,</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    aes(x = gdpPercap, y = lifeExp)) + </span>
+<span id="cb6-3"><a href="#cb6-3"></a>    geom_point()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the code above, we have three steps to create a plot:</p>
+<ol type="1">
+<li><p><code>ggplot(data = gapminder)</code>: we are simply telling ggplot that we are using gapminder dataset</p></li>
+<li><p><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))</code>: we are adding <em>mapping aesthetics</em> or <em>aesthetics</em>, allocating x, y axis. There are other <em>aesthetics</em> that we can add, such as <em>size, colour, shape, group, etc</em>. We will use these later in thise section.</p></li>
+<li><p><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()</code>: We have added a geometry layer through <code>geoms_point()</code> function to create a scatterplot. <em>geoms</em> tell ggplot what type of geometry/graph/plot we want to create. There are several geoms that we are going to use, such as:</p>
+<ul>
+<li><p>geom_point()</p></li>
+<li><p>geom_line()</p></li>
+<li><p>geom_histogram(</p></li>
+<li><p>geom_area()</p></li>
+<li><p>geom_boxplot()</p></li>
+<li><p>geom_bar()</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="visualising-numerical-data" class="level2">
+<h2 class="anchored" data-anchor-id="visualising-numerical-data">4.3 Visualising Numerical data</h2>
+<section id="single-variable" class="level3">
+<h3 class="anchored" data-anchor-id="single-variable">4.3.1 Single variable</h3>
+<p>For visualising one variable, we mostly histogram, density plot, etc:</p>
+<p>Create a histogram of GDP per capita:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(gdpPercap)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-histogram-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can see that the GDP per capita variable is skewed. Density plots are also similar to histograms:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(gdpPercap)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-density-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="visualising-more-than-one-numerical-variables" class="level3">
+<h3 class="anchored" data-anchor-id="visualising-more-than-one-numerical-variables">4.3.2 Visualising more than one numerical variables</h3>
+<p>A scatter plot is used to show relationship between two variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-scatter-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can add other aeasthetics such as shape, colour etc: Let’s add the colour aesthetics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-scatter-colour-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can change the add the size aesthetics and use population of the country:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-scatter-size-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="visualising-numerical-by-groupcategory" class="level3">
+<h3 class="anchored" data-anchor-id="visualising-numerical-by-groupcategory">4.3.3 Visualising numerical by group/category</h3>
+<p>A boxplot and column charts are useful when we want to view statistics by a particular group, let say, GDP by continent:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-boxplot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
