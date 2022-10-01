@@ -327,9 +327,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Create a basic scatterplot of life expectancy and GDP per capita:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {ggplot-intro-scatter} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>ggplot(data = gapminder,</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    aes(x = gdpPercap, y = lifeExp)) + </span>
-<span id="cb6-3"><a href="#cb6-3"></a>    geom_point()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week-4_files/figure-html/ggplot-intro-scatter-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <p>In the code above, we have three steps to create a plot:</p>
 <ol type="1">
 <li><p><code>ggplot(data = gapminder)</code>: we are simply telling ggplot that we are using gapminder dataset</p></li>
