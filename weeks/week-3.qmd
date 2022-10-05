@@ -406,10 +406,14 @@ There are two key takeaways from this week:
 
 The pipe operator allows us to connect different functions in a single code: 
 
-![Credit: @fjnogales](images/pipe.gif)
-You might also think of a pipe operator as a baking process:
+![Credit:@fjnogales](images/pipe.gif)
 
+
+
+
+You might also think of a pipe operator as a baking process:
 ![Credit:@ArthurWelle](images/pipe_bake.gif)
+
 
 In the next section, we introduce the fundamentals of data visualisation using `ggplot2` package (also included in the `tidyverse`)
 
