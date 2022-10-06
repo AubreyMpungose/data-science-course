@@ -112,6 +112,9 @@ Than assign it to the object, `gapminder`, using the `<-` operator:
 ```{r assign gapminder}
 
 gapminder <- gapminder
+
+gapminder$country <- as.character(gapminder$country)
+gapminder$continent <- as.character(gapminder$continent)
 ```
 
 Now you have an object, which is a dataframe, called `gapminder`, you can see it in the `Environment` pane in RStudio. It shows that it has `ncol(gapminder)` columns/variables and `nrow(gapminder)` observations/rows

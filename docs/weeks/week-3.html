@@ -425,7 +425,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Than assign it to the object, <code>gapminder</code>, using the <code>&lt;-</code> operator:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>gapminder <span class="ot">&lt;-</span> gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>gapminder <span class="ot">&lt;-</span> gapminder</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>gapminder<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gapminder<span class="sc">$</span>country)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>gapminder<span class="sc">$</span>continent <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gapminder<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you have an object, which is a dataframe, called <code>gapminder</code>, you can see it in the <code>Environment</code> pane in RStudio. It shows that it has <code>ncol(gapminder)</code> columns/variables and <code>nrow(gapminder)</code> observations/rows</p>
 <div class="quarto-figure quarto-figure-center">
@@ -439,8 +442,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">str</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
- $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ country  : chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ continent: chr [1:1704] "Asia" "Asia" "Asia" "Asia" ...
  $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
  $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...
  $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
@@ -461,7 +464,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   country     continent  year lifeExp      pop gdpPercap
-  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+  &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
 1 Afghanistan Asia       1952    28.8  8425333      779.
 2 Afghanistan Asia       1957    30.3  9240934      821.
 3 Afghanistan Asia       1962    32.0 10267083      853.
@@ -480,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 2
    country          pop
-   &lt;fct&gt;          &lt;int&gt;
+   &lt;chr&gt;          &lt;int&gt;
  1 Afghanistan  8425333
  2 Afghanistan  9240934
  3 Afghanistan 10267083
@@ -503,7 +506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 2
    country          pop
-   &lt;fct&gt;          &lt;int&gt;
+   &lt;chr&gt;          &lt;int&gt;
  1 Afghanistan  8425333
  2 Afghanistan  9240934
  3 Afghanistan 10267083
@@ -524,7 +527,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 2
    country          pop
-   &lt;fct&gt;          &lt;int&gt;
+   &lt;chr&gt;          &lt;int&gt;
  1 Afghanistan  8425333
  2 Afghanistan  9240934
  3 Afghanistan 10267083
@@ -547,7 +550,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 2
    country          pop
-   &lt;fct&gt;          &lt;int&gt;
+   &lt;chr&gt;          &lt;int&gt;
  1 Afghanistan  8425333
  2 Afghanistan  9240934
  3 Afghanistan 10267083
@@ -592,7 +595,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 624 × 6
    country continent  year lifeExp      pop gdpPercap
-   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
  1 Algeria Africa     1952    43.1  9279525     2449.
  2 Algeria Africa     1957    45.7 10270856     3014.
  3 Algeria Africa     1962    48.3 11000948     2551.
@@ -617,7 +620,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 190 × 6
    country    continent  year lifeExp       pop gdpPercap
-   &lt;fct&gt;      &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+   &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
  1 Bangladesh Asia       1957    39.3  51365468      662.
  2 Bangladesh Asia       1962    41.2  56839289      686.
  3 Bangladesh Asia       1967    43.5  62821884      721.
@@ -647,7 +650,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 6
   country          continent  year lifeExp       pop gdpPercap
-  &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+  &lt;chr&gt;            &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
 1 Congo, Dem. Rep. Africa     2007    46.5  64606759      278.
 2 Egypt            Africa     2007    71.3  80264543     5581.
 3 Ethiopia         Africa     2007    52.9  76511887      691.
@@ -661,7 +664,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,344 × 6
    country     continent  year lifeExp      pop gdpPercap
-   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+   &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
  1 Afghanistan Asia       1952    28.8  8425333      779.
  2 Afghanistan Asia       1957    30.3  9240934      821.
  3 Afghanistan Asia       1962    32.0 10267083      853.
@@ -690,7 +693,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
    country      continent  year lifeExp     pop gdpPercap
-   &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
+   &lt;chr&gt;        &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
  1 Rwanda       Africa     1992    23.6 7290203      737.
  2 Afghanistan  Asia       1952    28.8 8425333      779.
  3 Gambia       Africa     1952    30    284320      485.
@@ -711,7 +714,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
    country          continent  year lifeExp       pop gdpPercap
-   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+   &lt;chr&gt;            &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
  1 Japan            Asia       2007    82.6 127467972    31656.
  2 Hong Kong, China Asia       2007    82.2   6980412    39725.
  3 Japan            Asia       2002    82   127065841    28605.
@@ -806,7 +809,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 142 × 7
    country     continent  year lifeExp       pop gdpPercap           gdp
-   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+   &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;         &lt;dbl&gt;
  1 Afghanistan Asia       2007    43.8  31889923      975.  31079291949.
  2 Albania     Europe     2007    76.4   3600523     5937.  21376411360.
  3 Algeria     Africa     2007    72.3  33333216     6223. 207444851958.
