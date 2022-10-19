@@ -3,7 +3,5 @@ title: "About Me"
 subtitle: "Aubrey Mpungose"
 ---
 
-![](images/aubrey.jpg){width=200}
-
 I am a geographer by training, currently completing my PhD, focusing on the geographies of youth. I work as a lecturer in the School of Education, University of KwaZulu Natal, Pietermaritzburg Campus. My research interests include urban and political geography, political economy, computational social science and quantitative social science. I use data science tools,  computational methods and statistical modelling in my research. I enjoy analysing data in R and Python.
 
