@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Workshops for data Science - 4 Data Visualisation</title>
+<title>R Workshops for data Science - 4 Data Manipulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">4 Data Visualisation</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1.html"><strong>Weekly materials</strong></a></li><li class="breadcrumb-item"><a href="../weeks/week-4.html">Week 4: Data Visualisation</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -146,103 +122,115 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">R Workshops for data Science</a> 
         <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true"><strong>Welcome</strong></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text"><strong>Welcome</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">R Workshops for Data Science</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Workshops for Data Science</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../my-profile.html" class="sidebar-item-text sidebar-link">About Me</a>
+  <a href="../my-profile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Me</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../getting-started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  <a href="../getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">Schedule</a>
-  </div>
-</li>
+ <span class="menu-text">schedule.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true"><strong>Weekly materials</strong></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text"><strong>Weekly materials</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-1.html" class="sidebar-item-text sidebar-link">Week 1: Introduction: Basics of R functions</a>
+  <a href="../weeks/week-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1: Introduction: Basics of R functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-2.html" class="sidebar-item-text sidebar-link">Week 2: Data Structures and Types</a>
+  <a href="../weeks/week-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2: Data Structures and Types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-3.html" class="sidebar-item-text sidebar-link">Week 3: Data Manipulation</a>
+  <a href="../weeks/week-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3: Data Manipulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link active">Week 4: Data Visualisation</a>
+  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 4: Data Visualisation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-5.html" class="sidebar-item-text sidebar-link">Week 5: Exploratory Data Analysis, summary statistics</a>
+  <a href="../weeks/week-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5: Exploratory Data Analysis, summary statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-6.html" class="sidebar-item-text sidebar-link">Week 6: Hypothesis Testing</a>
+  <a href="../weeks/week-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6: Hypothesis Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-7.html" class="sidebar-item-text sidebar-link">Week 7: Regression: Linear and Logistic</a>
+  <a href="../weeks/week-7.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7: Regression: Linear and Logistic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8.html" class="sidebar-item-text sidebar-link">Week 8: Communicating and Reporting Data</a>
+  <a href="../weeks/week-8.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8: Communicating and Reporting Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-8b.html" class="sidebar-item-text sidebar-link">Week 8: Data Science Toolbox</a>
+  <a href="../weeks/week-8b.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8: Data Science Toolbox</span></a>
   </div>
 </li>
       </ul>
@@ -250,19 +238,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">4.1 Introduction</a></li>
-  <li><a href="#welcome-to-ggplot" id="toc-welcome-to-ggplot" class="nav-link" data-scroll-target="#welcome-to-ggplot">4.2 Welcome to ggplot</a></li>
-  <li><a href="#visualising-numerical-data" id="toc-visualising-numerical-data" class="nav-link" data-scroll-target="#visualising-numerical-data">4.3 Visualising Numerical data</a>
+  <li><a href="#part-i" id="toc-part-i" class="nav-link active" data-scroll-target="#part-i">3.1 PART I</a>
   <ul class="collapse">
-  <li><a href="#single-variable" id="toc-single-variable" class="nav-link" data-scroll-target="#single-variable">4.3.1 Single variable</a></li>
-  <li><a href="#visualising-more-than-one-numerical-variables" id="toc-visualising-more-than-one-numerical-variables" class="nav-link" data-scroll-target="#visualising-more-than-one-numerical-variables">4.3.2 Visualising more than one numerical variables</a></li>
-  <li><a href="#visualising-numerical-by-groupcategory" id="toc-visualising-numerical-by-groupcategory" class="nav-link" data-scroll-target="#visualising-numerical-by-groupcategory">4.3.3 Visualising numerical by group/category</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">3.1.1 Introduction</a></li>
+  <li><a href="#base-r-vs-tidyverse" id="toc-base-r-vs-tidyverse" class="nav-link" data-scroll-target="#base-r-vs-tidyverse">3.1.2 Base R vs Tidyverse</a></li>
+  <li><a href="#using-dplyr" id="toc-using-dplyr" class="nav-link" data-scroll-target="#using-dplyr">3.1.3 Using <code>dplyr</code></a>
+  <ul class="collapse">
+  <li><a href="#load-the-dataset" id="toc-load-the-dataset" class="nav-link" data-scroll-target="#load-the-dataset">Load the dataset</a></li>
+  <li><a href="#select-function" id="toc-select-function" class="nav-link" data-scroll-target="#select-function">3.1.4 <code>select()</code> function</a></li>
+  <li><a href="#filter-function" id="toc-filter-function" class="nav-link" data-scroll-target="#filter-function">3.1.5 <code>filter()</code> function</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-4.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -272,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">4 Data Visualisation</h1>
+<h1 class="title">4 Data Manipulation</h1>
 </div>
 
 
@@ -287,138 +280,372 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">4.1 Introduction</h2>
-<p>Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. In this section, we will use the <code>ggplot2</code> package within <code>tidyverse</code> to learn the foundations of data visualisation. ‘ggplot’ stands for <em>grammar of graphics</em>.</p>
-<p>As said before, Base R also comes with built-in functions for data visualisation. Let us briefly explore some of the functions in Base R before diving into <code>ggplot2</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">## load gapminder data and save </span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>gapminder <span class="ot">&lt;-</span> gapminder</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># filter year 2007</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>gapminder_2007 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">2007</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can create a histogram using the <code>hist()</code> function:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">hist</span>(gapminder_2007 <span class="sc">$</span>lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/Base R-hist-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>You can create a scatterplot to visualise the relationship between two numerical variables:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">plot</span>(gapminder_2007 <span class="sc">$</span>lifeExp, gapminder_2007 <span class="sc">$</span>gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/Base R scatter-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<section id="part-i" class="level1">
+<h1>3.1 PART I</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ul>
+<li><p>Understand dataframes</p></li>
+<li><p>Manipulate, transform and analyse dataframes</p></li>
+</ul>
 </section>
-<section id="welcome-to-ggplot" class="level2">
-<h2 class="anchored" data-anchor-id="welcome-to-ggplot">4.2 Welcome to ggplot</h2>
-<p><code>ggplot2</code> has steps/processes you follow to create a plot. Let us illustrate using the <code>gapminder</code> dataset. Load <code>tidyverse</code> package first:</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">3.1.1 Introduction</h2>
+<p>Dataframes, as we saw <a href="../weeks/week-2.html">the previous section</a>, a dataframe is a tabular data format, with columns and rows. Columns are <em>variable</em> names and rows are individual <em>observations</em>. Let us recreate the previous dataframe of names and ages of this class:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Firstly, create a character vector with names</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"thabiso"</span>, <span class="st">"nontando"</span>, <span class="st">"thandolwethu"</span>, <span class="st">"akhona"</span>, <span class="st">"perry"</span>, <span class="st">"balindile"</span>, <span class="st">"thembelani"</span>, <span class="st">"sabeliwe"</span>,  <span class="st">"phakamani"</span>,    <span class="st">"obianuju"</span>, <span class="st">"tshepang"</span>, <span class="st">"charity"</span>, <span class="st">"lungelo"</span>, <span class="st">"ntsikelelo"</span>, <span class="st">"akhona"</span>, <span class="st">"duduzile"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">set.seed</span>(<span class="dv">14</span>) <span class="co">#I do this so that we can get same results every time we generate numbers or simulate</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Create a numeric vector of ages</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">32</span>, <span class="dv">16</span>, <span class="at">replace =</span> T)</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># Create a dataframe</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(names, age) </span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># print the dataframe</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>data_frame </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          names age
+1       thabiso  26
+2      nontando  26
+3  thandolwethu  28
+4        akhona  21
+5         perry  28
+6     balindile  31
+7    thembelani  31
+8      sabeliwe  21
+9     phakamani  27
+10     obianuju  32
+11     tshepang  18
+12      charity  26
+13      lungelo  20
+14   ntsikelelo  29
+15       akhona  22
+16     duduzile  20</code></pre>
+</div>
+</div>
+<p>A dataframe is basically made of vectors. In our data_frame, we have character (names) and numeric (age) vectors that make our dataframe. We can extract these elements using the <code>$</code> sign:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>data_frame<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "thabiso"      "nontando"     "thandolwethu" "akhona"       "perry"       
+ [6] "balindile"    "thembelani"   "sabeliwe"     "phakamani"    "obianuju"    
+[11] "tshepang"     "charity"      "lungelo"      "ntsikelelo"   "akhona"      
+[16] "duduzile"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>data_frame<span class="sc">$</span>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 26 26 28 21 28 31 31 21 27 32 18 26 20 29 22 20</code></pre>
+</div>
+</div>
+<p>We can do a range of analysis with a dataframe. But firstly, we need to use right functions for this task.</p>
+</section>
+<section id="base-r-vs-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="base-r-vs-tidyverse">3.1.2 Base R vs Tidyverse</h2>
+<p>Until now, we have used functions within <strong>Base R</strong>, which are already installed in R. But in many cases, we want to use external packages to do any task we want. For example, if we want to do spatial and GIS analysis, we can install the <code>sf</code> package; we can use <code>tidymodels</code> to conduct machine learning models and so on. There are over 2000 R packages, contributed by different individuals around the world, and they are stored and curated in the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>.</p>
+<p>One of the most popular packages in R is the <code>tidyverse</code> meta-package, which include a collection of packages for working with data; most popular packages in the <code>tidyverse</code> are:</p>
+<ul>
+<li><p><code>dplyr</code>: for data cleaning, wrangling and transformation</p></li>
+<li><p><code>ggplot2</code>: for data visualisation</p></li>
+<li><p><code>tidyr</code>: for tidying up data</p></li>
+</ul>
+<p>There are other packages in the <code>tidyverse</code>. The philosophy of <code>tidyverse</code> is <em>tidy</em> data:</p>
+<blockquote class="blockquote">
+<ol type="1">
+<li>Each variable is a column; each column is a variable.</li>
+<li>Each observation is row; each row is an observation.</li>
+<li>Each value is a cell; each cell is a single value. <span class="citation" data-cites="r_4_ds">[@r_4_ds]</span></li>
+</ol>
+</blockquote>
+<p>Tidy data is a principle we are going to stick on through this course:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tidy_data.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Tidy data <span class="citation" data-cites="wickham_tidyverse_2019">@wickham_tidyverse_2019</span></figcaption>
+</figure>
+</div>
+<p>So all in all, tidyverse make it easier to work with dataframes and most people prefer it than base R functions. We will use an example at the end to understand the differences between Base R and tydiverse. You will need to install the package first. In R you install a package by calling <code>install.package()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After installing the package, you need to load it into the current R session using <code>library()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✔ ggplot2 3.4.1     ✔ purrr   1.0.1
+✔ tibble  3.1.8     ✔ dplyr   1.1.0
+✔ tidyr   1.3.0     ✔ stringr 1.5.0
+✔ readr   2.1.4     ✔ forcats 1.0.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'forcats' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
 </div>
-<p>Create a basic scatterplot of life expectancy and GDP per capita:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007,</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-intro-scatter-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>In the code above, we have three steps to create a plot:</p>
-<ol type="1">
-<li><p><code>ggplot(data = gapminder)</code>: we are simply telling ggplot that we are using gapminder dataset</p></li>
-<li><p><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))</code>: we are adding <em>mapping aesthetics</em> or <em>aesthetics</em>, allocating x, y axis. There are other <em>aesthetics</em> that we can add, such as <em>size, colour, shape, group, etc</em>. We will use these later in thise section.</p></li>
-<li><p><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()</code>: We have added a geometry layer through <code>geoms_point()</code> function to create a scatterplot. <em>geoms</em> tell ggplot what type of geometry/graph/plot we want to create. There are several geoms that we are going to use, such as:</p>
+</section>
+<section id="using-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="using-dplyr">3.1.3 Using <code>dplyr</code></h2>
+<p>In this section <code>dplyr</code> packages, which is included in the <code>tidyverse</code> collection of packages. <code>dplyr</code> has 5 verbs/functions:</p>
 <ul>
-<li><p><code>geom_point()</code></p></li>
-<li><p><code>geom_line()</code></p></li>
-<li><p><code>geom_histogram()</code></p></li>
-<li><p><code>geom_area()</code></p></li>
-<li><p><code>geom_boxplot()</code></p></li>
-<li><p><code>geom_bar()</code></p></li>
-</ul></li>
-</ol>
+<li><p><code>select()</code></p></li>
+<li><p><code>filter()</code></p></li>
+<li><p><code>arrange()</code></p></li>
+<li><p><code>summarise()</code></p></li>
+<li><p><code>mutate()</code></p></li>
+</ul>
+<section id="load-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-dataset">Load the dataset</h3>
+<p>All along, we have been working with fictional data. Let us use the <code>gapminder</code> dataset, which can be installed as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">install.packages</span>(<span class="st">"gapminder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After installing the <code>gapminder</code> data, you will have to load it using <code>library</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Than assign it to the object, <code>gapminder</code>, using the <code>&lt;-</code> operator:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>gapminder <span class="ot">&lt;-</span> gapminder</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>gapminder<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gapminder<span class="sc">$</span>country)</span>
+<span id="cb20-4"><a href="#cb20-4"></a>gapminder<span class="sc">$</span>continent <span class="ot">&lt;-</span> <span class="fu">as.character</span>(gapminder<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now you have an object, which is a dataframe, called <code>gapminder</code>, you can see it in the <code>Environment</code> pane in RStudio. It shows that it has <code>ncol(gapminder)</code> columns/variables and <code>nrow(gapminder)</code> observations/rows</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/environment_pane.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><code>gapminder</code> dataframe in Environment pane</figcaption>
+</figure>
+</div>
+<p>You can use the <code>str()</code> fucntion to get the structure of the dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">str</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
+ $ country  : chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+ $ continent: chr [1:1704] "Asia" "Asia" "Asia" "Asia" ...
+ $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+ $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...
+ $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+ $ gdpPercap: num [1:1704] 779 821 853 836 740 ...</code></pre>
+</div>
+</div>
+<p>We have 6 variables: - “country”</p>
+<ul>
+<li><p>“continent”</p></li>
+<li><p>“year”</p></li>
+<li><p>“lifeExp”: life expectancy of a country</p></li>
+<li><p>“pop”: population</p></li>
+<li><p>“gdpPercap”: GDP per capita</p></li>
+</ul>
+<p>You can get a sample of the first observations/rows using <code>head()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">head</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  country     continent  year lifeExp      pop gdpPercap
+  &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+1 Afghanistan Asia       1952    28.8  8425333      779.
+2 Afghanistan Asia       1957    30.3  9240934      821.
+3 Afghanistan Asia       1962    32.0 10267083      853.
+4 Afghanistan Asia       1967    34.0 11537966      836.
+5 Afghanistan Asia       1972    36.1 13079460      740.
+6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
+</div>
+</div>
 </section>
-<section id="visualising-numerical-data" class="level2">
-<h2 class="anchored" data-anchor-id="visualising-numerical-data">4.3 Visualising Numerical data</h2>
-<section id="single-variable" class="level3">
-<h3 class="anchored" data-anchor-id="single-variable">4.3.1 Single variable</h3>
-<p>For visualising one variable, we mostly histogram, density plot, etc:</p>
-<p>Create a histogram of GDP per capita:</p>
+<section id="select-function" class="level3">
+<h3 class="anchored" data-anchor-id="select-function">3.1.4 <code>select()</code> function</h3>
+<p>We may be interested in some of the columns in the <code>gampminder</code> dataframe, let say, for example, “country” and “pop” variables and discard others; we use the <code>select()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007, <span class="fu">aes</span>(gdpPercap)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">select</span>(gapminder, <span class="st">"country"</span>, <span class="st">"pop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 2
+   country          pop
+   &lt;chr&gt;          &lt;int&gt;
+ 1 Afghanistan  8425333
+ 2 Afghanistan  9240934
+ 3 Afghanistan 10267083
+ 4 Afghanistan 11537966
+ 5 Afghanistan 13079460
+ 6 Afghanistan 14880372
+ 7 Afghanistan 12881816
+ 8 Afghanistan 13867957
+ 9 Afghanistan 16317921
+10 Afghanistan 22227415
+# ℹ 1,694 more rows</code></pre>
 </div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-histogram-1.png" class="img-fluid" width="672"></p>
 </div>
-</div>
-<p>We can see that the GDP per capita variable is skewed. Density plots are also similar to histograms:</p>
+<p>R return only the country and population variables. <code>select()</code> function only return the variables/columns we are interested in:</p>
+<p><img src="images/visualise_select.png" class="img-fluid"></p>
+<p>The best way to work with R is using a pipe (<code>|&gt;</code>) operator. A pipe operator connect various tasks, for example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007, <span class="fu">aes</span>(gdpPercap)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-density-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">select</span>(country, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 2
+   country          pop
+   &lt;chr&gt;          &lt;int&gt;
+ 1 Afghanistan  8425333
+ 2 Afghanistan  9240934
+ 3 Afghanistan 10267083
+ 4 Afghanistan 11537966
+ 5 Afghanistan 13079460
+ 6 Afghanistan 14880372
+ 7 Afghanistan 12881816
+ 8 Afghanistan 13867957
+ 9 Afghanistan 16317921
+10 Afghanistan 22227415
+# ℹ 1,694 more rows</code></pre>
 </div>
 </div>
+<p>You will see the importance of the pipe operator later when our analysis get complicated. Throught the course, we will use the pipe operator. Also, you will in many textbooks and online resources uses the <code>%&gt;%</code> operator instead. That is because initially, a pipe operator was an external function within the <code>mgttr</code> package, so it was not an built-in R function. In recent years, the base R <code>|&gt;</code> pipe operator has been developed and we will stick to it. But they all do the same thing, so it your preference:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">select</span>(country, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 2
+   country          pop
+   &lt;chr&gt;          &lt;int&gt;
+ 1 Afghanistan  8425333
+ 2 Afghanistan  9240934
+ 3 Afghanistan 10267083
+ 4 Afghanistan 11537966
+ 5 Afghanistan 13079460
+ 6 Afghanistan 14880372
+ 7 Afghanistan 12881816
+ 8 Afghanistan 13867957
+ 9 Afghanistan 16317921
+10 Afghanistan 22227415
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Also, notice that we selected “country’ and”pop” columns but did not save them and assigned to an object. To store the results into an object, we have to use assignment operator (<code>&lt;-</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>gapminder_selected <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">select</span>(country, pop)</span>
+<span id="cb31-3"><a href="#cb31-3"></a></span>
+<span id="cb31-4"><a href="#cb31-4"></a>gapminder_selected <span class="co"># print</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 2
+   country          pop
+   &lt;chr&gt;          &lt;int&gt;
+ 1 Afghanistan  8425333
+ 2 Afghanistan  9240934
+ 3 Afghanistan 10267083
+ 4 Afghanistan 11537966
+ 5 Afghanistan 13079460
+ 6 Afghanistan 14880372
+ 7 Afghanistan 12881816
+ 8 Afghanistan 13867957
+ 9 Afghanistan 16317921
+10 Afghanistan 22227415
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Now we have saved results as <code>gapminder_selected</code>, and we can do other analysis with this object because we have saved it. So, in a nutshell, when you run a code without assigning results into an object, using the <code>&lt;-</code> operator, <strong>results will not be saved but will be printed</strong>.</p>
 </section>
-<section id="visualising-more-than-one-numerical-variables" class="level3">
-<h3 class="anchored" data-anchor-id="visualising-more-than-one-numerical-variables">4.3.2 Visualising more than one numerical variables</h3>
-<p>A scatter plot is used to show relationship between two variables</p>
+<section id="filter-function" class="level3">
+<h3 class="anchored" data-anchor-id="filter-function">3.1.5 <code>filter()</code> function</h3>
+<p>You may be interested in observations that meet certain conditions. We use <code>filter()</code> function to return the list that meet our conditions. Let us “continent” variable in <code>gapminder</code> dataframe. Get a basic table first:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-scatter-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">table</span>(gapminder<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Africa Americas     Asia   Europe  Oceania 
+     624      300      396      360       24 </code></pre>
 </div>
 </div>
-<p>We can add other aeasthetics such as shape, colour etc: Let’s add the colour aesthetics:</p>
+<p>Filter has several operators:</p>
+<ul>
+<li><p><code>==</code>: equal to</p></li>
+<li><p><code>!=</code>: not equal to</p></li>
+<li><p><code>&gt;</code>: greater than</p></li>
+<li><p><code>&lt;</code>: less than</p></li>
+<li><p><code>&gt;=</code>: greater than or equal to</p></li>
+<li><p><code>&lt;=</code>: less than or equal to</p></li>
+</ul>
+<p>There are five continents. Let us filter only observations from the Africa continent:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-scatter-colour-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>africa_gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Africa"</span>)</span>
+<span id="cb35-3"><a href="#cb35-3"></a></span>
+<span id="cb35-4"><a href="#cb35-4"></a>africa_gapminder  <span class="co"># print </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 624 × 6
+   country continent  year lifeExp      pop gdpPercap
+   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Algeria Africa     1952    43.1  9279525     2449.
+ 2 Algeria Africa     1957    45.7 10270856     3014.
+ 3 Algeria Africa     1962    48.3 11000948     2551.
+ 4 Algeria Africa     1967    51.4 12760499     3247.
+ 5 Algeria Africa     1972    54.5 14760787     4183.
+ 6 Algeria Africa     1977    58.0 17152804     4910.
+ 7 Algeria Africa     1982    61.4 20033753     5745.
+ 8 Algeria Africa     1987    65.8 23254956     5681.
+ 9 Algeria Africa     1992    67.7 26298373     5023.
+10 Algeria Africa     1997    69.2 29072015     4797.
+# ℹ 614 more rows</code></pre>
 </div>
 </div>
-<p>We can change the add the size aesthetics and use population of the country:</p>
+<p><code>africa_gapminder</code> object is a dataframe we have just created, with only countries from the African continent. What <code>filter()</code> does is to return observations/rows that only meet our conditions:</p>
+<p><img src="images/visualise_filter.png" class="img-fluid"></p>
+<p>Let us filter a numeric vector; for example, we may want to filter countries with population of above 50 million and assign results to an object named high_pop:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">colour =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-scatter-size-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>high_pop <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">filter</span>(pop <span class="sc">&gt;</span> <span class="dv">50000000</span>)</span>
+<span id="cb37-3"><a href="#cb37-3"></a></span>
+<span id="cb37-4"><a href="#cb37-4"></a>high_pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 190 × 6
+   country    continent  year lifeExp       pop gdpPercap
+   &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Bangladesh Asia       1957    39.3  51365468      662.
+ 2 Bangladesh Asia       1962    41.2  56839289      686.
+ 3 Bangladesh Asia       1967    43.5  62821884      721.
+ 4 Bangladesh Asia       1972    45.3  70759295      630.
+ 5 Bangladesh Asia       1977    46.9  80428306      660.
+ 6 Bangladesh Asia       1982    50.0  93074406      677.
+ 7 Bangladesh Asia       1987    52.8 103764241      752.
+ 8 Bangladesh Asia       1992    56.0 113704579      838.
+ 9 Bangladesh Asia       1997    59.4 123315288      973.
+10 Bangladesh Asia       2002    62.0 135656790     1136.
+# ℹ 180 more rows</code></pre>
 </div>
 </div>
-</section>
-<section id="visualising-numerical-by-groupcategory" class="level3">
-<h3 class="anchored" data-anchor-id="visualising-numerical-by-groupcategory">4.3.3 Visualising numerical by group/category</h3>
-<p>A boxplot and column charts are useful when we want to view statistics by a particular group, let say, GDP by continent:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007, <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week-4_files/figure-html/ggplot-boxplot-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p>You can also combine 2 conditions. Let us say we want:</p>
+<ul>
+<li>countries in Africa</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
@@ -565,9 +792,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -632,6 +873,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -687,6 +1014,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© Aubrey Mpungose, 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
