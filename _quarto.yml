@@ -29,24 +29,19 @@ website:
           
       - section: "**Weekly materials**"
         contents:
-          - href: weeks/week-1.qmd
+          - href: weeks/week-1a.qmd
             text: "Week 1: Introduction: Basics of R functions"
+          - href: weeks/week-1b.qmd
+            text: "Week 1: Data Structures and Types"
           - href: weeks/week-2.qmd
-            text: "Week 2: Data Structures and Types"
+            text: "Week 2: Data Visualisation"
           - href: weeks/week-3.qmd
             text: "Week 3: Data Manipulation"
           - href: weeks/week-4.qmd
-            text: "Week 4: Data Visualisation"
-          - href: weeks/week-5.qmd
-            text: "Week 5: Exploratory Data Analysis, summary statistics"
-          - href: weeks/week-6.qmd
-            text: "Week 6: Hypothesis Testing"
-          - href: weeks/week-7.qmd
-            text: "Week 7: Regression: Linear and Logistic"
-          - href: weeks/week-8.qmd
-            text: "Week 8: Communicating and Reporting Data"
-          - href: weeks/week-8b.qmd
-            text: "Week 8: Data Science Toolbox"
+            text: "Week 4: Exploratory Data Analysis, summary statistics"
+          - href: weeks/week-5a.qmd
+            text: "Week 5: Data Science Toolbox, where to from here?"
+          - href: weeks/week-5b.qmd
 
  
 format:

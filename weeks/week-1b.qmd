@@ -1,0 +1,200 @@
+---
+title: "2 Data Structures in R"
+code-copy: true
+code-line-numbers: true
+tidy: true
+---
+
+While I aim to introduce data structures: vectors, dataframes, lists, matrices, however our key focus is on **dataframes**
+
+## Learning objectives
+
+- To understand data types: vectors, dataframes, lists, matrices
+
+- To do basic analysis
+
+## Please Read
+
+
+
+## 2.1 Vectors
+
+Remember objects we created in the previous section)? Those were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:
+
+- numeric
+
+- character
+
+- logical
+
+Although we are repeating stuff from previous section, but it worth it. 
+
+### 2.1.1 Character vector
+
+Let us create a **character** vector of countries in Southern Africa:
+
+```{r creating character vectors, output: asis}
+
+southern_africa <- c("Angola", "Botswana", "Lesotho", "Malawi", "Mozambique", "Namibia", "South Africa", "Swaziland", "Zambia", "Zimbabwe")
+
+## print southern_africa
+
+southern_africa
+```
+
+
+We have created vector that named `southern_africa`, and it has the countries in the Southern African Region. Let us use basic functions to examine our `southern_africa` vector. We can get the type of vector by using `class()` function:
+
+```{r}
+class(southern_africa)
+```
+
+It is character vector. Remember from the previous section what is the character data type. 
+
+
+We can examine the length by using `length()` function:
+
+```{r}
+length(southern_africa)
+```
+
+We have `r length(southern_africa)` elements in the `southern_africa` vector
+
+### 2.1.2 Numeric vector
+
+Let us create a numeric vector, that we name `life_expectancy`, that has the average life expectancy of the countries of Southern Africa:
+
+```{r}
+life_expectancy <- c(61.6, 61.1, 57.1, 53.1, 62.9, 59.3, 59.3, 62.3, 61.2, 59.3)
+
+
+## print the life_expectancy vector
+
+life_expectancy
+```
+
+We can confirm the type of vector we have created by using the `class()` function:
+
+```{r}
+class(life_expectancy)
+```
+
+Indeed, the `life_expectancy` vector is a numeric vector.
+
+Let us do basic analyses of this vector. We can get the mean by using `mean()` functions:
+
+```{r}
+mean(life_expectancy)
+```
+
+We can get the median and standard deviation of `life_expectancy` vector using `median()` and `sd()` functions, respectively:
+
+```{r}
+
+median(life_expectancy)
+
+sd(life_expectancy)
+```
+
+You can get an element of vector by using `[]` function. Let us get the first element in `life_expectancy` vector:
+
+```{r}
+life_expectancy[1]
+```
+
+To get the 1st, 5th, 8th elements within a vector, you would do the following:
+
+```{r}
+life_expectancy[c(1, 5, 8)]
+```
+
+You can also extract the vector elements by using the colon (`:`):
+
+```{r}
+life_expectancy[3:6]
+```
+
+Here, we wanted to get all the elements starting from the 3rd position to the 6th position. 
+
+
+**Key lesson**: a vector holds items of a similar type: as we have seen in the `southern_countries` and `life_exepctancy` vectors. 
+
+## 2.2 Dataframes
+
+Dataframes will be the key focus throughout the course, so I will just briefly explain what is a dataframe. A dataframe is tabular data format, consisting of columns and rows. Let us use an example by creating a dataframe in R:
+
+```{r dataframe}
+
+# Create a character vector
+country_names <- c("Angola", "Botswana", "Lesotho", "Malawi", "Mozambique", "Namibia", "South Africa", "Swaziland", "Zambia", "Zimbabwe")
+
+country_names
+
+## Create a numeric vector
+
+life_expectancy <- c(61.6, 61.1, 57.1, 53.1, 62.9, 59.3, 59.3, 62.3, 61.2, 59.3)
+
+life_expectancy
+```
+
+
+Because we have 2 vectors of equal length, we can create a dataframe, using a `data.frame()` function:
+
+```{r first_dataframe}
+
+africa_df <- data.frame(country_names, life_expectancy) #combine two vectors to create a dataframe
+
+africa_df
+```
+
+We have created `africa_df` dataframe, with columns and rows. Let us examine it. How many columns and rows are in the dataframe. We can use the `str()` function:
+
+```{r}
+str(africa_df)
+```
+
+R tells us that there are 10 observations (rows) and 2 columns
+
+Let us view the first few observations (rows) using the `head()` function:
+
+```{r}
+head(africa_df)
+```
+
+View the last few observations using the `tail()`
+
+```{r}
+tail(africa_df)
+```
+
+In the following sections, we will be working with dataframes a lot, and other non-exhastive functions to manipulate and transofrm dataframes. 
+
+## 2.3 Other data types: matrices and lists
+
+You will learn more about `matrix` objects when you advance in your data science career.
+
+`lists` are another data structure that are used to hold objects of different type. For example, they can hold both vector and dataframe:
+
+```{r lists}
+
+
+## we already have `africa_df` dataframe
+
+## let us create a vector
+
+names <- c("Aubrey", "Sphethu", "Peter")
+
+ages <- c(32, 7, 19)
+
+```
+
+We have  objects: `africa_df` (dataframe) and `names` (vector) and `ages` (vector) objects. From these objects, we can create a lists:
+
+```{r list example}
+first_list <- list(africa_df, names, ages)
+
+first_list
+```
+
+Did you see that Jimmy? We actually printed the list. As you advance in your programming with R, you will see why lists are important and how everything is a lit. 
+

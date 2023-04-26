@@ -1,200 +1,136 @@
 ---
-title: "2 Data Structures in R"
+title: "3 Data Visualisation"
 code-copy: true
 code-line-numbers: true
 tidy: true
 ---
 
-While I aim to introduce data structures: vectors, dataframes, lists, matrices, however our key focus is on **dataframes**
+## 3.1 Introduction
 
-## Learning objectives
+Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. In this section, we will use the `ggplot2` package within `tidyverse` to learn the foundations of data visualisation. 'ggplot' stands for *grammar of graphics*. 
 
-- To understand data types: vectors, dataframes, lists, matrices
-
-- To do basic analysis
-
-## Please Read
+As said before, Base R also comes with built-in functions for data visualisation. Let us briefly explore some of the functions in Base R before diving into `ggplot2`
 
 
+```{r load gapminder}
 
-## 2.1 Vectors
+## load gapminder data and save 
+library(gapminder)
+gapminder <- gapminder
 
-Remember objects we created in the previous section)? Those were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:
+# filter year 2007
 
-- numeric
+gapminder_2007 <- dplyr::filter(gapminder, year == 2007)
+```
 
-- character
+You can create a histogram using the `hist()` function:
 
-- logical
+```{r Base R-hist}
+hist(gapminder_2007 $lifeExp)
+```
 
-Although we are repeating stuff from previous section, but it worth it. 
+You can create a scatterplot to visualise the relationship between two numerical variables:
 
-### 2.1.1 Character vector
+```{r Base R scatter}
+plot(gapminder_2007 $lifeExp, gapminder_2007 $gdpPercap)
+```
 
-Let us create a **character** vector of countries in Southern Africa:
+## 3.2 Welcome to ggplot
 
-```{r creating character vectors, output: asis}
+`ggplot2` has steps/processes you follow to create a plot. Let us illustrate using the `gapminder` dataset. Load `tidyverse` package first:
 
-southern_africa <- c("Angola", "Botswana", "Lesotho", "Malawi", "Mozambique", "Namibia", "South Africa", "Swaziland", "Zambia", "Zimbabwe")
+```{r ggplot-intro}
+library(tidyverse)
+```
 
-## print southern_africa
+Create a basic scatterplot of life expectancy and GDP per capita:
 
-southern_africa
+```{r ggplot-intro-scatter}
+ggplot(data = gapminder_2007,
+    aes(x = gdpPercap, y = lifeExp)) + 
+    geom_point()
+```
+
+In the code above, we have three steps to create a plot:
+
+1. `ggplot(data = gapminder)`: we are simply telling ggplot that we are using gapminder dataset
+
+2. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))`: we are adding *mapping aesthetics* or *aesthetics*, allocating x, y axis. There are other *aesthetics* that we can add, such as *size, colour, shape, group, etc*. We will use these later in thise section.
+
+3. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()`: We have added a geometry layer through `geoms_point()` function to create a scatterplot. *geoms* tell ggplot what type of geometry/graph/plot we want to create. There are several geoms that we are going to use, such as:
+
+    - `geom_point()`
+    
+    - `geom_line()`
+    
+    - `geom_histogram()`
+    
+    - `geom_area()`
+    
+    - `geom_boxplot()`
+    
+    - `geom_bar()`
+    
+
+## 3.3 Visualising Numerical data
+
+### 3.3.1 Single variable
+
+For visualising one variable, we mostly histogram, density plot, etc:
+
+Create a histogram of GDP per capita:
+
+```{r ggplot-histogram}
+
+ggplot(data = gapminder_2007, aes(gdpPercap)) +
+  geom_histogram()
+```
+
+We can see that the GDP per capita variable is skewed. Density plots are also similar to histograms:
+
+```{r ggplot-density}
+ggplot(data = gapminder_2007, aes(gdpPercap)) +
+  geom_density()
+```
+
+### 3.3.2 Visualising more than one numerical variables
+
+A scatter plot is used to show relationship between two variables
+
+```{r ggplot-scatter}
+ggplot(data = gapminder_2007, aes(x = gdpPercap, y = lifeExp)) + 
+    geom_point()
+```
+
+We can add other aeasthetics such as shape, colour etc: Let's add the colour aesthetics:
+
+```{r ggplot-scatter-colour}
+ggplot(data = gapminder_2007, aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+    geom_point()
+```
+
+We can change the add the size aesthetics and use population of the country:
+
+```{r ggplot-scatter-size}
+ggplot(data = gapminder_2007, aes(x = gdpPercap, y = lifeExp, colour = continent, size = pop)) + 
+  geom_point()
+```
+
+### 3.3.3 Visualising numerical by group/category
+
+A boxplot and column charts are useful when we want to view statistics by a particular group, let say, GDP by continent:
+
+```{r ggplot-boxplot}
+ggplot(data = gapminder_2007, aes(x = continent, y = gdpPercap)) +
+  geom_boxplot()
 ```
 
 
-We have created vector that named `southern_africa`, and it has the countries in the Southern African Region. Let us use basic functions to examine our `southern_africa` vector. We can get the type of vector by using `class()` function:
 
-```{r}
-class(southern_africa)
-```
 
-It is character vector. Remember from the previous section what is the character data type. 
 
 
-We can examine the length by using `length()` function:
 
-```{r}
-length(southern_africa)
-```
 
-We have `r length(southern_africa)` elements in the `southern_africa` vector
 
-### 2.1.2 Numeric vector
-
-Let us create a numeric vector, that we name `life_expectancy`, that has the average life expectancy of the countries of Southern Africa:
-
-```{r}
-life_expectancy <- c(61.6, 61.1, 57.1, 53.1, 62.9, 59.3, 59.3, 62.3, 61.2, 59.3)
-
-
-## print the life_expectancy vector
-
-life_expectancy
-```
-
-We can confirm the type of vector we have created by using the `class()` function:
-
-```{r}
-class(life_expectancy)
-```
-
-Indeed, the `life_expectancy` vector is a numeric vector.
-
-Let us do basic analyses of this vector. We can get the mean by using `mean()` functions:
-
-```{r}
-mean(life_expectancy)
-```
-
-We can get the median and standard deviation of `life_expectancy` vector using `median()` and `sd()` functions, respectively:
-
-```{r}
-
-median(life_expectancy)
-
-sd(life_expectancy)
-```
-
-You can get an element of vector by using `[]` function. Let us get the first element in `life_expectancy` vector:
-
-```{r}
-life_expectancy[1]
-```
-
-To get the 1st, 5th, 8th elements within a vector, you would do the following:
-
-```{r}
-life_expectancy[c(1, 5, 8)]
-```
-
-You can also extract the vector elements by using the colon (`:`):
-
-```{r}
-life_expectancy[3:6]
-```
-
-Here, we wanted to get all the elements starting from the 3rd position to the 6th position. 
-
-
-**Key lesson**: a vector holds items of a similar type: as we have seen in the `southern_countries` and `life_exepctancy` vectors. 
-
-## 2.2 Dataframes
-
-Dataframes will be the key focus throughout the course, so I will just briefly explain what is a dataframe. A dataframe is tabular data format, consisting of columns and rows. Let us use an example by creating a dataframe in R:
-
-```{r dataframe}
-
-# Create a character vector
-country_names <- c("Angola", "Botswana", "Lesotho", "Malawi", "Mozambique", "Namibia", "South Africa", "Swaziland", "Zambia", "Zimbabwe")
-
-country_names
-
-## Create a numeric vector
-
-life_expectancy <- c(61.6, 61.1, 57.1, 53.1, 62.9, 59.3, 59.3, 62.3, 61.2, 59.3)
-
-life_expectancy
-```
-
-
-Because we have 2 vectors of equal length, we can create a dataframe, using a `data.frame()` function:
-
-```{r first_dataframe}
-
-africa_df <- data.frame(country_names, life_expectancy) #combine two vectors to create a dataframe
-
-africa_df
-```
-
-We have created `africa_df` dataframe, with columns and rows. Let us examine it. How many columns and rows are in the dataframe. We can use the `str()` function:
-
-```{r}
-str(africa_df)
-```
-
-R tells us that there are 10 observations (rows) and 2 columns
-
-Let us view the first few observations (rows) using the `head()` function:
-
-```{r}
-head(africa_df)
-```
-
-View the last few observations using the `tail()`
-
-```{r}
-tail(africa_df)
-```
-
-In the following sections, we will be working with dataframes a lot, and other non-exhastive functions to manipulate and transofrm dataframes. 
-
-## 2.3 Other data types: matrices and lists
-
-You will learn more about `matrix` objects when you advance in your data science career.
-
-`lists` are another data structure that are used to hold objects of different type. For example, they can hold both vector and dataframe:
-
-```{r lists}
-
-
-## we already have `africa_df` dataframe
-
-## let us create a vector
-
-names <- c("Aubrey", "Sphethu", "Peter")
-
-ages <- c(32, 7, 19)
-
-```
-
-We have  objects: `africa_df` (dataframe) and `names` (vector) and `ages` (vector) objects. From these objects, we can create a lists:
-
-```{r list example}
-first_list <- list(africa_df, names, ages)
-
-first_list
-```
-
-Did you see that Jimmy? We actually printed the list. As you advance in your programming with R, you will see why lists are important and how everything is a lit. 
 
