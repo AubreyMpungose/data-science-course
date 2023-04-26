@@ -6,11 +6,16 @@ subtitle: University of KwaZulu Natal, Howard College
 
 ## An Invitation to R for Data Science
 
-These workshops aim to introduce participants to the foundations of data science using R programming Language. As most of you are post-graduate students in geography, adding data science to your bag of skills will important going forward;it will help you in your own research and improving your advantage in labour market.
+These workshops aim to introduce participants to the foundations of data science using R programming Language. As you advance in our studies and career, you will learn that the ability to collect, clean, transform, analyse and use data for predictive analytics is one of the most needed skills in the labour market. As we live in the digital age, where big data has become a commodity, learning to handle these data systems will be one of the most important investments in your career.
 
-In this course, we will be using R for programming and data analysis. R, along with other languages such as Python and Julia, is flexible when working with data, especially large data. Majority of academics, researchers, and students who analyse quantitative data use programs such as SPSS, STATA and Excel, and I have also used them before. I discourage the use of these tools for following reasons. Firstly, they are expensive! Universities spend large sums of money to purchase these licences, which disadvantages students and academics in the developing world. On the other hand, R, Python and Julia are free and come with with **ABSOLUTELY NO WARRANTY** 😎 . Secondly, programming tools such as R, Python and Julia allow for [*Reproducible Science*](https://www.nature.com/articles/s41562-016-0021). Recently, there has been a call among global scientists to make their analyses and results as open as possible. This means sharing the code and all the outputs so that other researchers can examine your work.
+In this course, we will be using R for programming and data analysis. R, along with Python, is flexible when working with data, especially large data. Majority of academics, researchers, and students who analyse quantitative data use programs such as SPSS, STATA and Excel, and I have also used them before. I discourage the use of these tools for following reasons. Firstly, they are expensive! Universities spend large sums of money to purchase these licences, which disadvantages students and academics in the developing world. Secondly, We passed the age of SPSS and other Graphic User Interface software, they are very limited. But if you insist on learning them, good for you.
 
-I choose to work with R, simply because it is an awesome tool and I f\*\*\*n love it! While I also use Python, however, as a social science student, who did not have a computer science and programming background, R was easier for me to learn.
+![](images/future.png){width=450}
+
+On the other hand, R and Python are free and come with with **ABSOLUTELY NO WARRANTY** 😎 . They are very flexible and can handle very large data. They are the dominant programming languages used in the labour market around the world. R and Python have thousands of libraries that can handle and analyse any type of data, including basic data cleaning and wrangling, transforming data, regression, visualisation, text analysis and natural language processing, statistical analysis, machine learning, geospatial analysis and visualisation. In academia, researchers are encouraged to make their research outputs _Reproducible_, that is, researchers must share code, data and analysis when submitting papers to journals. This is called [*Reproducible Science*](https://www.nature.com/articles/s41562-016-0021). 
+
+
+Both R and Python are awesome programming languages. Here, we will use R because I feel there are many libraries that are user friendly in R compared to Python. However, I will also share Python code that correspond with R code. At the end of this course, you will have an option to continue to serious data science stuff. 
 
 ## Learning Objectives
 
@@ -18,27 +23,22 @@ I choose to work with R, simply because it is an awesome tool and I f\*\*\*n lov
 
 -   Conduct basic programming using R
 
--   Learn to wrangle, clean and transform categorical data
-
--   Learn to wrangle, clean and transform numerical data
+-   Learn to wrangle, clean and transform  data
 
 -   Learn the basics of data visualisation using ggplot2
 
 -   Learn how to conduct exploratory data analysis
 
--   Learn to conduct basic statistical analysis (descriptive and inferential)
-
 -   Learn to communicate and tell stories using data
 
 ## Materials
 
-There are tons of materials available online; below I share compulsory and recommended materials we will beusing. There will be additional materials and slides for each section:
+There are tons of materials available online; below I share compulsory and recommended materials we will be using. There will be additional materials and slides for each section:
 
 -   Wickham, H., & Grolemund, G. (2016). [R for Data Science: import, tidy, transform, visualize, and model data](https://r4ds.hadley.nz/). O'Reilly Media, Inc.
 
 -   Healy, K. (2018). [Data visualization: a practical introduction](https://socviz.co/). Princeton University Press.
 
--   Peng, R. (2013) [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/)
 
 # Schedule
 
@@ -49,10 +49,8 @@ There are tons of materials available online; below I share compulsory and recom
 | Week 2 | Data Wrangling                                   | Aubrey    |
 | Week 3 | Data Visualisation                               | Aubrey    |
 | Week 4 | Exploratory Data Analysis, summary statistics    | Aubrey    |
-| Week 5 | Hypothesis Testing                               | Aubrey    |
-| Week 6 | Regression: Linear and Logistic                  | Aubrey    |
-| Week 7 | Communicating and Reporting Data using RMarkdown | Aubrey    |
-| Week 8 | Data Science Toolbox, where to from here?        | Aubrey    |
+| Week 5 | Communicating and Reporting Data using RMarkdown | Aubrey    |
+| Week 5 | Data Science Toolbox, where to from here?        | Aubrey    |
 
 
 ## Let's Get Started

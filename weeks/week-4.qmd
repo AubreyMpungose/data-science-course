@@ -3,7 +3,6 @@ title: "4 Data Visualisation"
 code-copy: true
 code-line-numbers: true
 tidy: true
-toc: true
 ---
 
 ## 4.1 Introduction
@@ -18,18 +17,22 @@ As said before, Base R also comes with built-in functions for data visualisation
 ## load gapminder data and save 
 library(gapminder)
 gapminder <- gapminder
+
+# filter year 2007
+
+gapminder_2007 <- dplyr::filter(gapminder, year == 2007)
 ```
 
 You can create a histogram using the `hist()` function:
 
 ```{r Base R-hist}
-hist(gapminder$lifeExp)
+hist(gapminder_2007 $lifeExp)
 ```
 
 You can create a scatterplot to visualise the relationship between two numerical variables:
 
 ```{r Base R scatter}
-plot(gapminder$lifeExp, gapminder$gdpPercap)
+plot(gapminder_2007 $lifeExp, gapminder_2007 $gdpPercap)
 ```
 
 ## 4.2 Welcome to ggplot
@@ -43,7 +46,7 @@ library(tidyverse)
 Create a basic scatterplot of life expectancy and GDP per capita:
 
 ```{r ggplot-intro-scatter}
-ggplot(data = gapminder,
+ggplot(data = gapminder_2007,
     aes(x = gdpPercap, y = lifeExp)) + 
     geom_point()
 ```
@@ -56,17 +59,17 @@ In the code above, we have three steps to create a plot:
 
 3. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()`: We have added a geometry layer through `geoms_point()` function to create a scatterplot. *geoms* tell ggplot what type of geometry/graph/plot we want to create. There are several geoms that we are going to use, such as:
 
-    - geom_point()
+    - `geom_point()`
     
-    - geom_line()
+    - `geom_line()`
     
-    - geom_histogram(
+    - `geom_histogram()`
     
-    - geom_area()
+    - `geom_area()`
     
-    - geom_boxplot()
+    - `geom_boxplot()`
     
-    - geom_bar()
+    - `geom_bar()`
     
 
 ## 4.3 Visualising Numerical data
@@ -79,14 +82,14 @@ Create a histogram of GDP per capita:
 
 ```{r ggplot-histogram}
 
-ggplot(data = gapminder, aes(gdpPercap)) +
+ggplot(data = gapminder_2007, aes(gdpPercap)) +
   geom_histogram()
 ```
 
 We can see that the GDP per capita variable is skewed. Density plots are also similar to histograms:
 
 ```{r ggplot-density}
-ggplot(data = gapminder, aes(gdpPercap)) +
+ggplot(data = gapminder_2007, aes(gdpPercap)) +
   geom_density()
 ```
 
@@ -95,21 +98,21 @@ ggplot(data = gapminder, aes(gdpPercap)) +
 A scatter plot is used to show relationship between two variables
 
 ```{r ggplot-scatter}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + 
+ggplot(data = gapminder_2007, aes(x = gdpPercap, y = lifeExp)) + 
     geom_point()
 ```
 
 We can add other aeasthetics such as shape, colour etc: Let's add the colour aesthetics:
 
 ```{r ggplot-scatter-colour}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+ggplot(data = gapminder_2007, aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
     geom_point()
 ```
 
 We can change the add the size aesthetics and use population of the country:
 
 ```{r ggplot-scatter-size}
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, colour = continent, size = pop)) + 
+ggplot(data = gapminder_2007, aes(x = gdpPercap, y = lifeExp, colour = continent, size = pop)) + 
   geom_point()
 ```
 
@@ -118,7 +121,11 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, colour = continent, siz
 A boxplot and column charts are useful when we want to view statistics by a particular group, let say, GDP by continent:
 
 ```{r ggplot-boxplot}
-ggplot(data = gapminder, aes(x = continent, y = gdpPercap)) +
+ggplot(data = gapminder_2007, aes(x = continent, y = gdpPercap)) +
   geom_boxplot()
 ```
+
+
+
+
 
