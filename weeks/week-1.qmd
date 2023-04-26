@@ -19,7 +19,7 @@ tidy: true
 
 ## Basics of R
 
-In the [getting started](/_site/getting-started.html) section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the hashtag (`#`) to tell R not to execute the line as a code.
+In the previous section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the hashtag (`#`) to tell R not to execute the line as a code.
 
 R can be used as a calculator:
 
@@ -71,28 +71,28 @@ However, many R programmers and I use the `<-` operator for a serious reasons; s
 Also, you do not necessarily need to call the `print()` function in order to print results/output, you can just write the name of the object you have created, run it and it will be printed:
 
 ```{r printing: 2}
-age <- 32
+river_km <- 1200
 
-age
+river_km
 ```
 
-Notice that the object age, which has my age in 2022 was printed on the console.
+Notice that the object river_km when we print the object river_km, it prints what is inside of it, the element on the console.
 
 
-Basically, we have created **variables** (addition, multiplication, age). With these variables, we can perform basic analysis:
+Basically, we have created **variables** (addition, multiplication, river_km). With these variables, we can perform basic analysis:
 
 ```{r basic analysis}
-aubrey_age <- 32
+tugela_length <- 502
 
-charity_age <- 24
+orange_river_length <- 2200
 
-# Find age difference
-aubrey_age - charity_age
+# Find the difference in river length
+orange_river_length - orange_river_length
 
 
-# sum of ages
+# sum of rivers
 
-charity_age + aubrey_age
+orange_river_length - orange_river_length
 ```
 
 ### Data types in R
@@ -109,54 +109,52 @@ There 3 basic data types in R
 An example of a **character**:
 
 ```{r characters}
-name <- "Aubrey"
+river <- "Tugela"
 
-gender <- "male"
+province <- "KZN"
 ```
 
 Notice that a character need to be surrounded by ("") every time, otherwise R will return an error
 
 ```{r error character, error=TRUE}
-name <- Aubrey
+river <- Tugela
 
-gender <- male
+province <- KZN
 ```
 
 An example of a numerical:
 
 ```{r nemricals}
-income <- 1500
- 
-income # print income
+tugela_length_km <- 502
 
-height <- 1.9
-
-height # print height
+orange_river_length <- 2200
 ```
+
+numericals do not to need to be surrounded by `" "`, if you do, they will be stored as numeric. 
 
 
 An example of a logical data type:
 
 ```{r logical}
-male <- TRUE
+kzn <- TRUE
 
-male 
+kzn 
 
-female <- FALSE
+gauteng <- FALSE
 
-female 
+gauteng 
 ```
 
 You can ask R to tell you the type of the data structure by using `class()` function:
 
 ```{r class}
-class(aubrey_age)
+class(tugela_length_km)
 
-class(income)
+class(orange_river_length)
 
-class(name)
+class(river)
 
-class(male)
+class(gauteng)
 ```
 
 ## Base R functions
@@ -168,56 +166,56 @@ R has built-in functions that we can use to analyse and manipulate data. A funct
 Basic summary statistics functions are mean, median, range, standard deviation, etc. We can get in R using the `mean()` function:
 
 ```{r mean function}
-# first create a vector of numbers
+# first create a vector of numbers ("numeric vector")
 
-age <- c(34, 18, 19, 58, 22)
+rivers_length <- c(502, 2200, 1500, 3050, 800)
 
-age
+rivers_length
 
-mean(age)
+mean(rivers_length)
 ```
 
-The mean of a _age_ variable we have created is `r mean(age)`. 
+The mean of a _rivers_length_ variable we have created is `r mean(rivers_length)`. 
 
 We can use the `median()` function to get the median of our variable:
 
 ```{r median function}
-median(age)
+median(rivers_length)
 ```
 
-The median age is `r mean(age)`
+The median age is `r median(rivers_length)`
 
 
 And also the standard deviation using `sd()` function:
 
 ```{r standard deviation}
 
-sd(age)
+sd(rivers_length)
 ```
 
 You can get minimum and maximum values using `min()` and `max()` functions, respectively:
 
 ```{r min and max}
-min(age)
+min(rivers_length)
 
 
-max(age)
+max(rivers_length)
 ```
 
 You can create a basic plot using a `hist()` function:
 
 ```{r histogram}
-hist(age)
+hist(rivers_length)
 ```
 
 You may want to arrange the values into ascending or descending order using the `sort()` function:
 
 ```{r sort}
-sort(age) # sort into ascending order
+sort(rivers_length) # sort into ascending order
 
 
-sort(age, decreasing = T) # sort into descending order
+sort(rivers_length, decreasing = T) # sort into descending order
 ```
 
 
-In this week, you have learnt basic data types, functions and operators. Next, we learn different type of data structures. 
+In this section, you have learnt basic data types, functions and operators. Next, we learn different type of data structures. 

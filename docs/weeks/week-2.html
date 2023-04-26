@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Workshops for data Science - 2 Data Types in R</title>
+<title>R Workshops for data Science - 2 Data Structures in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">2 Data Types in R</h1>
+      <h1 class="quarto-secondary-nav-title">2 Data Structures in R</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -258,7 +258,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#please-read" id="toc-please-read" class="nav-link" data-scroll-target="#please-read">Please Read</a></li>
-  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">2.1 Vectors</a></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">2.1 Vectors</a>
+  <ul class="collapse">
+  <li><a href="#character-vector" id="toc-character-vector" class="nav-link" data-scroll-target="#character-vector">2.1.1 Character vector</a></li>
+  <li><a href="#numeric-vector" id="toc-numeric-vector" class="nav-link" data-scroll-target="#numeric-vector">2.1.2 Numeric vector</a></li>
+  </ul></li>
   <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes">2.2 Dataframes</a></li>
   <li><a href="#other-data-types-matrices-and-lists" id="toc-other-data-types-matrices-and-lists" class="nav-link" data-scroll-target="#other-data-types-matrices-and-lists">2.3 Other data types: matrices and lists</a></li>
   </ul>
@@ -269,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">2 Data Types in R</h1>
+<h1 class="title d-none d-lg-block">2 Data Structures in R</h1>
 </div>
 
 
@@ -284,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>While I aim to introduce data types: vectors, dataframes, lists, matrices, however our key focus is on <strong>dataframes</strong></p>
+<p>While I aim to introduce data structures: vectors, dataframes, lists, matrices, however our key focus is on <strong>dataframes</strong></p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ul>
@@ -297,170 +301,227 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">2.1 Vectors</h2>
-<p>Remember objects we created in the <a href="_site/weeks/week-1.html">previous section</a>? Those were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:</p>
+<p>Remember objects we created in the previous section)? Those were all vectors. A vector is the basic data structure used to hold values of the same type. Similar to the previous section, a vector can be:</p>
 <ul>
 <li><p>numeric</p></li>
 <li><p>character</p></li>
 <li><p>logical</p></li>
 </ul>
-<p>Although we are repeating stuff from previous section, but it worth it. Let us create a <strong>character</strong> vector from the names of the this class:</p>
+<p>Although we are repeating stuff from previous section, but it worth it.</p>
+<section id="character-vector" class="level3">
+<h3 class="anchored" data-anchor-id="character-vector">2.1.1 Character vector</h3>
+<p>Let us create a <strong>character</strong> vector of countries in Southern Africa:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"thabiso"</span>, <span class="st">"nontando"</span>, <span class="st">"thandolwethu"</span>, <span class="st">"akhona"</span>, <span class="st">"perry"</span>, <span class="st">"balindile"</span>, <span class="st">"thembelani"</span>, <span class="st">"sabeliwe"</span>,  <span class="st">"phakamani"</span>,    <span class="st">"obianuju"</span>, <span class="st">"tshepang"</span>, <span class="st">"charity"</span>, <span class="st">"lungelo"</span>, <span class="st">"ntsikelelo"</span>, <span class="st">"akhona"</span>, <span class="st">"duduzile"</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>southern_africa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Angola"</span>, <span class="st">"Botswana"</span>, <span class="st">"Lesotho"</span>, <span class="st">"Malawi"</span>, <span class="st">"Mozambique"</span>, <span class="st">"Namibia"</span>, <span class="st">"South Africa"</span>, <span class="st">"Swaziland"</span>, <span class="st">"Zambia"</span>, <span class="st">"Zimbabwe"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="do">## print southern_africa</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>southern_africa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "thabiso"      "nontando"     "thandolwethu" "akhona"       "perry"       
- [6] "balindile"    "thembelani"   "sabeliwe"     "phakamani"    "obianuju"    
-[11] "tshepang"     "charity"      "lungelo"      "ntsikelelo"   "akhona"      
-[16] "duduzile"    </code></pre>
+<pre><code> [1] "Angola"       "Botswana"     "Lesotho"      "Malawi"       "Mozambique"  
+ [6] "Namibia"      "South Africa" "Swaziland"    "Zambia"       "Zimbabwe"    </code></pre>
 </div>
 </div>
-<p>We have a vector of names of this class, and assigned to an object <code>names</code>. Let us use basic functions to examine our names vector. We can get the type of vector by using <code>class()</code> function:</p>
+<p>We have created vector that named <code>southern_africa</code>, and it has the countries in the Southern African Region. Let us use basic functions to examine our <code>southern_africa</code> vector. We can get the type of vector by using <code>class()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">class</span>(names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">class</span>(southern_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
+<p>It is character vector. Remember from the previous section what is the character data type.</p>
 <p>We can examine the length by using <code>length()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">length</span>(names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">length</span>(southern_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16</code></pre>
+<pre><code>[1] 10</code></pre>
 </div>
 </div>
-<p>We have 16 items in the <code>names</code> vector</p>
-<p>For numerical vector, we will use imaginary ages of this class:</p>
+<p>We have 10 elements in the <code>southern_africa</code> vector</p>
+</section>
+<section id="numeric-vector" class="level3">
+<h3 class="anchored" data-anchor-id="numeric-vector">2.1.2 Numeric vector</h3>
+<p>Let us create a numeric vector, that we name <code>life_expectancy</code>, that has the average life expectancy of the countries of Southern Africa:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>class_age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">59</span>, <span class="dv">20</span>, <span class="dv">28</span>, <span class="dv">59</span>, <span class="dv">44</span>, <span class="dv">29</span>, <span class="dv">13</span>, <span class="dv">09</span>, <span class="dv">23</span>, <span class="dv">16</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>life_expectancy <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">61.6</span>, <span class="fl">61.1</span>, <span class="fl">57.1</span>, <span class="fl">53.1</span>, <span class="fl">62.9</span>, <span class="fl">59.3</span>, <span class="fl">59.3</span>, <span class="fl">62.3</span>, <span class="fl">61.2</span>, <span class="fl">59.3</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>class_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="do">## print the life_expectancy vector</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a>life_expectancy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 19 59 20 28 59 44 29 13  9 23 16</code></pre>
+<pre><code> [1] 61.6 61.1 57.1 53.1 62.9 59.3 59.3 62.3 61.2 59.3</code></pre>
 </div>
 </div>
-<p>we have numerical vector that we named <code>class_age</code>. Let us do basic analyses of this vector. We can get the mean by using <code>mean()</code> functions:</p>
+<p>We can confirm the type of vector we have created by using the <code>class()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">mean</span>(class_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">class</span>(life_expectancy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 29</code></pre>
+<pre><code>[1] "numeric"</code></pre>
 </div>
 </div>
-<p>We can get the median and standard deviation of <code>class_age</code> vector using <code>median()</code> and <code>sd()</code> fucntions, respectively:</p>
+<p>Indeed, the <code>life_expectancy</code> vector is a numeric vector.</p>
+<p>Let us do basic analyses of this vector. We can get the mean by using <code>mean()</code> functions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">median</span>(class_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">mean</span>(life_expectancy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 23</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">sd</span>(class_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 17.51571</code></pre>
+<pre><code>[1] 59.72</code></pre>
 </div>
 </div>
-<p>You can get an element of vector by using <code>[]</code> function. Let us get the first element in <code>names</code> vector:</p>
+<p>We can get the median and standard deviation of <code>life_expectancy</code> vector using <code>median()</code> and <code>sd()</code> functions, respectively:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">median</span>(life_expectancy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "thabiso"</code></pre>
+<pre><code>[1] 60.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">sd</span>(life_expectancy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.898582</code></pre>
 </div>
 </div>
-<p><strong>Key lesson</strong>: a vector holds items of a similar type; as we have seen in the <code>names</code> and <code>class_age</code> vectors.</p>
+<p>You can get an element of vector by using <code>[]</code> function. Let us get the first element in <code>life_expectancy</code> vector:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>life_expectancy[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 61.6</code></pre>
+</div>
+</div>
+<p>To get the 1st, 5th, 8th elements within a vector, you would do the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>life_expectancy[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 61.6 62.9 62.3</code></pre>
+</div>
+</div>
+<p>You can also extract the vector elements by using the colon (<code>:</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>life_expectancy[<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 57.1 53.1 62.9 59.3</code></pre>
+</div>
+</div>
+<p>Here, we wanted to get all the elements starting from the 3rd position to the 6th position.</p>
+<p><strong>Key lesson</strong>: a vector holds items of a similar type: as we have seen in the <code>southern_countries</code> and <code>life_exepctancy</code> vectors.</p>
+</section>
 </section>
 <section id="dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="dataframes">2.2 Dataframes</h2>
 <p>Dataframes will be the key focus throughout the course, so I will just briefly explain what is a dataframe. A dataframe is tabular data format, consisting of columns and rows. Let us use an example by creating a dataframe in R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Create a character vetor</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"thabiso"</span>, <span class="st">"nontando"</span>, <span class="st">"thandolwethu"</span>, <span class="st">"akhona"</span>, <span class="st">"perry"</span>, <span class="st">"balindile"</span>, <span class="st">"thembelani"</span>, <span class="st">"sabeliwe"</span>,  <span class="st">"phakamani"</span>,    <span class="st">"obianuju"</span>, <span class="st">"tshepang"</span>, <span class="st">"charity"</span>, <span class="st">"lungelo"</span>, <span class="st">"ntsikelelo"</span>, <span class="st">"akhona"</span>, <span class="st">"duduzile"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3"></a></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="fu">set.seed</span>(<span class="dv">14</span>) <span class="co">#I do this so that we can get same results every time we generate numbers or simulate</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">32</span>, <span class="dv">16</span>, <span class="at">replace =</span> T) <span class="co"># Here i am generating random ages, from ages 16 to 32, with a sample of 16 people, to match our names vector</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a></span>
-<span id="cb17-7"><a href="#cb17-7"></a>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Create a character vector</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>country_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Angola"</span>, <span class="st">"Botswana"</span>, <span class="st">"Lesotho"</span>, <span class="st">"Malawi"</span>, <span class="st">"Mozambique"</span>, <span class="st">"Namibia"</span>, <span class="st">"South Africa"</span>, <span class="st">"Swaziland"</span>, <span class="st">"Zambia"</span>, <span class="st">"Zimbabwe"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a>country_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "thabiso"      "nontando"     "thandolwethu" "akhona"       "perry"       
- [6] "balindile"    "thembelani"   "sabeliwe"     "phakamani"    "obianuju"    
-[11] "tshepang"     "charity"      "lungelo"      "ntsikelelo"   "akhona"      
-[16] "duduzile"    </code></pre>
+<pre><code> [1] "Angola"       "Botswana"     "Lesotho"      "Malawi"       "Mozambique"  
+ [6] "Namibia"      "South Africa" "Swaziland"    "Zambia"       "Zimbabwe"    </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="do">## Create a numeric vector</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a>life_expectancy <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">61.6</span>, <span class="fl">61.1</span>, <span class="fl">57.1</span>, <span class="fl">53.1</span>, <span class="fl">62.9</span>, <span class="fl">59.3</span>, <span class="fl">59.3</span>, <span class="fl">62.3</span>, <span class="fl">61.2</span>, <span class="fl">59.3</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a>life_expectancy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 26 26 28 21 28 31 31 21 27 32 18 26 20 29 22 20</code></pre>
+<pre><code> [1] 61.6 61.1 57.1 53.1 62.9 59.3 59.3 62.3 61.2 59.3</code></pre>
 </div>
 </div>
-<p>To create a dataframe, we will use a <code>data.frame()</code> function:</p>
+<p>Because we have 2 vectors of equal length, we can create a dataframe, using a <code>data.frame()</code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(names, age) <span class="co">#combine two vectors to create a dataframe</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a>data_frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>africa_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(country_names, life_expectancy) <span class="co">#combine two vectors to create a dataframe</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a>africa_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          names age
-1       thabiso  26
-2      nontando  26
-3  thandolwethu  28
-4        akhona  21
-5         perry  28
-6     balindile  31
-7    thembelani  31
-8      sabeliwe  21
-9     phakamani  27
-10     obianuju  32
-11     tshepang  18
-12      charity  26
-13      lungelo  20
-14   ntsikelelo  29
-15       akhona  22
-16     duduzile  20</code></pre>
+<pre><code>   country_names life_expectancy
+1         Angola            61.6
+2       Botswana            61.1
+3        Lesotho            57.1
+4         Malawi            53.1
+5     Mozambique            62.9
+6        Namibia            59.3
+7   South Africa            59.3
+8      Swaziland            62.3
+9         Zambia            61.2
+10      Zimbabwe            59.3</code></pre>
 </div>
 </div>
-<p>Bingo! We have a dataframe with names and age columns, and individual rows. As I said earlier, This course is all about dataframes (tabular data).</p>
+<p>We have created <code>africa_df</code> dataframe, with columns and rows. Let us examine it. How many columns and rows are in the dataframe. We can use the <code>str()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">str</span>(africa_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   10 obs. of  2 variables:
+ $ country_names  : chr  "Angola" "Botswana" "Lesotho" "Malawi" ...
+ $ life_expectancy: num  61.6 61.1 57.1 53.1 62.9 59.3 59.3 62.3 61.2 59.3</code></pre>
+</div>
+</div>
+<p>R tells us that there are 10 observations (rows) and 2 columns</p>
+<p>Let us view the first few observations (rows) using the <code>head()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">head</span>(africa_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_names life_expectancy
+1        Angola            61.6
+2      Botswana            61.1
+3       Lesotho            57.1
+4        Malawi            53.1
+5    Mozambique            62.9
+6       Namibia            59.3</code></pre>
+</div>
+</div>
+<p>View the last few observations using the <code>tail()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">tail</span>(africa_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   country_names life_expectancy
+5     Mozambique            62.9
+6        Namibia            59.3
+7   South Africa            59.3
+8      Swaziland            62.3
+9         Zambia            61.2
+10      Zimbabwe            59.3</code></pre>
+</div>
+</div>
+<p>In the following sections, we will be working with dataframes a lot, and other non-exhastive functions to manipulate and transofrm dataframes.</p>
 </section>
 <section id="other-data-types-matrices-and-lists" class="level2">
 <h2 class="anchored" data-anchor-id="other-data-types-matrices-and-lists">2.3 Other data types: matrices and lists</h2>
 <p>You will learn more about <code>matrix</code> objects when you advance in your data science career.</p>
 <p><code>lists</code> are another data structure that are used to hold objects of different type. For example, they can hold both vector and dataframe:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"thabiso"</span>, <span class="st">"nontando"</span>, <span class="st">"thandolwethu"</span>, <span class="st">"akhona"</span>, <span class="st">"perry"</span>, <span class="st">"balindile"</span>, <span class="st">"thembelani"</span>, <span class="st">"sabeliwe"</span>,  <span class="st">"phakamani"</span>,    <span class="st">"obianuju"</span>, <span class="st">"tshepang"</span>, <span class="st">"charity"</span>, <span class="st">"lungelo"</span>, <span class="st">"ntsikelelo"</span>, <span class="st">"akhona"</span>, <span class="st">"duduzile"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2"></a></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">set.seed</span>(<span class="dv">14</span>) <span class="co">#I do this so that we can get same results every time we generate numbers or simulate</span></span>
-<span id="cb23-4"><a href="#cb23-4"></a>age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">32</span>, <span class="dv">16</span>, <span class="at">replace =</span> T)</span>
-<span id="cb23-5"><a href="#cb23-5"></a></span>
-<span id="cb23-6"><a href="#cb23-6"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(names, age)</span>
-<span id="cb23-7"><a href="#cb23-7"></a></span>
-<span id="cb23-8"><a href="#cb23-8"></a>height <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="fl">1.9</span>, <span class="at">n =</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="do">## we already have `africa_df` dataframe</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a></span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="do">## let us create a vector</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a></span>
+<span id="cb35-5"><a href="#cb35-5"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Aubrey"</span>, <span class="st">"Sphethu"</span>, <span class="st">"Peter"</span>)</span>
+<span id="cb35-6"><a href="#cb35-6"></a></span>
+<span id="cb35-7"><a href="#cb35-7"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">7</span>, <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We have 2 objects: <code>data_frame</code> (dataframe) and <code>height</code> (vector). From these objects, we can create a lists:</p>
+<p>We have objects: <code>africa_df</code> (dataframe) and <code>names</code> (vector) and <code>ages</code> (vector) objects. From these objects, we can create a lists:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>first_list <span class="ot">&lt;-</span> <span class="fu">list</span>(data_frame, height)</span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a>first_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>first_list <span class="ot">&lt;-</span> <span class="fu">list</span>(africa_df, names, ages)</span>
+<span id="cb36-2"><a href="#cb36-2"></a></span>
+<span id="cb36-3"><a href="#cb36-3"></a>first_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-          names age
-1       thabiso  26
-2      nontando  26
-3  thandolwethu  28
-4        akhona  21
-5         perry  28
-6     balindile  31
-7    thembelani  31
-8      sabeliwe  21
-9     phakamani  27
-10     obianuju  32
-11     tshepang  18
-12      charity  26
-13      lungelo  20
-14   ntsikelelo  29
-15       akhona  22
-16     duduzile  20
+   country_names life_expectancy
+1         Angola            61.6
+2       Botswana            61.1
+3        Lesotho            57.1
+4         Malawi            53.1
+5     Mozambique            62.9
+6        Namibia            59.3
+7   South Africa            59.3
+8      Swaziland            62.3
+9         Zambia            61.2
+10      Zimbabwe            59.3
 
 [[2]]
- [1] 1.766411 1.535822 1.315833 1.377657 1.555922 1.621243 1.674928 1.557059
- [9] 1.346348 1.471001 1.618520 1.070648 1.730195 1.123595 1.871876 1.588802</code></pre>
+[1] "Aubrey"  "Sphethu" "Peter"  
+
+[[3]]
+[1] 32  7 19</code></pre>
 </div>
 </div>
-<p>Did you see that Jimmy? We actually printed the list.</p>
-<p>Let us go to dataframes, which is the core of this course</p>
+<p>Did you see that Jimmy? We actually printed the list. As you advance in your programming with R, you will see why lists are important and how everything is a lit.</p>
 
 
 </section>
