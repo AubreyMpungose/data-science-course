@@ -47,32 +47,6 @@ We can do a range of analysis with a dataframe. But firstly, we need to use righ
 
 ## 4.1.2 Base R vs Tidyverse
 
-Until now, we have used functions within **Base R**, which are already installed in R. But in many cases, we want to use external packages to do any task we want. For example, if we want to do spatial and GIS analysis, we can install the `sf` package; we can use `tidymodels` to conduct machine learning models and so on. There are over 2000 R packages, contributed by different individuals around the world, and they are stored and curated in the [CRAN website](https://cran.r-project.org/web/packages/).
-
-One of the most popular packages in R is the `tidyverse` meta-package, which include a collection of packages for working with data; most popular packages in the `tidyverse` are:
-
--   `dplyr`: for data cleaning, wrangling and transformation
-
--   `ggplot2`: for data visualisation
-
--   `tidyr`: for tidying up data
-
-There are other packages in the `tidyverse`. The philosophy of `tidyverse` is *tidy* data:
-
-> 1.  Each variable is a column; each column is a variable.
-> 2.  Each observation is row; each row is an observation.
-> 3.  Each value is a cell; each cell is a single value. [@r_4_ds]
-
-Tidy data is a principle we are going to stick on through this course:
-
-![Tidy data @wickham_tidyverse_2019](images/tidy_data.png)
-
-So all in all, tidyverse make it easier to work with dataframes and most people prefer it than base R functions. We will use an example at the end to understand the differences between Base R and tydiverse. You will need to install the package first. In R you install a package by calling `install.package()` function:
-
-```{r install tidyverse, eval=F, echo=T}
-install.packages("tidyverse")
-```
-
 After installing the package, you need to load it into the current R session using `library()` function:
 
 ```{r load packages}

@@ -40,8 +40,9 @@ website:
           - href: weeks/week-4.qmd
             text: "Week 4: Exploratory Data Analysis, summary statistics"
           - href: weeks/week-5a.qmd
-            text: "Week 5: Data Science Toolbox, where to from here?"
+            text: "Week 5: ommunicating and Reporting Data"
           - href: weeks/week-5b.qmd
+            text: "Week 5: Data Science Toolbox, where to from here?"
 
  
 format:
