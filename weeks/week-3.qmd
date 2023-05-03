@@ -3,6 +3,7 @@ title: "4 Data Manipulation"
 code-copy: true
 code-line-numbers: true
 tidy: true
+code-annotations: below
 ---
 
 
@@ -50,6 +51,7 @@ We can do a range of analysis with a dataframe. But firstly, we need to use righ
 After installing the package, you need to load it into the current R session using `library()` function:
 
 ```{r load packages}
+#| warning: false
 library(tidyverse)
 ```
 

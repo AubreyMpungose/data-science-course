@@ -3,6 +3,7 @@ title: "3 Data Visualisation"
 code-copy: true
 code-line-numbers: true
 tidy: true
+code-annotations: true
 ---
 
 ## **Before We Begin**
@@ -32,6 +33,9 @@ There are other packages in the `tidyverse`. The philosophy of `tidyverse` is *t
 > 2.  Each observation is row; each row is an observation.
 > 3.  Each value is a cell; each cell is a single value. [@r_4_ds]
 
+
+![Tidy data](images/tidy_data_2.png)
+
 Tidy data is a principle we are going to stick on through this course:
 
 ![Tidy data @wickham_tidyverse_2019](images/tidy_data.png)
@@ -44,24 +48,18 @@ install.packages("tidyverse")
 
 Whenever you need to use an external package and its functions, you first need to load it using `library()` function. In our case, we want to load the tidyverse package we have just installed:
 
-```{r}
+```{r load tidyverse, warning = FALSE}
 library(tidyverse)
 ```
 
 You will load other packages like this.
-
-### Importing data
-
-Data come from various sources: web, local computer, API, databases, etc. In most cases, we would want to import tabular data as a dataframe. Tabular data is normally stored as comma-separated values (.csv) or excel (.xlsx, .xls, etc). It is important to keep not of the extension of the file before loading it.
-
-Next, you will need to know the directory in which your data file is stored. It is very important to know file paths of your computer and this is the foundational skill you need to master in any data science career. We will return on this later. 
 
 
 ## 3.1 Introduction to data visualisation
 
 Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. Before any analysis, it is important to visualise data to explore its distribution, relationships, normality, etc.
 
-In this section, we will use the `ggplot2` package within `tidyverse` to learn the foundations of data visualisation. 'ggplot' stands for *grammar of graphics*. 
+In this section, we will use the `ggplot2` package within `tidyverse` to learn the foundations of data visualisation. The `ggplot2` package got it philosophy from the book _The Grammar of Graphics_, written by  Leland Wilkinson. The `ggplot2` package was developed by Hadley Wickham, probably one of the most greatest data scientist in this era. 
 
 We will be working with the `gapminder` dataset, which is the real world data. You will need to install its first because it comes as a package:
 
@@ -89,43 +87,201 @@ Explore the data first;  how many columns and rows are in `gapminder` dataframe?
 str(gapminder)
 ```
 
-We can see that `gapminder` has `r ncol(gapminder)` and `r nrow(gapminder)`. 
+We can see that `gapminder` has `r ncol(gapminder)` and `r nrow(gapminder)`. The columns in the dataset are:
+
+- country: Simply the country
+
+- continent: Continent
+
+- year: The year data was collected
+
+- lifeExp: Life expectancy of a country in year
+
+- pop: Population of the country in a year
+
+- gdpPercap: Gross Domestic Product of a country in a year
 
 
-`ggplot2` has steps/processes you follow to create a plot. Let us illustrate using the `gapminder` dataset. Load `tidyverse` package first:
+`ggplot2` has steps/processes you follow to create a plot. Let us illustrate using the `gapminder` dataset. Load `ggplot2` package first:
 
-```{r ggplot-intro}
-library(tidyverse)
+```{r ggplot-intro, warning=FALSE}
+library(ggplot2)
 ```
 
-Create a basic scatterplot of life expectancy and GDP per capita:
 
-```{r ggplot-intro-scatter}
+A plot created in using `ggplot2` has the following components/layers, and we will go through them step-by-step: 
+
+![source](images/ggplot_elements.png)
+
+## 3.2 Create a plot
+From the `ggapminder` dataframe, we will create a scatterplot of life expectancy and GDP per capita, and add all the components of ggplot step-by-step. 
+
+### 3.2.1 Layer 1: data
+
+We use the `ggplot()` function to add data, in this case, `gapminder` dataframe:
+
+```{r ggplot-add data}
+ggplot(data = gapminder)
+```
+
+### 3.2.2 Layer 2: aesthetics
+
+Aesthetics are used to allocate x and y variables, depending on the type of the plot we want to create, in this case, x variable is `gdpPercap` and y variable is `lifeExp`:
+
+```{r ggplot-add aesthetics}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
+```
+
+There are other *aesthetics* that we can add, such as *size, colour, shape, group, etc*. We will use these later in this section.
+
+### 3.2.3 Layer 3: geometry
+
+Geometry is the type of plot/object we want to create. In our casewe want to create a scatterplot, by using `geom_point()` function:
+
+```{r ggplot-add geom}
 ggplot(data = gapminder,
     aes(x = gdpPercap, y = lifeExp)) + 
     geom_point()
 ```
 
+We now have our first plot. There other geometry types in ggplot depending on the type of data you have
+
+
+- `geom_point()` : for sactterplots
+    
+- `geom_line()` : for line plots
+    
+- `geom_histogram()` : for histogram
+    
+- `geom_area()` : for area charts
+    
+- `geom_boxplot()`  : for boxplots
+    
+- `geom_bar()` : for bar graphs
+
 In the code above, we have three steps to create a plot:
 
 1. `ggplot(data = gapminder)`: we are simply telling ggplot that we are using gapminder dataset
 
-2. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))`: we are adding *mapping aesthetics* or *aesthetics*, allocating x, y axis. There are other *aesthetics* that we can add, such as *size, colour, shape, group, etc*. We will use these later in this section.
+2. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))`: we are adding *mapping aesthetics* or *aesthetics*, allocating x, y axis. 
 
-3. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()`: We have added a geometry layer through `geoms_point()` function to create a scatterplot. *geoms* tell ggplot what type of geometry/graph/plot we want to create. There are several geoms that we are going to use, such as:
+3. `ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()`: We have added a geometry layer through `geoms_point()` function to create a scatterplot. 
 
-    - `geom_point()`
-    
-    - `geom_line()`
-    
-    - `geom_histogram()`
-    
-    - `geom_area()`
-    
-    - `geom_boxplot()`
-    
-    - `geom_bar()`
-    
+
+### 3.2.4 Layer  4: Labels
+
+`ggplot2` package can handle various plot labels, including axis titles and graph titles. We can do this using `labs()` function:
+
+```{r ggplot-labels}
+ggplot(data = gapminder,
+       aes(x = gdpPercap, y = lifeExp)) + 
+  geom_point() +
+  labs(x = "GDP per capita (log scale)",
+       y = "Life expectancy",
+       title = "GDP vs Life Expectancy (1952-2007)",
+       subtitle = "People in developed countries tend to live longer",
+       caption = "Data source: Gapminder")
+```
+
+
+### 3.2.5 Facets
+
+Faceting is used when we’d like to split a particular visualization by the values of another variable. This will create multiple copies of the same type of plot with matching x and y axes, but whose content will differ.
+
+When we one to split the plots into various sub-categories, by using a categorical variable, we use `facet_wrap()` function. For example, we may want to split the above plot by continent:
+
+```{r ggplot facet}
+ggplot(data = gapminder,
+       aes(x = gdpPercap, y = lifeExp)) + 
+  geom_point() +
+  facet_wrap(~continent)
+```
+
+There are other argument that comes with `facet_wrap()` function. We can specify tghe number of rows and columns, using `nrow()` and `ncol()` functions, respectively.
+
+```{r ggplot facet2}
+ggplot(data = gapminder,
+       aes(x = gdpPercap, y = lifeExp)) + 
+  geom_point() +
+  facet_wrap(~continent, ncol = 5)
+```
+
+
+### 3.2.6 Transforming axis scales
+
+Notice that x-axis is not normally distributed. One of the method to use is to transform data to log10, to normnalise it:
+
+```{r ggplot scales log}
+ggplot(data = gapminder,
+    aes(x = gdpPercap, y = lifeExp)) + 
+    geom_point() +
+  scale_x_log10()
+```
+
+Look how it changes.
+
+There are many scales functions and you will learn them along the way by coding and exploring ggplot.
+
+
+### 3.2.7 Returning to aeathetics
+
+We can add other aesthetics in our plot, for example, we can allocate colour to the `continent` column:
+
+```{r ggplot aesthetics-colour}
+ggplot(data = gapminder,
+    aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+    geom_point() +
+  scale_x_log10()
+```
+
+Notice how countries in Europe tend to have higher GDP per capita and and higher life expectancy compared to African countries. 
+
+We can also change the shape of points in the aesthetics:
+```{r ggplot aesthetics-shape}
+ggplot(data = gapminder,
+    aes(x = gdpPercap, y = lifeExp, colour = continent, shape = continent)) + 
+    geom_point() +
+  scale_x_log10()
+```
+
+There are many other aesthetics arguments that are used and they are beyond the scope of this course. It takes practice. 
+
+### 3.2.8 Themes
+
+Try experimenting with different themes that comes with ggplot. `theme_minimal()` will produce a minimalist theme with less background:
+
+```{r ggplot-change theme}
+ggplot(data = gapminder,
+       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+  geom_point() +
+  scale_x_log10() +
+  labs(x = "GDP per capita (log scale)",
+       y = "Life expectancy",
+       title = "GDP vs Life Expectancy (1952-2007)",
+       subtitle = "People in developed countries tend to live longer",
+       caption = "Data source: Gapminder") +
+  theme_minimal()
+```
+
+There are other themes that can transform your plots to look more elegant.  
+
+You can also choose the how fonts appear using `themes()` function:
+
+```{r ggplot-theme change font}
+ggplot(data = gapminder,
+       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+  geom_point() +
+  scale_x_log10() +
+  labs(x = "GDP per capita (log scale)",
+       y = "Life expectancy",
+       title = "GDP vs Life Expectancy (1952-2007)",
+       subtitle = "People in developed countries tend to live longer",
+       caption = "Data source: Gapminder") +
+  theme(text = element_text(size = 15))
+```
+
+With `themes()` function, you can remove borders, change the colour of fonts, remove the legend, etc. 
+
 
 ## 3.3 Visualising Numerical data
 
@@ -195,21 +351,31 @@ ggplot(data = gapminder, aes(x = year, y = lifeExp, group = country)) +
   geom_line()
 ```
 
+
+This looks ugly, but we will learn how to create proper line plots at the end. 
+
 You can also use stacked column chart:
 
-```{r}
-ggplot(data = gapminder, aes(x = year, y = pop)) +
+```{r stacked column}
+ggplot(data = gapminder, aes(x = year, y = pop, fill = continent)) +
   geom_col()
 ```
 
 View by continent and make it 100% stacked bar
 
-```{r}
+```{r stacked hundred percent}
 ggplot(data = gapminder, aes(x = year, y = pop, fill = continent)) +
   geom_col(position = "fill")
 ```
 
-This looks ugly, but we will learn how to create proper line plots at the end. 
+You can make horizontal bars by using `coord_flip()`:
+
+```{r coord_flip}
+ggplot(data = gapminder, aes(x = year, y = pop, fill = continent)) +
+  geom_col(position = "fill") +
+  coord_flip()
+```
+
 
 ## 3.4 Visualising categorical/character data
 
@@ -219,113 +385,6 @@ In the gapminder dataset, we have two categorical columns: country and continent
 ggplot(data = gapminder, aes(x = continent)) + 
   geom_bar()
 ```
-
-## 3.5 Improving plots
-
-`ggplot()` is a very rich library for visualisation. There are various ways we can improve our plot. Let us create a basic scatter plot:
-
-```{r}
-ggplot(data = gapminder,
-    aes(x = gdpPercap, y = lifeExp)) + 
-    geom_point()
-```
-
-### 3.5.1 Transforming axis scales
-
-Notice that x-axis is not normally distributed. One of the method to use is to transform data to log10, to normnalise it:
-
-```{r}
-ggplot(data = gapminder,
-    aes(x = gdpPercap, y = lifeExp)) + 
-    geom_point() +
-  scale_x_log10()
-```
-Look how it changes.
-
-There are many scales functions and you will learn them along the way by coding and exploring ggplot.
-
-### 3.5.2 Aesthetics mappings
-
-We can add other aesthetics in our plot, for example, we can allocate colour to the `continent` column:
-
-```{r}
-ggplot(data = gapminder,
-    aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
-    geom_point() +
-  scale_x_log10()
-```
-Notice how countries in Europe tend to have higher GDP per capita and and higher life expectancy compared to African countries. 
-
-We can also change the shape of points in the aesthetics:
-```{r}
-ggplot(data = gapminder,
-    aes(x = gdpPercap, y = lifeExp, colour = continent, shape = continent)) + 
-    geom_point() +
-  scale_x_log10()
-```
-
-There are many other aesthetics arguments that are used and they are beyond the scope of this course. It takes practice. 
-
-
-### 3.5.4 Facets 
-
-Faceting is used when we’d like to split a particular visualization by the values of another variable. This will create multiple copies of the same type of plot with matching x and y axes, but whose content will differ.
-
-When we one to split the plots into various sub-categories, by using a categorical variable, we use `facet_wrap()` function. For example, we may want to split the above plot by continent:
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
-  geom_point() +
-  scale_x_log10() +
-  facet_wrap(~continent)
-```
-
-There are other argument that comes with `facet_wrap()` function. We can specify tghe number of rows and columns, using `nrow()` and `ncol()` functions, respectively.
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
-  geom_point() +
-  scale_x_log10() +
-  facet_wrap(~continent, ncol = 5)
-```
-
-### 3.5.5 Labels
-
-`ggplot2` package can handle various plot labels, including axis titles and graph titles. We can do this using `labs()` function:
-
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
-  geom_point() +
-  scale_x_log10() +
-  labs(x = "GDP per capita (log scale)",
-       y = "Life expectancy",
-       title = "GDP vs Life Expectancy (1952-2007)",
-       subtitle = "People in developed countries tend to live longer",
-       caption = "Data source: Gapminder")
-```
-
-3.5.5 Themes
-
-Try experimenting with different themes that comes with ggplot. `theme_minimal()` will produce a minimalist theme with less background:
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
-  geom_point() +
-  scale_x_log10() +
-  labs(x = "GDP per capita (log scale)",
-       y = "Life expectancy",
-       title = "GDP vs Life Expectancy (1952-2007)",
-       subtitle = "People in developed countries tend to live longer",
-       caption = "Data source: Gapminder") +
-  theme_minimal()
-```
-
-There are other external themes packages and the list is non-exhaustive.
 
 
 ### Bonus one: Interactive charts
@@ -338,7 +397,7 @@ install.packages(plotly)
 
 Then load the package:
 
-```{r}
+```{r load plotly, warning=FALSE}
 library(plotly)
 ```
 
@@ -370,12 +429,12 @@ Experiment with the results, when you hoover around the plot, you can see it sho
 You can create an animated chart using the `gganimate` package. Install first:
 
 ```{r install gganimate, eval=F, echo=T}
-install.packages(plotly)
+install.packages(gganimate)
 ```
 
 Load the package:
 
-```{r}
+```{r load gganimate, warning=FALSE}
 library(gganimate)
 ```
 
@@ -414,5 +473,5 @@ This section introduced you to basics of data visualisation using ggplot2 packag
 
 - [R for Data Science](https://r4ds.hadley.nz/). Chapter 10-12
 
-
+- [Data visualisation with ggplot2: cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
 
