@@ -87,12 +87,12 @@ tugela_length <- 502
 orange_river_length <- 2200
 
 # Find the difference in river length
-orange_river_length - orange_river_length
+orange_river_length - tugela_length
 
 
 # sum of rivers
 
-orange_river_length - orange_river_length
+orange_river_length + tugela_length
 ```
 
 ### Data types in R
