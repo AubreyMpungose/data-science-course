@@ -220,7 +220,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors">5.2.1 Factors</a></li>
   </ul>
 </li>
-  <li><a href="#create-a-new-categorical-column-from-a-numeric-column" id="toc-create-a-new-categorical-column-from-a-numeric-column" class="nav-link" data-scroll-target="#create-a-new-categorical-column-from-a-numeric-column">5.3 Create a new categorical column from a numeric column</a></li>
+  <li>
+<a href="#create-a-new-categorical-column-from-a-numeric-column" id="toc-create-a-new-categorical-column-from-a-numeric-column" class="nav-link" data-scroll-target="#create-a-new-categorical-column-from-a-numeric-column">5.3 Create a new categorical column from a numeric column</a>
+  <ul class="collapse">
+<li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">5.4 Missing data</a></li>
+  <li><a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data">5.5 Reshaping data</a></li>
+  <li><a href="#excercise" id="toc-excercise" class="nav-link" data-scroll-target="#excercise">5.5.1 Excercise</a></li>
+  </ul>
+</li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data">5.6 Joining data</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-4.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -538,6 +546,114 @@ Attaching package: 'janitor'</code></pre>
 <p><img src="week-4_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<section id="missing-data" class="level3"><h3 class="anchored" data-anchor-id="missing-data">5.4 Missing data</h3>
+<p>Data rarely comes clean, and sometimes data can contain missing value. In R missing values are stored as <code>NA</code>. Once we go to the introduction to statistics section, we will deal with missing values.</p>
+</section><section id="reshaping-data" class="level3"><h3 class="anchored" data-anchor-id="reshaping-data">5.5 Reshaping data</h3>
+<p>There are 2 types of dataframes: wide and long formats. I will use examples to illustrate both types.</p>
+<p>Suppose we have data containing GDP increase rate of South Africa from 2010 to 2020 Let us create a <em>long</em> format of this dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2010</span><span class="sc">:</span><span class="dv">2020</span>)</span>
+<span id="cb42-2"><a href="#cb42-2"></a>  </span>
+<span id="cb42-3"><a href="#cb42-3"></a>gdp_rate <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.2</span>, <span class="fl">1.9</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">7.0</span>)</span>
+<span id="cb42-4"><a href="#cb42-4"></a></span>
+<span id="cb42-5"><a href="#cb42-5"></a>sa_gdp_long <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(year, gdp_rate)</span>
+<span id="cb42-6"><a href="#cb42-6"></a></span>
+<span id="cb42-7"><a href="#cb42-7"></a>sa_gdp_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year gdp_rate
+1  2010      2.8
+2  2011      3.1
+3  2012      3.3
+4  2013      2.2
+5  2014      1.9
+6  2015      1.3
+7  2016      1.5
+8  2017      0.6
+9  2018      0.8
+10 2019      0.2
+11 2020     -7.0</code></pre>
+</div>
+</div>
+<p>The dataframe is in long format: We have one column reprenting all years, and gdp_rate column representing all values of GDP growth rate. What if we want to change to a <em>wide</em> format? We can use <code>pivot_wider()</code> function within <code>tidyr</code> package, also a part of <code>tydiverse</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>sa_gdp_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(sa_gdp_long,  <span class="at">names_from =</span> year, <span class="at">values_from =</span> gdp_rate)</span>
+<span id="cb44-2"><a href="#cb44-2"></a></span>
+<span id="cb44-3"><a href="#cb44-3"></a>sa_gdp_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 11
+  `2010` `2011` `2012` `2013` `2014` `2015` `2016` `2017` `2018` `2019` `2020`
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1    2.8    3.1    3.3    2.2    1.9    1.3    1.5    0.6    0.8    0.2     -7</code></pre>
+</div>
+</div>
+<p>You can see that in a wide format, each year is a column.</p>
+</section><section id="excercise" class="level3"><h3 class="anchored" data-anchor-id="excercise">5.5.1 Excercise</h3>
+<p>In the gapminder data do the following:</p>
+<ul>
+<li><p>Select country, year and life expectancy columns</p></li>
+<li><p>filter rows rows from South Africa, Zimbabwe and Mozambique</p></li>
+<li><p>reshape this data to a wide format</p></li>
+</ul></section></section><section id="joining-data" class="level2"><h2 class="anchored" data-anchor-id="joining-data">5.6 Joining data</h2>
+<p>You my have 2 dataframes with corresponding ID columns but with other different column names. Create a first dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>country_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"South Africa"</span>, <span class="st">"Zimbabwe"</span>, <span class="st">"Mozambique"</span>, <span class="st">"Botswana"</span>, <span class="st">"Eswatini"</span>, <span class="st">"Lesotho"</span>, <span class="st">"Namibia"</span>)</span>
+<span id="cb46-2"><a href="#cb46-2"></a></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">set.seed</span>(<span class="dv">187</span>)</span>
+<span id="cb46-4"><a href="#cb46-4"></a>population <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">5000</span><span class="sc">:</span><span class="dv">15000</span>, <span class="dv">7</span>)</span>
+<span id="cb46-5"><a href="#cb46-5"></a></span>
+<span id="cb46-6"><a href="#cb46-6"></a>pop_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(country_name, population)</span>
+<span id="cb46-7"><a href="#cb46-7"></a></span>
+<span id="cb46-8"><a href="#cb46-8"></a>pop_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_name population
+1 South Africa       7330
+2     Zimbabwe      11323
+3   Mozambique       7419
+4     Botswana       9156
+5     Eswatini      11783
+6      Lesotho      14088
+7      Namibia       8824</code></pre>
+</div>
+</div>
+<p>Create a second dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>country_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"South Africa"</span>, <span class="st">"Zimbabwe"</span>, <span class="st">"Mozambique"</span>, <span class="st">"Botswana"</span>, <span class="st">"Eswatini"</span>, <span class="st">"Lesotho"</span>, <span class="st">"Namibia"</span>)</span>
+<span id="cb48-2"><a href="#cb48-2"></a></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="fu">set.seed</span>(<span class="dv">50</span>)</span>
+<span id="cb48-4"><a href="#cb48-4"></a>avg_age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">23</span><span class="sc">:</span><span class="dv">35</span>, <span class="dv">7</span>)</span>
+<span id="cb48-5"><a href="#cb48-5"></a></span>
+<span id="cb48-6"><a href="#cb48-6"></a>age_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(country_name, avg_age)</span>
+<span id="cb48-7"><a href="#cb48-7"></a></span>
+<span id="cb48-8"><a href="#cb48-8"></a>age_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_name avg_age
+1 South Africa      33
+2     Zimbabwe      26
+3   Mozambique      24
+4     Botswana      29
+5     Eswatini      25
+6      Lesotho      30
+7      Namibia      34</code></pre>
+</div>
+</div>
+<p>Now we have 2 data frames: pop_df with a fake data on countries’ population and the age_df with a fake data on countries’ average age. The common name in both dataframes is <code>country_name</code>. We will use <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> function to join 2 dataframes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>combined_df <span class="ot">&lt;-</span> <span class="fu">merge</span>(pop_df, age_df, <span class="at">by =</span> <span class="st">"country_name"</span>)</span>
+<span id="cb50-2"><a href="#cb50-2"></a></span>
+<span id="cb50-3"><a href="#cb50-3"></a>combined_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_name population avg_age
+1     Botswana       9156      29
+2     Eswatini      11783      25
+3      Lesotho      14088      30
+4   Mozambique       7419      24
+5      Namibia       8824      34
+6 South Africa       7330      33
+7     Zimbabwe      11323      26</code></pre>
+</div>
+</div>
+<p>Bingo!</p>
+<p>There is more to joining data: <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> is a Base R funcion. There are other options of joining data using <code>dplyr</code>; see <a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">this guide</a></p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

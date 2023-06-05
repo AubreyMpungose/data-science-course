@@ -205,11 +205,89 @@ There are other options for figures including width, length, etc. You can find m
 
 ### Computation and code 
 
-You can include R, Python, Javascript and other programming languages code within quarto document. We will show some examples using R and gapminder data that we have been using. 
+You can include R, Python, Javascript and other programming languages code within quarto document. We will show some examples using R and gapminder data that we have been using. For example, to insert R code, you insert a code chunk begining with ```{r} and ends with ```
 
-To load the `gapminder` data and the `tidyverse` package, run the following
-
-
+To load the `gapminder` data and the `tidyverse` package, insert the following and render the document:
 
 
+![](images/week_5/code_chunk.png)
 
+
+You can also label code chunks:
+
+![](images/week_5/code_chunk_label.png)
+
+There are many code chunk options that you can include depending on your needs.
+
+
+### Figures
+
+You can insert figures within quarto document:
+
+![](images/week_5/quarto_figure.png)
+
+```{r, echo = FALSE, warning=FALSE, message = FALSE}
+
+library(tidyverse)
+
+gapminder <- gapminder::gapminder
+
+ggplot(data = gapminder,
+       aes(x = gdpPercap, y = lifeExp, colour = continent)) + 
+  geom_point() +
+  scale_x_log10() +
+  labs(x = "GDP per capita (log scale)",
+       y = "Life expectancy",
+       title = "GDP vs Life Expectancy (1952-2007)",
+       subtitle = "People in developed countries tend to live longer",
+       caption = "Data source: Gapminder") +
+  theme_minimal() 
+```
+
+### Insert tables
+
+The `gt` package has beautiful table formats. install the package first:
+
+```{r, eval=FALSE}
+install.packages("gt")
+```
+
+Then Run the following code:
+
+![](images/week_5/quarto_table.png)
+
+```{r, echo = FALSE, warning=FALSE}
+library(gt)
+library(tidyverse)
+
+gapminder <- gapminder::gapminder
+
+gapminder |> 
+  filter(year == 2007) |> 
+  arrange(desc(lifeExp)) |> 
+  head(10) |> 
+  gt()
+```
+
+
+You can also customise your tables to include title, subtitle and rename column names
+
+```{r}
+gapminder |> 
+  filter(year == 2007) |> 
+  arrange(desc(lifeExp)) |> 
+  head(10) |> 
+  gt() |> 
+  tab_header(title = md("**Highest Life Expectancy**")) |> 
+  cols_label(country = md("**Country**"),
+             continent = md("**Continent**"),
+             year = md("**Year**"),
+             lifeExp = md("**Life expectancy**"),
+             pop = md("**Population**"),
+             gdpPercap = md("**GDP per capita**"))
+```
+
+Note that we included `md(** **)` to specify that this is a markdown syntax and we want to make text bold. 
+
+
+I will explain how include citations and bibliography in class. 
