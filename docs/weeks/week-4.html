@@ -296,9 +296,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'janitor' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'janitor'</code></pre>
 </div>
@@ -307,9 +304,9 @@ Attaching package: 'janitor'</code></pre>
 
     chisq.test, fisher.test</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>gapminder_new <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(gapminder)</span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">head</span>(gapminder_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>gapminder_new <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(gapminder)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">head</span>(gapminder_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   country     continent  year life_exp      pop gdp_percap
@@ -332,18 +329,18 @@ Attaching package: 'janitor'</code></pre>
 </ul>
 <p>In a dataframe, you can find the data type of the column by using <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> function</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">class</span>(gapminder<span class="sc">$</span>country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">class</span>(gapminder<span class="sc">$</span>country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">class</span>(gapminder<span class="sc">$</span>gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">class</span>(gapminder<span class="sc">$</span>gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
 </div>
 <p>You can also use the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> to find the data types of all columns in the dataframe:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">str</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">str</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
  $ country  : chr [1:1704] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
@@ -356,13 +353,13 @@ Attaching package: 'janitor'</code></pre>
 </div>
 <p>Sometimes you may find that the all values in a column would be saved as character when they are supposed to be numeric. You can change them as using <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> function. Let us simulate some fake data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"female"</span>, <span class="st">"male"</span>, <span class="st">"female"</span>)</span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18"</span>, <span class="st">"30"</span>, <span class="st">"45"</span>, <span class="st">"21"</span>, <span class="st">"54"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5"></a>example_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(gender, age)</span>
-<span id="cb19-6"><a href="#cb19-6"></a></span>
-<span id="cb19-7"><a href="#cb19-7"></a>example_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"female"</span>, <span class="st">"male"</span>, <span class="st">"female"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"18"</span>, <span class="st">"30"</span>, <span class="st">"45"</span>, <span class="st">"21"</span>, <span class="st">"54"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a>example_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(gender, age)</span>
+<span id="cb18-6"><a href="#cb18-6"></a></span>
+<span id="cb18-7"><a href="#cb18-7"></a>example_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  gender age
 1   male  18
@@ -374,25 +371,25 @@ Attaching package: 'janitor'</code></pre>
 </div>
 <p>In the example_df dataframe, you can see that the age column has been stored as character, which doesn’t make any sense:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">str</span>(example_df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">str</span>(example_df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> chr [1:5] "18" "30" "45" "21" "54"</code></pre>
 </div>
 </div>
 <p>Convert this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>example_df<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(example_df<span class="sc">$</span>age)</span>
-<span id="cb23-2"><a href="#cb23-2"></a></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">str</span>(example_df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>example_df<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(example_df<span class="sc">$</span>age)</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">str</span>(example_df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> num [1:5] 18 30 45 21 54</code></pre>
 </div>
 </div>
 <p>If you want to convert it back to character, you can use <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>example_df<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">as.character</span>(example_df<span class="sc">$</span>age)</span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">str</span>(example_df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>example_df<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">as.character</span>(example_df<span class="sc">$</span>age)</span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="fu">str</span>(example_df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> chr [1:5] "18" "30" "45" "21" "54"</code></pre>
 </div>
@@ -401,7 +398,7 @@ Attaching package: 'janitor'</code></pre>
 <section id="factors" class="level3"><h3 class="anchored" data-anchor-id="factors">5.2.1 Factors</h3>
 <p>There is another data type we have not discussed: factors or what may be called categorical data. Factors are like characters, except that they have integers that correspond to characters. In our example_df dataframe, we may want to make the column gender a factor, where 1 = male, 2 = female.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">head</span>(example_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">head</span>(example_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  gender age
 1   male  18
@@ -410,9 +407,9 @@ Attaching package: 'janitor'</code></pre>
 4   male  21
 5 female  54</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>example_df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(example_df<span class="sc">$</span>gender, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
-<span id="cb29-2"><a href="#cb29-2"></a></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">str</span>(example_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>example_df<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(example_df<span class="sc">$</span>gender, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb28-2"><a href="#cb28-2"></a></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="fu">str</span>(example_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   5 obs. of  2 variables:
  $ gender: Factor w/ 2 levels "male","female": 1 2 2 1 2
@@ -422,17 +419,17 @@ Attaching package: 'janitor'</code></pre>
 <p>The gender column has been changed to factor, with 2 levels.</p>
 <p>Let us try to change the continent column in the gapminder dataset, we will try the <code>dplyr</code> method:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">mutate</span>(<span class="at">continent_factor =</span> <span class="fu">factor</span>(continent))</span>
-<span id="cb31-3"><a href="#cb31-3"></a></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="fu">str</span>(gapminder<span class="sc">$</span>continent_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">mutate</span>(<span class="at">continent_factor =</span> <span class="fu">factor</span>(continent))</span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="fu">str</span>(gapminder<span class="sc">$</span>continent_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...</code></pre>
 </div>
 </div>
 <p>Here we have used <code>mutate()</code> to create a new column named <code>continent_factor</code> that is a factor. It has 5 levels, you can check this using the <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">levels</span>(gapminder<span class="sc">$</span>continent_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">levels</span>(gapminder<span class="sc">$</span>continent_factor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Africa"   "Americas" "Asia"     "Europe"   "Oceania" </code></pre>
 </div>
@@ -450,99 +447,64 @@ Attaching package: 'janitor'</code></pre>
 </ul>
 <p>We can use the <code>case_when()</code> function within <code>mutate()</code> to create this column. Let us generate some fake data;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">set.seed</span>(<span class="dv">45</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="do">###simulate a character vector with a length of 50</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a>gender <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>), <span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">45</span>, .<span class="dv">55</span>))</span>
-<span id="cb35-4"><a href="#cb35-4"></a></span>
-<span id="cb35-5"><a href="#cb35-5"></a></span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="do">## simulate a numeric vector, with a length of 50, from ages 1 to 75</span></span>
-<span id="cb35-7"><a href="#cb35-7"></a>age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">75</span>, <span class="at">size =</span> <span class="dv">50</span>)</span>
-<span id="cb35-8"><a href="#cb35-8"></a></span>
-<span id="cb35-9"><a href="#cb35-9"></a>fake_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(gender, age)</span>
-<span id="cb35-10"><a href="#cb35-10"></a></span>
-<span id="cb35-11"><a href="#cb35-11"></a><span class="fu">head</span>(fake_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">set.seed</span>(<span class="dv">45</span>)</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="do">###simulate a character vector with a length of 50</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>gender <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>), <span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">45</span>, .<span class="dv">55</span>))</span>
+<span id="cb34-4"><a href="#cb34-4"></a></span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="do">## simulate a numeric vector, with a length of 50, from ages 1 to 75</span></span>
+<span id="cb34-7"><a href="#cb34-7"></a>age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">75</span>, <span class="at">size =</span> <span class="dv">50</span>)</span>
+<span id="cb34-8"><a href="#cb34-8"></a></span>
+<span id="cb34-9"><a href="#cb34-9"></a>fake_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(gender, age)</span>
+<span id="cb34-10"><a href="#cb34-10"></a></span>
+<span id="cb34-11"><a href="#cb34-11"></a><span class="fu">head</span>(fake_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  gender age
-1   male  18
-2 female  11
-3 female  55
-4 female  62
-5 female  67
-6 female  27</code></pre>
+<pre><code># A tibble: 6 × 2
+  gender   age
+  &lt;chr&gt;  &lt;int&gt;
+1 male      18
+2 female    11
+3 female    55
+4 female    62
+5 female    67
+6 female    27</code></pre>
 </div>
 </div>
 <p>Then compute a new column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>fake_df <span class="ot">&lt;-</span> fake_df <span class="sc">|&gt;</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb37-3"><a href="#cb37-3"></a>    age <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span><span class="dv">12</span> <span class="sc">~</span> <span class="st">"child"</span>,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>    age <span class="sc">&gt;=</span> <span class="dv">13</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">17</span> <span class="sc">~</span> <span class="st">"adolescent"</span>,</span>
-<span id="cb37-5"><a href="#cb37-5"></a>    age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">34</span> <span class="sc">~</span> <span class="st">"young adult"</span>,</span>
-<span id="cb37-6"><a href="#cb37-6"></a>    age <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">55</span> <span class="sc">~</span> <span class="st">"adult"</span>,</span>
-<span id="cb37-7"><a href="#cb37-7"></a>    age <span class="sc">&gt;</span> <span class="dv">55</span> <span class="sc">~</span> <span class="st">"older adult"</span></span>
-<span id="cb37-8"><a href="#cb37-8"></a>  ))</span>
-<span id="cb37-9"><a href="#cb37-9"></a></span>
-<span id="cb37-10"><a href="#cb37-10"></a>fake_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>fake_df <span class="ot">&lt;-</span> fake_df <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    age <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span><span class="dv">12</span> <span class="sc">~</span> <span class="st">"child"</span>,</span>
+<span id="cb36-4"><a href="#cb36-4"></a>    age <span class="sc">&gt;=</span> <span class="dv">13</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">17</span> <span class="sc">~</span> <span class="st">"adolescent"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5"></a>    age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">34</span> <span class="sc">~</span> <span class="st">"young adult"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>    age <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">55</span> <span class="sc">~</span> <span class="st">"adult"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7"></a>    age <span class="sc">&gt;</span> <span class="dv">55</span> <span class="sc">~</span> <span class="st">"older adult"</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>  ))</span>
+<span id="cb36-9"><a href="#cb36-9"></a></span>
+<span id="cb36-10"><a href="#cb36-10"></a>fake_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   gender age   age_group
-1    male  18 young adult
-2  female  11       child
-3  female  55       adult
-4  female  62 older adult
-5  female  67 older adult
-6  female  27 young adult
-7  female  41       adult
-8    male   6       child
-9  female  10       child
-10 female  51       adult
-11 female  47       adult
-12   male  25 young adult
-13 female  43       adult
-14 female  52       adult
-15 female   9       child
-16 female  31 young adult
-17   male  40       adult
-18 female  20 young adult
-19 female  48       adult
-20 female  35       adult
-21 female  22 young adult
-22 female  66 older adult
-23   male   2       child
-24   male  26 young adult
-25   male   7       child
-26 female  39       adult
-27   male  49       adult
-28   male  33 young adult
-29   male  56 older adult
-30 female  70 older adult
-31 female  12       child
-32 female  64 older adult
-33 female  59 older adult
-34   male  42       adult
-35 female  14  adolescent
-36 female  54       adult
-37   male  17  adolescent
-38 female  29 young adult
-39 female  73 older adult
-40 female  60 older adult
-41 female  57 older adult
-42   male  58 older adult
-43   male   3       child
-44 female  46       adult
-45 female  71 older adult
-46   male   1       child
-47 female  72 older adult
-48   male  63 older adult
-49 female   5       child
-50 female  50       adult</code></pre>
+<pre><code># A tibble: 50 × 3
+   gender   age age_group  
+   &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;      
+ 1 male      18 young adult
+ 2 female    11 child      
+ 3 female    55 adult      
+ 4 female    62 older adult
+ 5 female    67 older adult
+ 6 female    27 young adult
+ 7 female    41 adult      
+ 8 male       6 child      
+ 9 female    10 child      
+10 female    51 adult      
+# ℹ 40 more rows</code></pre>
 </div>
 </div>
 <p>Plot the new column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>fake_df <span class="sc">|&gt;</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age_group)) <span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>fake_df <span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age_group)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="week-4_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -555,23 +517,23 @@ Attaching package: 'janitor'</code></pre>
 </ul>
 <p>We will only use observations from the year 2007:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Create a new column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">mutate</span>(<span class="at">life_expect_category =</span> <span class="fu">case_when</span>(</span>
-<span id="cb41-3"><a href="#cb41-3"></a>    lifeExp <span class="sc">&lt;</span> <span class="fu">mean</span>(lifeExp) <span class="sc">~</span> <span class="st">'low life expectancy'</span>,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>    lifeExp <span class="sc">&gt;</span> <span class="fu">mean</span>(lifeExp) <span class="sc">~</span> <span class="st">'high life expectancy'</span></span>
-<span id="cb41-5"><a href="#cb41-5"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">mutate</span>(<span class="at">life_expect_category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb40-3"><a href="#cb40-3"></a>    lifeExp <span class="sc">&lt;</span> <span class="fu">mean</span>(lifeExp) <span class="sc">~</span> <span class="st">'low life expectancy'</span>,</span>
+<span id="cb40-4"><a href="#cb40-4"></a>    lifeExp <span class="sc">&gt;</span> <span class="fu">mean</span>(lifeExp) <span class="sc">~</span> <span class="st">'high life expectancy'</span></span>
+<span id="cb40-5"><a href="#cb40-5"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have created added a new column called <code>life_expect_category</code>; plot this column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
-<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> life_expect_category)) <span class="sc">+</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>gapminder_2007 <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> life_expect_category)) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="week-4_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>

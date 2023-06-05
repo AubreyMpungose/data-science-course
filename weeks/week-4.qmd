@@ -56,7 +56,7 @@ install.packages("janitor")
 
 After install it load it: and use the `clean_names()` function:
 
-```{r}
+```{r, warning=FALSE}
 library(janitor)
 
 gapminder_new <- clean_names(gapminder)
@@ -185,7 +185,7 @@ gender <- sample(c("male", "female"), size = 50, replace = T, prob = c(.45, .55)
 ## simulate a numeric vector, with a length of 50, from ages 1 to 75
 age <- sample(1:75, size = 50)
 
-fake_df <- data.frame(gender, age)
+fake_df <- tibble(gender, age)
 
 head(fake_df)
 ```
@@ -248,3 +248,5 @@ gapminder_2007 |>
   geom_bar() +
   theme_minimal()
 ```
+
+
