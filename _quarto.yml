@@ -37,7 +37,7 @@ website:
           - href: weeks/week-3.qmd
             text: "Week 3: Data Manipulation"
           - href: weeks/week-4.qmd
-            text: "Week 4: Exploratory Data Analysis, summary statistics"
+            text: "Week 4: Data manipulation Part 2"
           - href: weeks/week-5a.qmd
             text: "Week 5: Communicating and Reporting"
           - href: weeks/week-5b.qmd
@@ -51,6 +51,7 @@ format:
       dark: [cosmo, theme-dark.scss]
     code-background: true
     code-copy: true
+    code-link: true
     css: styles.css
     toc: true
     

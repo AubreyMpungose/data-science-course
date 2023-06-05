@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.340">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>R Workshops for data Science - Introduction to R Programming</title>
 <style>
 code{white-space: pre-wrap;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -76,8 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -95,18 +90,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><link rel="stylesheet" href="../styles.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -117,13 +106,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">R Workshops for data Science</a> 
         <div class="sidebar-tools-main">
@@ -138,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text"><strong>Welcome</strong></span></a>
@@ -146,8 +131,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Workshops for Data Science</span></a>
@@ -166,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -175,8 +160,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1a.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 1: Introduction: Basics of R functions</span></a>
@@ -203,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: Exploratory Data Analysis, summary statistics</span></a>
+ <span class="menu-text">Week 4: Data manipulation Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -219,37 +204,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+<li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
-  <li><a href="#basics-of-r" id="toc-basics-of-r" class="nav-link" data-scroll-target="#basics-of-r">Basics of R</a>
+  <li>
+<a href="#basics-of-r" id="toc-basics-of-r" class="nav-link" data-scroll-target="#basics-of-r">Basics of R</a>
   <ul class="collapse">
-  <li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link" data-scroll-target="#arithmetic-operators">Arithmetic Operators</a></li>
+<li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link" data-scroll-target="#arithmetic-operators">Arithmetic Operators</a></li>
   <li><a href="#assignment-operator" id="toc-assignment-operator" class="nav-link" data-scroll-target="#assignment-operator">Assignment operator</a></li>
   <li><a href="#data-types-in-r" id="toc-data-types-in-r" class="nav-link" data-scroll-target="#data-types-in-r">Data types in R</a></li>
-  </ul></li>
-  <li><a href="#base-r-functions" id="toc-base-r-functions" class="nav-link" data-scroll-target="#base-r-functions">Base R functions</a>
-  <ul class="collapse">
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a></li>
-  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-1a.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</li>
+  <li>
+<a href="#base-r-functions" id="toc-base-r-functions" class="nav-link" data-scroll-target="#base-r-functions">Base R functions</a>
+  <ul class="collapse">
+<li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-1a.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Introduction to R Programming</h1>
 </div>
 
@@ -263,40 +246,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+</header><section id="learning-objectives" class="level2"><h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ul>
 <li><p>understand the basics of R programming</p></li>
 <li><p>Understand data types and objects</p></li>
 <li><p>understand base (built-in) R functions</p></li>
-</ul>
-</section>
-<section id="reading" class="level2">
-<h2 class="anchored" data-anchor-id="reading">Reading</h2>
+</ul></section><section id="reading" class="level2"><h2 class="anchored" data-anchor-id="reading">Reading</h2>
 <ul>
-<li></li>
-</ul>
-</section>
-<section id="basics-of-r" class="level2">
-<h2 class="anchored" data-anchor-id="basics-of-r">Basics of R</h2>
+<li>
+</li></ul></section><section id="basics-of-r" class="level2"><h2 class="anchored" data-anchor-id="basics-of-r">Basics of R</h2>
 <p>In the previous section, we showed the layout of RStudio. For this lesson, you will write all the code in the scripts/source and see the output in the console. To comment on the code, you will use the hashtag (<code>#</code>) to tell R not to execute the line as a code.</p>
 <p>R can be used as a calculator:</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>[1] 11</p>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="dv">9</span> <span class="sc">*</span> <span class="dv">6</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>[1] 54</p>
-<section id="arithmetic-operators" class="level3">
-<h3 class="anchored" data-anchor-id="arithmetic-operators">Arithmetic Operators</h3>
+<section id="arithmetic-operators" class="level3"><h3 class="anchored" data-anchor-id="arithmetic-operators">Arithmetic Operators</h3>
 <table class="table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Description</th>
 <th>Operator</th>
 <th>Example</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Addition</td>
@@ -326,9 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>Type in and run the above examples in the script or console.</p>
-</section>
-<section id="assignment-operator" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-operator">Assignment operator</h3>
+</section><section id="assignment-operator" class="level3"><h3 class="anchored" data-anchor-id="assignment-operator">Assignment operator</h3>
 <p>Notice that we have been running previous codes without assigning them to objects. We use the assignment operator (<code>&lt;-</code>) in R to assign whatever we have created into object; this can be a plot, a variable, a table, etc. Using above example, let us recreate our code but assigning them:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>addition <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span> </span>
@@ -344,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 54</code></pre>
 </div>
 </div>
-<p>Notice in the above code, we have told R to create an object called ‘addition’ and every time we call <code>print()</code> function, the results will be printed in the console. Please remember the assignment operator (<code>&lt;-</code>) as we will use it through this course. We can also assign objects using =:</p>
+<p>Notice in the above code, we have told R to create an object called ‘addition’ and every time we call <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function, the results will be printed in the console. Please remember the assignment operator (<code>&lt;-</code>) as we will use it through this course. We can also assign objects using =:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>addition <span class="ot">=</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
@@ -354,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>However, many R programmers and I use the <code>&lt;-</code> operator for a serious reasons; so we will stick to it.</p>
-<p>Also, you do not necessarily need to call the <code>print()</code> function in order to print results/output, you can just write the name of the object you have created, run it and it will be printed:</p>
+<p>Also, you do not necessarily need to call the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function in order to print results/output, you can just write the name of the object you have created, run it and it will be printed:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>river_km <span class="ot">&lt;-</span> <span class="dv">1200</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a></span>
@@ -382,9 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 2702</code></pre>
 </div>
 </div>
-</section>
-<section id="data-types-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="data-types-in-r">Data types in R</h3>
+</section><section id="data-types-in-r" class="level3"><h3 class="anchored" data-anchor-id="data-types-in-r">Data types in R</h3>
 <p>There 3 basic data types in R</p>
 <ul>
 <li><p><strong>character</strong>: strings, text, etc</p></li>
@@ -430,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
-<p>You can ask R to tell you the type of the data structure by using <code>class()</code> function:</p>
+<p>You can ask R to tell you the type of the data structure by using <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">class</span>(tugela_length_km)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -449,14 +416,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="base-r-functions" class="level2">
-<h2 class="anchored" data-anchor-id="base-r-functions">Base R functions</h2>
+</section></section><section id="base-r-functions" class="level2"><h2 class="anchored" data-anchor-id="base-r-functions">Base R functions</h2>
 <p>R has built-in functions that we can use to analyse and manipulate data. A function is always followed by <code>()</code>. We will use examples to illustrate various R functions.</p>
-<section id="summary-statistics" class="level3">
-<h3 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h3>
-<p>Basic summary statistics functions are mean, median, range, standard deviation, etc. We can get in R using the <code>mean()</code> function:</p>
+<section id="summary-statistics" class="level3"><h3 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h3>
+<p>Basic summary statistics functions are mean, median, range, standard deviation, etc. We can get in R using the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># first create a vector of numbers ("numeric vector")</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a></span>
@@ -472,7 +435,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The mean of a <em>rivers_length</em> variable we have created is 1610.4.</p>
-<p>We can use the <code>median()</code> function to get the median of our variable:</p>
+<p>We can use the <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> function to get the median of our variable:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">median</span>(rivers_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -480,14 +443,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The median age is 1500</p>
-<p>And also the standard deviation using <code>sd()</code> function:</p>
+<p>And also the standard deviation using <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">sd</span>(rivers_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1038.937</code></pre>
 </div>
 </div>
-<p>You can get minimum and maximum values using <code>min()</code> and <code>max()</code> functions, respectively:</p>
+<p>You can get minimum and maximum values using <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> and <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> functions, respectively:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">min</span>(rivers_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -498,14 +461,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 3050</code></pre>
 </div>
 </div>
-<p>You can create a basic plot using a <code>hist()</code> function:</p>
+<p>You can create a basic plot using a <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">hist</span>(rivers_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="week-1a_files/figure-html/histogram-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>You may want to arrange the values into ascending or descending order using the <code>sort()</code> function:</p>
+<p>You may want to arrange the values into ascending or descending order using the <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">sort</span>(rivers_length) <span class="co"># sort into ascending order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -519,11 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this section, you have learnt basic data types, functions and operators. Next, we learn different type of data structures.</p>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -870,9 +829,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../getting-started.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Started</span>
       </a>          
@@ -884,8 +841,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">© Aubrey Mpungose, 2022</div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -893,7 +849,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>

@@ -73,7 +73,7 @@ We will use  the `dplyr` package to manipulate data. `dplyr` is part of `tidyver
 
 -   `mutate()`: create new columns based on the manipulation of the existing columns.
 
-- `group_by()`: get aggregate statisitics by a category
+- `group_by()`: get aggregate statistics by a category
 
 ```{r load dplyr, warning=FALSE}
 library(dplyr)

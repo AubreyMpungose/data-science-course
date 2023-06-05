@@ -10,12 +10,11 @@ These workshops aim to introduce participants to the foundations of data science
 
 In this course, we will be using R for programming and data analysis. R, along with Python, is flexible when working with data, especially large data. Majority of academics, researchers, and students who analyse quantitative data use programs such as SPSS, STATA and Excel, and I have also used them before. I discourage the use of these tools for following reasons. Firstly, they are expensive! Universities spend large sums of money to purchase these licences, which disadvantages students and academics in the developing world. Secondly, We passed the age of SPSS and other Graphic User Interface software, they are very limited. But if you insist on learning them, good for you.
 
-![](images/future.png){width=450}
+![](images/future.png){width="450"}
 
-On the other hand, R and Python are free and come with with **ABSOLUTELY NO WARRANTY** 😎 . They are very flexible and can handle very large data. They are the dominant programming languages used in the labour market around the world. R and Python have thousands of libraries that can handle and analyse any type of data, including basic data cleaning and wrangling, transforming data, regression, visualisation, text analysis and natural language processing, statistical analysis, machine learning, geospatial analysis and visualisation. In academia, researchers are encouraged to make their research outputs _Reproducible_, that is, researchers must share code, data and analysis when submitting papers to journals. This is called [*Reproducible Science*](https://www.nature.com/articles/s41562-016-0021). 
+On the other hand, R and Python are free and come with with **ABSOLUTELY NO WARRANTY** 😎 . They are very flexible and can handle very large data. They are the dominant programming languages used in the labour market around the world. R and Python have thousands of libraries that can handle and analyse any type of data, including basic data cleaning and wrangling, transforming data, regression, visualisation, text analysis and natural language processing, statistical analysis, machine learning, geospatial analysis and visualisation. In academia, researchers are encouraged to make their research outputs *Reproducible*, that is, researchers must share code, data and analysis when submitting papers to journals. This is called [*Reproducible Science*](https://www.nature.com/articles/s41562-016-0021).
 
-
-Both R and Python are awesome programming languages. Here, we will use R because I feel there are many libraries that are user friendly in R compared to Python. However, I will also share Python code that correspond with R code. At the end of this course, you will have an option to continue to serious data science stuff. 
+Both R and Python are awesome programming languages. Here, we will use R because I feel there are many libraries that are user friendly in R compared to Python. However, I will also share Python code that correspond with R code. At the end of this course, you will have an option to continue to serious data science stuff.
 
 ## Learning Objectives
 
@@ -23,7 +22,7 @@ Both R and Python are awesome programming languages. Here, we will use R because
 
 -   Conduct basic programming using R
 
--   Learn to wrangle, clean and transform  data
+-   Learn to wrangle, clean and transform data
 
 -   Learn the basics of data visualisation using ggplot2
 
@@ -39,20 +38,18 @@ There are tons of materials available online; below I share compulsory and recom
 
 -   Healy, K. (2018). [Data visualization: a practical introduction](https://socviz.co/). Princeton University Press.
 
-
 # Schedule
 
-| Week   | Topic                                            | Presenter |
-|--------|--------------------------------------------------|-----------|
-| Week 1 | Introduction: Basics of R functions              | Aubrey    |
-| Week 1 | Data Structures and Types                        | Aubrey    |
-| Week 2 | Data Visualisation                               | Aubrey    |
-| Week 3 | Data Manipulation                                | Aubrey    |
-| Week 4 | Exploratory Data Analysis, summary statistics    | Aubrey    |
-| Week 5 | Communicating and Reporting Data                 | Aubrey    |
-| Week 5 | Data Science Toolbox, where to from here?        | Aubrey    |
-
+| Week   | Topic                                     | Presenter |
+|--------|-------------------------------------------|-----------|
+| Week 1 | Introduction: Basics of R functions       | Aubrey    |
+| Week 1 | Data Structures and Types                 | Aubrey    |
+| Week 2 | Data Visualisation                        | Aubrey    |
+| Week 3 | Data Manipulation                         | Aubrey    |
+| Week 4 | Data manipulation Part 2                  | Aubrey    |
+| Week 5 | Communicating and Reporting Data          | Aubrey    |
+| Week 5 | Data Science Toolbox, where to from here? | Aubrey    |
 
 ## Let's Get Started
 
-![](images/learn_r.png){width=450}
+![](images/learn_r.png){width="450"}

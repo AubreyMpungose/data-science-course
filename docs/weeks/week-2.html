@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.340">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>R Workshops for data Science - 3 Data Visualisation</title>
 <style>
 code{white-space: pre-wrap;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -76,8 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -95,26 +90,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<script src="../site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
-<script src="../site_libs/plotly-binding-4.10.1/plotly.js"></script>
-<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
-<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
-<link href="../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><script src="../site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script><script src="../site_libs/plotly-binding-4.10.1/plotly.js"></script><script src="../site_libs/typedarray-0.1/typedarray.min.js"></script><script src="../site_libs/jquery-3.5.1/jquery.min.js"></script><link href="../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script><link rel="stylesheet" href="../styles.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -125,13 +108,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">R Workshops for data Science</a> 
         <div class="sidebar-tools-main">
@@ -146,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text"><strong>Welcome</strong></span></a>
@@ -154,8 +133,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Workshops for Data Science</span></a>
@@ -174,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -183,8 +162,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1a.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1: Introduction: Basics of R functions</span></a>
@@ -211,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: Exploratory Data Analysis, summary statistics</span></a>
+ <span class="menu-text">Week 4: Data manipulation Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -227,23 +206,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#before-we-begin" id="toc-before-we-begin" class="nav-link active" data-scroll-target="#before-we-begin"><strong>Before We Begin</strong></a></li>
+<li><a href="#before-we-begin" id="toc-before-we-begin" class="nav-link active" data-scroll-target="#before-we-begin"><strong>Before We Begin</strong></a></li>
   <li><a href="#base-r-vs-external-packages" id="toc-base-r-vs-external-packages" class="nav-link" data-scroll-target="#base-r-vs-external-packages">Base R vs External Packages</a></li>
   <li><a href="#introduction-to-data-visualisation" id="toc-introduction-to-data-visualisation" class="nav-link" data-scroll-target="#introduction-to-data-visualisation">3.1 Introduction to data visualisation</a></li>
-  <li><a href="#create-a-plot" id="toc-create-a-plot" class="nav-link" data-scroll-target="#create-a-plot">3.2 Create a plot</a>
+  <li>
+<a href="#create-a-plot" id="toc-create-a-plot" class="nav-link" data-scroll-target="#create-a-plot">3.2 Create a plot</a>
   <ul class="collapse">
-  <li><a href="#layer-1-data" id="toc-layer-1-data" class="nav-link" data-scroll-target="#layer-1-data">3.2.1 Layer 1: data</a></li>
+<li><a href="#layer-1-data" id="toc-layer-1-data" class="nav-link" data-scroll-target="#layer-1-data">3.2.1 Layer 1: data</a></li>
   <li><a href="#layer-2-aesthetics" id="toc-layer-2-aesthetics" class="nav-link" data-scroll-target="#layer-2-aesthetics">3.2.2 Layer 2: aesthetics</a></li>
   <li><a href="#layer-3-geometry" id="toc-layer-3-geometry" class="nav-link" data-scroll-target="#layer-3-geometry">3.2.3 Layer 3: geometry</a></li>
   <li><a href="#layer-4-labels" id="toc-layer-4-labels" class="nav-link" data-scroll-target="#layer-4-labels">3.2.4 Layer 4: Labels</a></li>
@@ -251,27 +229,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#transforming-axis-scales" id="toc-transforming-axis-scales" class="nav-link" data-scroll-target="#transforming-axis-scales">3.2.6 Transforming axis scales</a></li>
   <li><a href="#returning-to-aeathetics" id="toc-returning-to-aeathetics" class="nav-link" data-scroll-target="#returning-to-aeathetics">3.2.7 Returning to aeathetics</a></li>
   <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes">3.2.8 Themes</a></li>
-  </ul></li>
-  <li><a href="#visualising-numerical-data" id="toc-visualising-numerical-data" class="nav-link" data-scroll-target="#visualising-numerical-data">3.3 Visualising Numerical data</a>
+  </ul>
+</li>
+  <li>
+<a href="#visualising-numerical-data" id="toc-visualising-numerical-data" class="nav-link" data-scroll-target="#visualising-numerical-data">3.3 Visualising Numerical data</a>
   <ul class="collapse">
-  <li><a href="#single-variable" id="toc-single-variable" class="nav-link" data-scroll-target="#single-variable">3.3.1 Single variable</a></li>
+<li><a href="#single-variable" id="toc-single-variable" class="nav-link" data-scroll-target="#single-variable">3.3.1 Single variable</a></li>
   <li><a href="#visualising-more-than-one-numerical-variables" id="toc-visualising-more-than-one-numerical-variables" class="nav-link" data-scroll-target="#visualising-more-than-one-numerical-variables">3.3.2 Visualising more than one numerical variables</a></li>
   <li><a href="#visualising-numerical-by-groupcategory" id="toc-visualising-numerical-by-groupcategory" class="nav-link" data-scroll-target="#visualising-numerical-by-groupcategory">3.3.3 Visualising numerical by group/category</a></li>
   <li><a href="#visualise-trends" id="toc-visualise-trends" class="nav-link" data-scroll-target="#visualise-trends">3.3.4 visualise trends</a></li>
-  </ul></li>
-  <li><a href="#visualising-categoricalcharacter-data" id="toc-visualising-categoricalcharacter-data" class="nav-link" data-scroll-target="#visualising-categoricalcharacter-data">3.4 Visualising categorical/character data</a>
-  <ul class="collapse">
-  <li><a href="#bonus-one-interactive-charts" id="toc-bonus-one-interactive-charts" class="nav-link" data-scroll-target="#bonus-one-interactive-charts">Bonus one: Interactive charts</a></li>
-  <li><a href="#bonus-two-animate" id="toc-bonus-two-animate" class="nav-link" data-scroll-target="#bonus-two-animate">Bonus Two: Animate</a></li>
-  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</li>
+  <li>
+<a href="#visualising-categoricalcharacter-data" id="toc-visualising-categoricalcharacter-data" class="nav-link" data-scroll-target="#visualising-categoricalcharacter-data">3.4 Visualising categorical/character data</a>
+  <ul class="collapse">
+<li><a href="#bonus-one-interactive-charts" id="toc-bonus-one-interactive-charts" class="nav-link" data-scroll-target="#bonus-one-interactive-charts">Bonus one: Interactive charts</a></li>
+  <li><a href="#bonus-two-animate" id="toc-bonus-two-animate" class="nav-link" data-scroll-target="#bonus-two-animate">Bonus Two: Animate</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">3 Data Visualisation</h1>
 </div>
 
@@ -285,13 +264,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<section id="before-we-begin" class="level2">
-<h2 class="anchored" data-anchor-id="before-we-begin"><strong>Before We Begin</strong></h2>
-</section>
-<section id="base-r-vs-external-packages" class="level2">
-<h2 class="anchored" data-anchor-id="base-r-vs-external-packages">Base R vs External Packages</h2>
+</header><section id="before-we-begin" class="level2"><h2 class="anchored" data-anchor-id="before-we-begin"><strong>Before We Begin</strong></h2>
+</section><section id="base-r-vs-external-packages" class="level2"><h2 class="anchored" data-anchor-id="base-r-vs-external-packages">Base R vs External Packages</h2>
 <p>Until now, we have used functions within <strong>Base R</strong>, which are already installed in R. While Base/bulit-in R functions are important, however, in many cases, we want to use external packages to do any task we want. This also applies in other programming languages like Python. For example, if we want to do spatial and GIS analysis, we can install the <code>sf</code> package; for machine learning, we can use <code>caret</code> and <code>tidymodels</code> packages. There are over 2 000 R packages, contributed by different individuals around the world, and they are stored and curated in the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>. In most of the cases, you will be working with external packages.</p>
 <p>One of the most popular packages in R is the <code>tidyverse</code> meta-package, which include a collection of packages for working with data; some of packages in the <code>tidyverse</code> are:</p>
 <ul>
@@ -307,27 +281,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Each variable is a column; each column is a variable.</li>
 <li>Each observation is row; each row is an observation.</li>
-<li>Each value is a cell; each cell is a single value. <span class="citation" data-cites="r_4_ds">[@r_4_ds]</span></li>
+<li>Each value is a cell; each cell is a single value. <span class="citation" data-cites="r_4_ds">[@r_4_ds]</span>
+</li>
 </ol>
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/tidy_data_2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Tidy data</figcaption>
-</figure>
+<figure class="figure"><p><img src="images/tidy_data_2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Tidy data</figcaption></figure>
 </div>
 <p>Tidy data is a principle we are going to stick on through this course:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/tidy_data.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Tidy data <span class="citation" data-cites="wickham_tidyverse_2019">@wickham_tidyverse_2019</span></figcaption>
-</figure>
+<figure class="figure"><p><img src="images/tidy_data.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Tidy data <span class="citation" data-cites="wickham_tidyverse_2019">@wickham_tidyverse_2019</span></figcaption></figure>
 </div>
 <p>So all in all, tidyverse make it easier to work with dataframes and most people prefer it than base R functions. We will use an example at the end to understand the differences between Base R and <code>tydiverse.</code> You will need to install the package first. In R you install a package by calling <code>install.package()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Whenever you need to use an external package and its functions, you first need to load it using <code>library()</code> function. In our case, we want to load the tidyverse package we have just installed:</p>
+<p>Whenever you need to use an external package and its functions, you first need to load it using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function. In our case, we want to load the tidyverse package we have just installed:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -342,9 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>You will load other packages like this.</p>
-</section>
-<section id="introduction-to-data-visualisation" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-data-visualisation">3.1 Introduction to data visualisation</h2>
+</section><section id="introduction-to-data-visualisation" class="level2"><h2 class="anchored" data-anchor-id="introduction-to-data-visualisation">3.1 Introduction to data visualisation</h2>
 <p>Data visualisation is an important skill for data scientists. In fact, data manipulation and visualisations go hand in hand. Before any analysis, it is important to visualise data to explore its distribution, relationships, normality, etc.</p>
 <p>In this section, we will use the <code>ggplot2</code> package within <code>tidyverse</code> to learn the foundations of data visualisation. The <code>ggplot2</code> package got it philosophy from the book <em>The Grammar of Graphics</em>, written by Leland Wilkinson. The <code>ggplot2</code> package was developed by Hadley Wickham, probably one of the most greatest data scientist in this era.</p>
 <p>We will be working with the <code>gapminder</code> dataset, which is the real world data. You will need to install its first because it comes as a package:</p>
@@ -359,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gapminder <span class="ot">&lt;-</span> gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Explore the data first; how many columns and rows are in <code>gapminder</code> dataframe? We will use <code>str()</code> function:</p>
+<p>Explore the data first; how many columns and rows are in <code>gapminder</code> dataframe? We will use <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">str</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -387,17 +356,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>A plot created in using <code>ggplot2</code> has the following components/layers, and we will go through them step-by-step:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ggplot_elements.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">source</figcaption>
-</figure>
+<figure class="figure"><p><img src="images/ggplot_elements.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">source</figcaption></figure>
 </div>
-</section>
-<section id="create-a-plot" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-plot">3.2 Create a plot</h2>
+</section><section id="create-a-plot" class="level2"><h2 class="anchored" data-anchor-id="create-a-plot">3.2 Create a plot</h2>
 <p>From the <code>ggapminder</code> dataframe, we will create a scatterplot of life expectancy and GDP per capita, and add all the components of ggplot step-by-step.</p>
-<section id="layer-1-data" class="level3">
-<h3 class="anchored" data-anchor-id="layer-1-data">3.2.1 Layer 1: data</h3>
+<section id="layer-1-data" class="level3"><h3 class="anchored" data-anchor-id="layer-1-data">3.2.1 Layer 1: data</h3>
 <p>We use the <code>ggplot()</code> function to add data, in this case, <code>gapminder</code> dataframe:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -405,9 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/ggplot-add data-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="layer-2-aesthetics" class="level3">
-<h3 class="anchored" data-anchor-id="layer-2-aesthetics">3.2.2 Layer 2: aesthetics</h3>
+</section><section id="layer-2-aesthetics" class="level3"><h3 class="anchored" data-anchor-id="layer-2-aesthetics">3.2.2 Layer 2: aesthetics</h3>
 <p>Aesthetics are used to allocate x and y variables, depending on the type of the plot we want to create, in this case, x variable is <code>gdpPercap</code> and y variable is <code>lifeExp</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -416,9 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>There are other <em>aesthetics</em> that we can add, such as <em>size, colour, shape, group, etc</em>. We will use these later in this section.</p>
-</section>
-<section id="layer-3-geometry" class="level3">
-<h3 class="anchored" data-anchor-id="layer-3-geometry">3.2.3 Layer 3: geometry</h3>
+</section><section id="layer-3-geometry" class="level3"><h3 class="anchored" data-anchor-id="layer-3-geometry">3.2.3 Layer 3: geometry</h3>
 <p>Geometry is the type of plot/object we want to create. In our casewe want to create a scatterplot, by using <code>geom_point()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
@@ -442,10 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><code>ggplot(data = gapminder)</code>: we are simply telling ggplot that we are using gapminder dataset</p></li>
 <li><p><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))</code>: we are adding <em>mapping aesthetics</em> or <em>aesthetics</em>, allocating x, y axis.</p></li>
 <li><p><code>ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()</code>: We have added a geometry layer through <code>geoms_point()</code> function to create a scatterplot.</p></li>
-</ol>
-</section>
-<section id="layer-4-labels" class="level3">
-<h3 class="anchored" data-anchor-id="layer-4-labels">3.2.4 Layer 4: Labels</h3>
+</ol></section><section id="layer-4-labels" class="level3"><h3 class="anchored" data-anchor-id="layer-4-labels">3.2.4 Layer 4: Labels</h3>
 <p><code>ggplot2</code> package can handle various plot labels, including axis titles and graph titles. We can do this using <code>labs()</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
@@ -460,9 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/ggplot-labels-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="facets" class="level3">
-<h3 class="anchored" data-anchor-id="facets">3.2.5 Facets</h3>
+</section><section id="facets" class="level3"><h3 class="anchored" data-anchor-id="facets">3.2.5 Facets</h3>
 <p>Faceting is used when we’d like to split a particular visualization by the values of another variable. This will create multiple copies of the same type of plot with matching x and y axes, but whose content will differ.</p>
 <p>When we one to split the plots into various sub-categories, by using a categorical variable, we use <code>facet_wrap()</code> function. For example, we may want to split the above plot by continent:</p>
 <div class="cell">
@@ -474,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/ggplot facet-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>There are other argument that comes with <code>facet_wrap()</code> function. We can specify tghe number of rows and columns, using <code>nrow()</code> and <code>ncol()</code> functions, respectively.</p>
+<p>There are other argument that comes with <code>facet_wrap()</code> function. We can specify tghe number of rows and columns, using <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> and <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> functions, respectively.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
 <span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
@@ -484,9 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/ggplot facet2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="transforming-axis-scales" class="level3">
-<h3 class="anchored" data-anchor-id="transforming-axis-scales">3.2.6 Transforming axis scales</h3>
+</section><section id="transforming-axis-scales" class="level3"><h3 class="anchored" data-anchor-id="transforming-axis-scales">3.2.6 Transforming axis scales</h3>
 <p>Notice that x-axis is not normally distributed. One of the method to use is to transform data to log10, to normnalise it:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
@@ -499,9 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Look how it changes.</p>
 <p>There are many scales functions and you will learn them along the way by coding and exploring ggplot.</p>
-</section>
-<section id="returning-to-aeathetics" class="level3">
-<h3 class="anchored" data-anchor-id="returning-to-aeathetics">3.2.7 Returning to aeathetics</h3>
+</section><section id="returning-to-aeathetics" class="level3"><h3 class="anchored" data-anchor-id="returning-to-aeathetics">3.2.7 Returning to aeathetics</h3>
 <p>We can add other aesthetics in our plot, for example, we can allocate colour to the <code>continent</code> column:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
@@ -524,9 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>There are many other aesthetics arguments that are used and they are beyond the scope of this course. It takes practice.</p>
-</section>
-<section id="themes" class="level3">
-<h3 class="anchored" data-anchor-id="themes">3.2.8 Themes</h3>
+</section><section id="themes" class="level3"><h3 class="anchored" data-anchor-id="themes">3.2.8 Themes</h3>
 <p>Try experimenting with different themes that comes with ggplot. <code>theme_minimal()</code> will produce a minimalist theme with less background:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder,</span>
@@ -561,12 +510,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>With <code>themes()</code> function, you can remove borders, change the colour of fonts, remove the legend, etc.</p>
-</section>
-</section>
-<section id="visualising-numerical-data" class="level2">
-<h2 class="anchored" data-anchor-id="visualising-numerical-data">3.3 Visualising Numerical data</h2>
-<section id="single-variable" class="level3">
-<h3 class="anchored" data-anchor-id="single-variable">3.3.1 Single variable</h3>
+</section></section><section id="visualising-numerical-data" class="level2"><h2 class="anchored" data-anchor-id="visualising-numerical-data">3.3 Visualising Numerical data</h2>
+<section id="single-variable" class="level3"><h3 class="anchored" data-anchor-id="single-variable">3.3.1 Single variable</h3>
 <p>For visualising one variable, we mostly histogram, density plot, etc:</p>
 <p>Create a histogram of GDP per capita:</p>
 <div class="cell">
@@ -587,9 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/ggplot-density-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="visualising-more-than-one-numerical-variables" class="level3">
-<h3 class="anchored" data-anchor-id="visualising-more-than-one-numerical-variables">3.3.2 Visualising more than one numerical variables</h3>
+</section><section id="visualising-more-than-one-numerical-variables" class="level3"><h3 class="anchored" data-anchor-id="visualising-more-than-one-numerical-variables">3.3.2 Visualising more than one numerical variables</h3>
 <p>A scatter plot is used to show relationship between two variables</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
@@ -614,9 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/ggplot-scatter-size-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="visualising-numerical-by-groupcategory" class="level3">
-<h3 class="anchored" data-anchor-id="visualising-numerical-by-groupcategory">3.3.3 Visualising numerical by group/category</h3>
+</section><section id="visualising-numerical-by-groupcategory" class="level3"><h3 class="anchored" data-anchor-id="visualising-numerical-by-groupcategory">3.3.3 Visualising numerical by group/category</h3>
 <p>A boxplot is useful when we want to view statistics by a particular group, let say, GDP by continent:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
@@ -633,9 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/geom-col-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="visualise-trends" class="level3">
-<h3 class="anchored" data-anchor-id="visualise-trends">3.3.4 visualise trends</h3>
+</section><section id="visualise-trends" class="level3"><h3 class="anchored" data-anchor-id="visualise-trends">3.3.4 visualise trends</h3>
 <p>We mainly use line graphs to visualise statistics over time. Let use see how life expectancy changes over time</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp, <span class="at">group =</span> country)) <span class="sc">+</span></span>
@@ -670,10 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/coord_flip-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-</section>
-<section id="visualising-categoricalcharacter-data" class="level2">
-<h2 class="anchored" data-anchor-id="visualising-categoricalcharacter-data">3.4 Visualising categorical/character data</h2>
+</section></section><section id="visualising-categoricalcharacter-data" class="level2"><h2 class="anchored" data-anchor-id="visualising-categoricalcharacter-data">3.4 Visualising categorical/character data</h2>
 <p>In the gapminder dataset, we have two categorical columns: country and continent. One of the plot used for handling categorical data is bar chart. In ggplot, we use <code>geom_bar</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder, <span class="fu">aes</span>(<span class="at">x =</span> continent)) <span class="sc">+</span> </span>
@@ -682,8 +618,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="week-2_files/figure-html/bar-chart-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<section id="bonus-one-interactive-charts" class="level3">
-<h3 class="anchored" data-anchor-id="bonus-one-interactive-charts">Bonus one: Interactive charts</h3>
+<section id="bonus-one-interactive-charts" class="level3"><h3 class="anchored" data-anchor-id="bonus-one-interactive-charts">Bonus one: Interactive charts</h3>
 <p>You can make your charts interactive by using <code>plotly</code> package, you will need to install it first</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">install.packages</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -733,9 +668,7 @@ Attaching package: 'plotly'</code></pre>
 </div>
 </div>
 <p>Experiment with the results, when you hoover around the plot, you can see it shows information by variable. You can select which continent to make visible by clicking on the legend. Beautiful!</p>
-</section>
-<section id="bonus-two-animate" class="level3">
-<h3 class="anchored" data-anchor-id="bonus-two-animate">Bonus Two: Animate</h3>
+</section><section id="bonus-two-animate" class="level3"><h3 class="anchored" data-anchor-id="bonus-two-animate">Bonus Two: Animate</h3>
 <p>You can create an animated chart using the <code>gganimate</code> package. Install first:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">install.packages</span>(gganimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -778,11 +711,7 @@ Attaching package: 'plotly'</code></pre>
 </ul>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1129,9 +1058,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../weeks/week-1b.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 1: Data Structures and Types</span>
       </a>          
@@ -1143,8 +1070,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">© Aubrey Mpungose, 2022</div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -1152,7 +1078,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>

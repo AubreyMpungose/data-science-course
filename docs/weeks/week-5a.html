@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R Workshops for data Science - Communicating and Reporting</title>
+<title>R Workshops for data Science - Communicating and Reporting with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -169,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: Exploratory Data Analysis, summary statistics</span></a>
+ <span class="menu-text">Week 4: Data manipulation Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -192,14 +226,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-quarto" id="toc-introduction-to-quarto" class="nav-link active" data-scroll-target="#introduction-to-quarto">5.1 Introduction to Quarto</a></li>
+  <li><a href="#how-does-quarto-work" id="toc-how-does-quarto-work" class="nav-link" data-scroll-target="#how-does-quarto-work">5.2 How does Quarto Work?</a></li>
+  <li><a href="#lets-practice" id="toc-lets-practice" class="nav-link" data-scroll-target="#lets-practice">5.3 Let’s Practice</a>
+  <ul class="collapse">
+  <li><a href="#openning-quarto" id="toc-openning-quarto" class="nav-link" data-scroll-target="#openning-quarto">5.3.1 Openning Quarto</a></li>
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">5.3.2 YAMl</a></li>
+  <li><a href="#writing-using-markdown" id="toc-writing-using-markdown" class="nav-link" data-scroll-target="#writing-using-markdown">5.3.3 Writing using Markdown</a></li>
+  <li><a href="#figuresimages" id="toc-figuresimages" class="nav-link" data-scroll-target="#figuresimages">Figures/Images</a></li>
+  <li><a href="#computation-and-code" id="toc-computation-and-code" class="nav-link" data-scroll-target="#computation-and-code">Computation and code</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-5a.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Communicating and Reporting</h1>
+<h1 class="title">Communicating and Reporting with Quarto</h1>
 </div>
 
 
@@ -214,8 +263,221 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="introduction-to-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-quarto">5.1 Introduction to Quarto</h2>
+<p>This week I would like to introduce you to writing reproducible reports using <a href="https://quarto.org/">Quarto</a>, a next generation “open-source scientific and technical publishing system”. It is an integrated ecosystem, where you can integrate your code, reports, figures, references, tables etc. in one environment. With Quarto you can write:</p>
+<ul>
+<li><p>Books (examples include: <a href="https://r4ds.hadley.nz/">R for Data Science, Second dition</a>; <a href="https://wesmckinney.com/book/">Python for Data Analysis</a> <a href="https://jjallaire.github.io/hopr/">Hands-On Programming with R</a>)</p></li>
+<li><p>Reproducible journal papers: (some examples: <a href="https://quarto-journals.github.io/elsevier/">Elsevier Template</a>, )</p></li>
+<li><p>Website: This website is written with Quarto, hosted in GitHub all for free</p></li>
+<li><p>Presentations: (examples: <a href="https://apreshill.github.io/palmerpenguins-useR-2022/">This presentation</a>)</p></li>
+<li><p>Dynamic reports</p></li>
+<li><p>Blogs: personal, work etc. (examples: )</p></li>
+</ul>
+<p>And more! See examples on the <a href="https://quarto.org/docs/gallery/">Quarto website</a></p>
+<p>Quarto can render documents in multiple formats, including HTML, PDF, word formats, etc.</p>
+</section>
+<section id="how-does-quarto-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-quarto-work">5.2 How does Quarto Work?</h2>
+<p>For all my writing, I have shifted from what Kieran Healy calls the “Office Model” to an “Engineering Model”:</p>
+<blockquote class="blockquote">
+<p>Office solutions tend towards a cluster of tools where something like Microsoft Word is at the center of your work. A Word file or set of files is the most “real” thing in your project. Changes to your work are tracked inside that file or files. Citation and reference managers plug into those files. The outputs of data analyses—tables, figures—get cut and pasted in as well, or are kept alongside them. The master document may be passed around from person to person to be edited and updated.4 The final output is exported from it, perhaps to PDF or to HTML, but maybe most often the final output just is the .docx file, cleaned up and with the track changes feature turned off.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>In the Engineering model, meanwhile, plain text files are at the center of your work. The most “real” thing in your project will either be those files or, more likely, the version control repository that stores the project. Changes are tracked outside of files, again using a version control system. Data analysis is managed in code that produces outputs in (ideally) a known and reproducible manner. Citation and reference management will likely also be done in plain text, as with a BibTeX .bib file. Final outputs are assembled from the plain text and turned to .tex, .html, or .pdf using some kind of typesetting or conversion tool. Very often, because of some unavoidable facts about the world, the final output of this kind of solution is also a .docx file.</p>
+</blockquote>
+<p>Quarto then is the part of the “engineering model”. It mainly uses Markdown format for writing. “Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents”.</p>
+</section>
+<section id="lets-practice" class="level2">
+<h2 class="anchored" data-anchor-id="lets-practice">5.3 Let’s Practice</h2>
+<p>You will need the following:</p>
+<ul>
+<li><p>R and RStudio (or any IDE such as VSCode etc)</p></li>
+<li><p>Quarto: If you are using RStudio, Quarto is already installed. If you using other IDEs such as VSCode, download and install Quarto from the <a href="https://quarto.org/docs/get-started">Quarto website</a></p></li>
+<li><p>Zotero: For references bibliography and citations. Download and install Zotero from <a href="https://www.zotero.org">Zotero website</a></p></li>
+<li><p>Better BibTeX (BBT): BBT is a Zotero extension that manages things like citation keys. You can download BBT from: <a href="">https://retorque.re/zotero-better-bibtex/</a>.</p></li>
+</ul>
+<p>All these tools are open source and available for free!</p>
+<section id="openning-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="openning-quarto">5.3.1 Openning Quarto</h3>
+<p>First create a directory/folder where you will save all the files. For example I will create a folder named “intro_to_quarto” in my documents directory. This is where you will store all your files.</p>
+<p>In RStudio, go to FILE -&gt; New File -&gt; Quarto Document</p>
+<p>On the pop-up window, just select “Create Empty Document”. A blank Quarto page will be open:</p>
+<p><img src="images/week_5/quarto_open.png" class="img-fluid"></p>
+<p>Save the document to folder that you have created</p>
+</section>
+<section id="yaml" class="level3">
+<h3 class="anchored" data-anchor-id="yaml">5.3.2 YAMl</h3>
+<p>The first part of the page is know as YAML, it contains the information about the document, this include:</p>
+<table class="table">
+<caption>Quarto YML Options</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>title</code></td>
+<td>tittle of the document</td>
+</tr>
+<tr class="even">
+<td><code>subtitle</code></td>
+<td>subtitle of the document</td>
+</tr>
+<tr class="odd">
+<td><code>author</code></td>
+<td>Author</td>
+</tr>
+<tr class="even">
+<td><code>date</code></td>
+<td>date of the document was published</td>
+</tr>
+<tr class="odd">
+<td><code>format</code></td>
+<td>output of the document: options include html, docx, pdf, etc</td>
+</tr>
+<tr class="even">
+<td><code>toc</code></td>
+<td>table of contents</td>
+</tr>
+<tr class="odd">
+<td><code>number-sections</code></td>
+<td>Automatically number headings and sections</td>
+</tr>
+<tr class="even">
+<td><code>bibliography</code></td>
+<td>a file containing references</td>
+</tr>
+<tr class="odd">
+<td><code>csl</code></td>
+<td>referencing style</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>There are many other options that you can use to customise your document; you can a complete guide <a href="https://quarto.org/docs/reference/formats/html.htmlv">here</a>. Let us experiment with few options.</p>
+<p>Look how I have customised my yaml:</p>
+<p><img src="images/week_5/quarto_yaml.png" class="img-fluid"></p>
+<p>Experiment with other options. Please not that this must be should start with — and end with —.</p>
+</section>
+<section id="writing-using-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="writing-using-markdown">5.3.3 Writing using Markdown</h3>
+<section id="headings" class="level4">
+<h4 class="anchored" data-anchor-id="headings">Headings</h4>
+<p>You insert headings by using # at the beginning of a sentence:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week_5/quarto_headings.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Source: <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto</a></figcaption>
+</figure>
+</div>
+<p>Update your document by including headings as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Introduction to Quarto"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Writing Reproducible Documents wih Quarto andd RStudio"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Aubrey Mpungose"</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 04 June 2023</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD MMMM YYYY"</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="pp">---</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># Section 1</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co">## Section 1.1 </span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">### Section 1.1.1 </span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">#### Section 1.1.1.1</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="co">##### Other section</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a></span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="co">###### Other section</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Save and render the document by clicking on the “Render” option as highlighted on the image below</p>
+<p><img src="images/week_5/quarto_headings_example.png" class="img-fluid"></p>
+</section>
+<section id="formating-texts" class="level4">
+<h4 class="anchored" data-anchor-id="formating-texts">Formating texts</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week_5/markdown_syntax.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto website</a></figcaption>
+</figure>
+</div>
+<p>Update your document as the following and render the document, obviously your name is not Aubrey Mpungose:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Introduction to Quarto"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Writing Reproducible Documents wih Quarto andd RStudio"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Aubrey Mpungose"</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 04 June 2019</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD MMMM YYYY"</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="pp">---</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># 1. Italics</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="at">My name is *Aubrey Mpungose*, I love doing *data science*</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="at">I can also format text in _italics_</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co"># 2. Bold </span></span>
+<span id="cb2-19"><a href="#cb2-19"></a></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="at">This is how I format text into **BOLD**</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a></span>
+<span id="cb2-22"><a href="#cb2-22"></a></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co"># 3. Bold and Italics</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="at">I can also format text to be ***Bold and Italic***</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a></span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co"># 4. Example</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="fu">My name is *Aubrey Mpungose*, I love doing _data science_. Some people think markdown syntax is difficult,  but it is not</span><span class="kw">:</span><span class="at"> for example, I can make text to be **Bold**. I can also format text format text to be ***bold and italic***</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The output will be the following:</p>
+<p><img src="images/week_5/mark_down_example.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="figuresimages" class="level3">
+<h3 class="anchored" data-anchor-id="figuresimages">Figures/Images</h3>
+<p>Let’s say you have an image named meerkat.png in your folder, update your document with the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="at">Insert a picture from the web</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="at">![A meerkat](meerkat.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will inclde the meerkat image in the document. Note that inside <code>[]</code> is the caption, in my case, “A meerkat”. You must put parentheses <code>()</code> after with no spaces.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/week_5/meerkat.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">A meerkat</figcaption>
+</figure>
+</div>
+<p>There are other options for figures including width, length, etc. You can find more from <a href="">Quarto website</a>.</p>
+</section>
+<section id="computation-and-code" class="level3">
+<h3 class="anchored" data-anchor-id="computation-and-code">Computation and code</h3>
+<p>You can include R, Python, Javascript and other programming languages code within quarto document. We will show some examples using R and gapminder data that we have been using.</p>
+<p>To load the <code>gapminder</code> data and the <code>tidyverse</code> package, run the following</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -569,7 +831,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../weeks/week-4.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 4: Exploratory Data Analysis, summary statistics</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 4: Data manipulation Part 2</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -584,7 +846,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">© Aubrey Mpungose, 2022</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-5a.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
