@@ -47,8 +47,8 @@ There are tons of materials available online; below I share compulsory and recom
 | Week 2 | Data Visualisation                        | Aubrey    |
 | Week 3 | Data Manipulation                         | Aubrey    |
 | Week 4 | Data manipulation Part 2                  | Aubrey    |
-| Week 5 | Communicating and Reporting Data          | Aubrey    |
-| Week 5 | Data Science Toolbox, where to from here? | Aubrey    |
+| Week 5 | Importing data, Reproducible workflows    | Aubrey    |
+| Week 6 | Communicating and Reporting Data          | Aubrey    |
 
 ## Let's Get Started
 

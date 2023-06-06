@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.340">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>R Workshops for data Science – week-5b</title>
+<title>R Workshops for data Science - Importing Data and Reproducible Workflows</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -30,7 +60,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-5a.html" rel="prev">
+<link href="../weeks/week-6.html" rel="next">
+<link href="../weeks/week-4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,8 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -60,35 +90,25 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../styles.css">
+}</script><link rel="stylesheet" href="../styles.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1a.html"><strong>Weekly materials</strong></a></li><li class="breadcrumb-item"><a href="../weeks/week-5b.html">Week 5: Data Science Toolbox, where to from here?</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-1a.html"><strong>Weekly materials</strong></a></li><li class="breadcrumb-item"><a href="../weeks/week-5.html">Week 5: Importing data, Reproducible workflows</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">R Workshops for data Science</a> 
         <div class="sidebar-tools-main">
@@ -103,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text"><strong>Welcome</strong></span></a>
@@ -111,8 +131,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Workshops for Data Science</span></a>
@@ -131,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -140,8 +160,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../weeks/week-1a.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1: Introduction: Basics of R functions</span></a>
@@ -173,36 +193,217 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-5a.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5: Communicating and Reporting</span></a>
+  <a href="../weeks/week-5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 5: Importing data, Reproducible workflows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-5b.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 5: Data Science Toolbox, where to from here?</span></a>
+  <a href="../weeks/week-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6: Communicating and Reporting Data</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#importing-data" id="toc-importing-data" class="nav-link active" data-scroll-target="#importing-data">6.1 Importing data</a></li>
+  <li><a href="#importing-multiple-files" id="toc-importing-multiple-files" class="nav-link" data-scroll-target="#importing-multiple-files">6.2 Importing Multiple files</a></li>
+  <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data">6.3 Exporting data</a></li>
+  <li><a href="#managing-reproducible-workflows" id="toc-managing-reproducible-workflows" class="nav-link" data-scroll-target="#managing-reproducible-workflows">6.5 Managing reproducible workflows</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-5.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Importing Data and Reproducible Workflows</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><p>All along we have been working with data stored as packages in R or fake data. But most of the time data is stored locally on our computers either as .csv, Excel, .txt, pdf, etc. There are functions to import these data types, both in Base R and external packages. But first you will need to tell R the location of the data.</p>
+<section id="importing-data" class="level2"><h2 class="anchored" data-anchor-id="importing-data">6.1 Importing data</h2>
+<p>To import csv, you can use the <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> function. In my case I have dataset saved as “epi_data.csv” in the the folder named “data”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/epi_data.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_code             country                   region population
+1          AFG         Afghanistan                     Asia  34.656032
+2          ALB             Albania Eastern Europe &amp; Eurasia   2.876101
+3          DZA             Algeria  Mid East &amp; North Africa  40.606052
+4          AGO              Angola       Sub-Saharan Africa  28.813463
+5          ATG Antigua and Barbuda                Caribbean   0.100963
+6          ARG           Argentina            Latin America  43.847430
+  pop_density        GDP epi_score sdg_index
+1    53.08341  60.287050     37.74      46.8
+2   104.96719  32.669916     65.46      68.9
+3    17.04889 565.284000     57.18      68.8
+4    23.11179 172.438000     37.44      50.2
+5   229.46136   2.121537     59.18   -9999.0
+6    16.02207 810.714000     59.30      72.5</code></pre>
+</div>
+</div>
+<p>Let us say te same data is saved in as aan Excel workbook with an extension .xlsx, we can use <code>reaedxl</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"reaedxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readxl' was built under R version 4.2.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>excel_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/epi_data.xlsx"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">head</span>(excel_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  country_code country  region population pop_density    GDP epi_score sdg_index
+  &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 AFG          Afghani… Asia       34.7          53.1  60.3       37.7      46.8
+2 ALB          Albania  Easte…      2.88        105.   32.7       65.5      68.9
+3 DZA          Algeria  Mid E…     40.6          17.0 565.        57.2      68.8
+4 AGO          Angola   Sub-S…     28.8          23.1 172.        37.4      50.2
+5 ATG          Antigua… Carib…      0.101       229.    2.12      59.2   -9999  
+6 ARG          Argenti… Latin…     43.8          16.0 811.        59.3      72.5</code></pre>
+</div>
+</div>
+<p>There are other arguments that can be added; for example if you data is on sheet number 2 of Exel workbook, you will add an <code>sheet = 2</code> argument.</p>
+<p>You can import data from other statistical software as well:</p>
+<ul>
+<li><p>Read STATA files: STATA data files end with .dta extensions: <code>read_dta()</code> from <code>Haven</code> package can import this data type</p></li>
+<li><p>Read SPPS files: SPSS files end with .sav extension: <code>read_sav()</code> function, also from <code>Haven</code> can import it.</p></li>
+</ul>
+<p>R can import other many data types such shapefiles, images, PDFs and data from the web.</p>
+</section><section id="importing-multiple-files" class="level2"><h2 class="anchored" data-anchor-id="importing-multiple-files">6.2 Importing Multiple files</h2>
+<p>Sometimes there are many files and it would be time consuming to load each file. I will show you the following with instructions</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## First list the path where files are stored</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a>path <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data"</span>, <span class="at">pattern =</span> <span class="st">".csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="do">## Read all the files by using lapply function</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>data_files <span class="ot">&lt;-</span> <span class="fu">lapply</span>(path, read.csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>now you have a list with 2 elements. You can extract each element:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>first_df <span class="ot">&lt;-</span> data_files[[<span class="dv">1</span>]]</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">head</span>(first_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_code             country                   region population
+1          AFG         Afghanistan                     Asia  34.656032
+2          ALB             Albania Eastern Europe &amp; Eurasia   2.876101
+3          DZA             Algeria  Mid East &amp; North Africa  40.606052
+4          AGO              Angola       Sub-Saharan Africa  28.813463
+5          ATG Antigua and Barbuda                Caribbean   0.100963
+6          ARG           Argentina            Latin America  43.847430
+  pop_density        GDP epi_score sdg_index
+1    53.08341  60.287050     37.74      46.8
+2   104.96719  32.669916     65.46      68.9
+3    17.04889 565.284000     57.18      68.8
+4    23.11179 172.438000     37.44      50.2
+5   229.46136   2.121537     59.18   -9999.0
+6    16.02207 810.714000     59.30      72.5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>second_df <span class="ot">&lt;-</span> data_files[[<span class="dv">2</span>]]</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">head</span>(second_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      country continent year lifeExp      pop gdpPercap
+1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+6 Afghanistan      Asia 1977  38.438 14880372  786.1134</code></pre>
+</div>
+</div>
+</section><section id="exporting-data" class="level2"><h2 class="anchored" data-anchor-id="exporting-data">6.3 Exporting data</h2>
+<p>After you have cleaned and prepared your data for analysis, you may want to save cleaned data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>gapminder <span class="ot">&lt;-</span> gapminder<span class="sc">::</span>gapminder</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="fu">write.csv</span>(gapminder_2007, <span class="st">"data/gapminder_cleaned.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Not that your my path “data/gapminder_cleaned.csv” will be different yours.</p>
+<p>##6.4 Setting working directories</p>
+<p>When working on a project, it may be important to set a working directory, where all you files are stores: data, code, reports, etc. You can use <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> function. Let’s say we have a folder with all the files:</p>
+<ul>
+<li>
+<p>my_folder</p>
+<ul>
+<li>data</li>
+<li>code</li>
+<li>report</li>
+</ul>
+</li>
+</ul>
+<p>You will need to set a working directory as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mpungosea/my_folder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To navigate to a specific file, you will have to use relative paths. You starting path would be “my_folder”. If you want to load data, you would have to navigate to “data” directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/epi_data.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_code             country                   region population
+1          AFG         Afghanistan                     Asia  34.656032
+2          ALB             Albania Eastern Europe &amp; Eurasia   2.876101
+3          DZA             Algeria  Mid East &amp; North Africa  40.606052
+4          AGO              Angola       Sub-Saharan Africa  28.813463
+5          ATG Antigua and Barbuda                Caribbean   0.100963
+6          ARG           Argentina            Latin America  43.847430
+  pop_density        GDP epi_score sdg_index
+1    53.08341  60.287050     37.74      46.8
+2   104.96719  32.669916     65.46      68.9
+3    17.04889 565.284000     57.18      68.8
+4    23.11179 172.438000     37.44      50.2
+5   229.46136   2.121537     59.18   -9999.0
+6    16.02207 810.714000     59.30      72.5</code></pre>
+</div>
+</div>
+</section><section id="managing-reproducible-workflows" class="level2"><h2 class="anchored" data-anchor-id="managing-reproducible-workflows">6.5 Managing reproducible workflows</h2>
+<p>The problem with the above approach, of setting working directories, is that your directories are local to your computer. We share code with other people: reviewers, team members, etc. We also collaborate with one another. Now imagine that I have “C:/Users/mpungosea/my_folder” as my working directory. Will this work on your computer? <strong>NO!</strong> In Other instances, you may move files; if you run the code and set the director, R will return an error. This means that your workflows are not reproducible and it is not an efficient way of working.</p>
+<p>Enter RStudio Projects. In Projects, we want to keep all the files that were working with and making it easier to navigate directories and share your work. To start a new project, follow these steps:</p>
+<p><img src="images/week_5/r_project_1.png" class="img-fluid"></p>
+<p><img src="images/week_5/r_project_2.png" class="img-fluid"><img src="images/week_5/r_project_3.png" class="img-fluid"><img src="images/week_5/r_project_4.png" class="img-fluid"><img src="images/week_5/r_project_5.png" class="img-fluid"></p>
+<p>Inside the project, you can add the follwoing directories/folders:</p>
+<ul>
+<li><p>data: to save all your data files: raw data, cleaned data, analysis data, etc</p></li>
+<li><p>code: save all your scripts: data cleaning, analysis, etc</p></li>
+<li><p>outputs: figures, tables, etc</p></li>
+<li><p>reports: draft reports final reports, etc</p></li>
+<li><p>bibliogaphy: a bibtex file with the list of references.</p></li>
+</ul>
+<p>In one of my projects, this is how it looks:</p>
+<p><img src="images/week_5/sample_project.png" class="img-fluid"></p>
+<p>Every time you work on the project, you then open the <code>.Rproj</code> file, it will have all the files associated with the project:</p>
+<p><img src="images/week_5/sample_project_2.png" class="img-fluid"></p>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -549,27 +750,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-5a.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 5: Communicating and Reporting</span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../weeks/week-4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 4: Data manipulation Part 2</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../weeks/week-6.html" class="pagination-link">
+        <span class="nav-page-text">Week 6: Communicating and Reporting Data</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">© Aubrey Mpungose, 2022</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://aubreympungose.github.io/data_science_course/edit/main/weeks/week-5b.qmd" class="toc-action">Edit this page</a></p><p><a href="https://aubreympungose.github.io/data_science_course/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>
