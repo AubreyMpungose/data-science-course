@@ -1,6 +1,7 @@
 ---
 title: "R Workshops for Data Science"
 author: Aubrey Mpungose
+subtitle: "University of KwaZulu Natal"
 ---
 
 ## An Invitation to R for Data Science
